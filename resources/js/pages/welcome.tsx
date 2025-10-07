@@ -8,7 +8,7 @@ export default function Welcome() {
 
     // Carousel state
     const [currentIndex, setCurrentIndex] = useState(0);
-    const images = [n
+    const images = [
         { src: 'banner1.jpg', alt: 'Banner 1' },
         { src: 'banner2.jpg', alt: 'Banner 2' },
         { src: 'banner3.jpg', alt: 'Banner 3' },
