@@ -5,7 +5,6 @@ import { Carousel } from '@/components/Carousel';
 import Navbar from '@/components/Navbar';
 
 export default function Welcome() {
-
     // Carousel state
     const [currentIndex, setCurrentIndex] = useState(0);
     const images = [
@@ -54,6 +53,29 @@ export default function Welcome() {
       prevSlide();
     }
   };
+
+  const [formData, setFormData] = useState({
+      name: '',
+      email: '',
+      phoneNumber: '',
+      vehicleModel: '',
+      vehicleYear: '',
+      message: ''
+    });
+  
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    };
+  
+    const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      // Handle form submission here
+      console.log('Form submitted:', formData);
+    };
 
   // New carousel state for purple container
   const [purpleCarouselIndex, setPurpleCarouselIndex] = useState(0);
@@ -112,12 +134,11 @@ export default function Welcome() {
             <div className="min-h-screen bg-[#FDFDFC] text-[#1b1b18] dark:bg-[#0a0a0a]">
                 <Navbar />
                 {/* Image container under navbar */}
-
                 <div className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0 pt-16">
                     <main className="flex w-full flex-col-reverse lg:flex-row">
-
-                        {/* Remove container wrapping the carousel to avoid layout constraints */}
+                        {/* Carousel Section */}
                         <div className="relative w-full aspect-[4/3] sm:aspect-video overflow-hidden rounded-lg bg-[#fff2f2] dark:bg-[#1D0002]">
+                            {/* Carousel Images */}
                             {images.map((image, index) => (
                                 <div
                                     key={index}
@@ -132,7 +153,6 @@ export default function Welcome() {
                                     />
                                 </div>
                             ))}
-
                             {/* Navigation arrows */}
                             <button
                                 onClick={prevSlide}
@@ -146,7 +166,6 @@ export default function Welcome() {
                             >
                                 ›
                             </button>
-
                             {/* Dots indicator */}
                             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
                                 {images.map((_, index) => (
@@ -160,7 +179,7 @@ export default function Welcome() {
                                 ))}
                             </div>
                         </div>
-
+                        {/* SVG Logo */}
                         <svg
                             className="absolute top-4 left-4 w-20 sm:w-32 h-auto z-10 translate-y-0 text-[#F53003] opacity-100 transition-all duration-750 dark:text-[#F61500] starting:translate-y-6 starting:opacity-0"
                             viewBox="0 0 438 104"
@@ -187,152 +206,223 @@ export default function Welcome() {
                                 fill="currentColor"
                             />
                         </svg>
-
                         <div className="absolute inset-0 rounded-t-lg shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] lg:rounded-t-none lg:rounded-r-lg dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]" />
+                        {/* Right Column - Quote Form */}
+                        <div className="bg-white/50 backdrop-blur-sm rounded-lg p-6 lg:ml-8 lg:w-[400px]">
+                            <h2 className="text-2xl font-bold text-center mb-6 text-black">GET YOUR FREE QUOTE</h2>
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                {/* Name Field */}
+                                <div>
+                                    <label className="block text-sm font-medium text-black mb-1">Name</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleInputChange}
+                                        placeholder="Value"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                                        required
+                                    />
+                                </div>
 
+                                {/* Email Field */}
+                                <div>
+                                    <label className="block text-sm font-medium text-black mb-1">Email</label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        placeholder="Value"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                                        required
+                                    />
+                                </div>
+
+                                {/* Phone Number Field */}
+                                <div>
+                                    <label className="block text-sm font-medium text-black mb-1">Phone Number</label>
+                                    <input
+                                        type="tel"
+                                        name="phoneNumber"
+                                        value={formData.phoneNumber}
+                                        onChange={handleInputChange}
+                                        placeholder="Value"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                                        required
+                                    />
+                                </div>
+
+                                {/* Vehicle Model Field */}
+                                <div>
+                                    <label className="block text-sm font-medium text-black mb-1">Vehicle Model</label>
+                                    <input
+                                        type="text"
+                                        name="vehicleModel"
+                                        value={formData.vehicleModel}
+                                        onChange={handleInputChange}
+                                        placeholder="Value"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                                        required
+                                    />
+                                </div>
+
+                                {/* Vehicle Year Field */}
+                                <div>
+                                    <label className="block text-sm font-medium text-black mb-1">Vehicle Year</label>
+                                    <input
+                                        type="text"
+                                        name="vehicleYear"
+                                        value={formData.vehicleYear}
+                                        onChange={handleInputChange}
+                                        placeholder="Value"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                                        required
+                                    />
+                                </div>
+
+                                {/* Message Field */}
+                                <div>
+                                    <label className="block text-sm font-medium text-black mb-1">Message</label>
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleInputChange}
+                                        placeholder="Value"
+                                        rows={4}
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500 resize-none"
+                                        required
+                                    />
+                                </div>
+
+                                {/* Submit Button */}
+                                <button
+                                    type="submit"
+                                    className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-purple-600"
+                                >
+                                    GET QUOTE
+                                </button>
+                            </form>
+                        </div>
                     </main>
-                        </div>
-
-                        {/* Four cards section below banner */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8 px-4 max-w-7xl mx-auto">
-                            <div className="flex flex-col items-center justify-center rounded border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m16.052 1.787l.966.261a7 7 0 0 1 4.93 4.934l.26.965l-1.93.521l-.261-.965a5 5 0 0 0-3.522-3.524l-.965-.262zM1 2h8.58l1.487 6.69l-1.86 1.86a14.1 14.1 0 0 0 4.243 4.242l1.86-1.859L22 14.42V23h-1a19.9 19.9 0 0 1-10.85-3.196a20.1 20.1 0 0 1-5.954-5.954A19.9 19.9 0 0 1 1 3zm2.027 2a17.9 17.9 0 0 0 2.849 8.764a18.1 18.1 0 0 0 5.36 5.36A17.9 17.9 0 0 0 20 20.973v-4.949l-4.053-.9l-2.174 2.175l-.663-.377a16.07 16.07 0 0 1-6.032-6.032l-.377-.663l2.175-2.174L7.976 4zm12.111 1.165l.966.261a3.5 3.5 0 0 1 2.465 2.467l.26.965l-1.93.521l-.261-.965a1.5 1.5 0 0 0-1.057-1.057l-.965-.261z"/></svg>
-                                <p className="text-center text-sm font-semibold">24/7 Customer Support</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center rounded border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>
-                                <p className="text-center text-sm font-semibold">Open Workshop Concept</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center rounded border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="m9.65 4l-3.111 7h3.447c.69 0 1.176.675.958 1.33l-1.656 4.967L16.586 10h-2.57a1.01 1.01 0 0 1-.903-1.462L15.382 4zM8.084 2.6c.162-.365.523-.6.923-.6h7.977c.75 0 1.239.79.903 1.462L15.618 8h3.358c.9 0 1.35 1.088.714 1.724L7.737 21.677c-.754.754-2.01-.022-1.672-1.033L8.613 13H5.015a1.01 1.01 0 0 1-.923-1.42z"/></g></svg>
-                                <p className="text-center text-sm font-semibold">Fast Claims Process</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center rounded border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20.995 6.903a1 1 0 0 0-.547-.797l-7.973-4a1 1 0 0 0-.895-.002l-8.027 4c-.297.15-.502.437-.544.767c-.013.097-1.145 9.741 8.541 15.008a1 1 0 0 0 .969-.009c9.307-5.259 8.514-14.573 8.476-14.967m-8.977 12.944c-6.86-4.01-7.14-10.352-7.063-12.205l7.071-3.523l6.998 3.511c.005 1.87-.481 8.243-7.006 12.217"/></svg>
-                                <p className="text-center text-sm font-semibold">Up to 7 Years Coverage</p>
-                            </div>
-                        </div>
-
-                        {/* Purple container with 4-image carousel and text */}
-                        <div className="mt-12 max-w-5xl mx-auto rounded-lg bg-purple-700 p-8 text-white flex flex-col lg:flex-row items-center gap-8">
-                          {/* Left carousel */}
-                          <div
-                            className="relative w-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] overflow-hidden rounded-lg"
-                            style={containerSize ? { aspectRatio: containerSize.width / containerSize.height } : {}}
-                            onTouchStart={handlePurpleTouchStart}
-                            onTouchMove={handlePurpleTouchMove}
-                            onTouchEnd={handlePurpleTouchEnd}
-                          >
-                            {purpleImages.map((image, index) => (
-                              <div
+                </div>
+                {/* Purple container with 4-image carousel and text */}
+                <div className="mt-12 max-w-5xl mx-auto rounded-lg bg-purple-700 p-8 text-white flex flex-col lg:flex-row items-center gap-8">
+                    {/* Left carousel */}
+                    <div
+                        className="relative w-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] overflow-hidden rounded-lg"
+                        style={containerSize ? { aspectRatio: containerSize.width / containerSize.height } : {}}
+                        onTouchStart={handlePurpleTouchStart}
+                        onTouchMove={handlePurpleTouchMove}
+                        onTouchEnd={handlePurpleTouchEnd}
+                    >
+                        {purpleImages.map((image, index) => (
+                            <div
                                 key={index}
                                 className={`absolute inset-0 transition-opacity duration-500 ${
-                                  index === purpleCarouselIndex ? 'opacity-100' : 'opacity-0'
+                                    index === purpleCarouselIndex ? 'opacity-100' : 'opacity-0'
                                 }`}
-                              >
+                            >
                                 <img
-                                  ref={index === 0 ? imgRef : undefined}
-                                  src={image.src}
-                                  alt={image.alt}
-                                  className="w-full h-full object-cover rounded-3xl"
-                                  onLoad={index === 0 ? () => {
-                                    if (imgRef.current && !containerSize) {
-                                      const img = imgRef.current!;
-                                      setContainerSize({ width: img.naturalWidth, height: img.naturalHeight });
-                                    }
-                                  } : undefined}
+                                    ref={index === 0 ? imgRef : undefined}
+                                    src={image.src}
+                                    alt={image.alt}
+                                    className="w-full h-full object-cover rounded-3xl"
+                                    onLoad={index === 0 ? () => {
+                                        if (imgRef.current && !containerSize) {
+                                          const img = imgRef.current!;
+                                          setContainerSize({ width: img.naturalWidth, height: img.naturalHeight });
+                                        }
+                                      } : undefined}
                                 />
-                              </div>
-                            ))}
-
-                            {/* Navigation arrows */}
-                            <button
-                              onClick={prevPurpleSlide}
-                              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 transition-all"
-                            >
-                              ‹
-                            </button>
-                            <button
-                              onClick={nextPurpleSlide}
-                              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 transition-all"
-                            >
-                              ›
-                            </button>
-
-                            {/* Dots indicator */}
-                            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                              {purpleImages.map((_, index) => (
-                                <button
-                                  key={index}
-                                  onClick={() => setPurpleCarouselIndex(index)}
-                                  className={`w-3 h-3 rounded-full transition-all ${
-                                    index === purpleCarouselIndex ? 'bg-white' : 'bg-white bg-opacity-50'
-                                  }`}
-                                />
-                              ))}
                             </div>
-                          </div>
+                        ))}
 
-                          {/* Right text content */}
-                          <div className="max-w-xl">
-                            <h2 className="mb-4 font-semibold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight">
-                              Now with Ezcare Mobile App - Warranty at Your Fingertips!
-                            </h2>
-                            <p className="mb-6 text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-snug">
-                              Say goodbye to bulky booklets. As a warranty holder, you can easily access your policy, track claims, and get support anytime, anywhere - all through the Ezcare app.
-                            </p>
-                            <div className="flex space-x-4">
-                              <a href="https://play.google.com/store/apps/details?id=com.ezcare.ezcaresuperapp" aria-label="Google Play Store">
-                                <img src="/google-play-badge.jpg" alt="Google Play" className="h-12 rounded-lg" />
-                              </a>
-                              <a href="https://apps.apple.com/my/app/ezcare-warranty-superapp/id6473253868" aria-label="Apple App Store">
-                                <img src="/app-store-badge.jpg" alt="App Store" className="h-12 rounded-lg" />
-                              </a>
-                              <a href="https://appgallery.huawei.com/app/C109957695" aria-label="Huawei AppGallery">
-                                <img src="/appgallery-badge.jpg" alt="AppGallery" className="h-12 rounded-lg" />
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                        {/* Navigation arrows */}
+                        <button
+                          onClick={prevPurpleSlide}
+                          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 transition-all"
+                        >
+                          ‹
+                        </button>
+                        <button
+                          onClick={nextPurpleSlide}
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 transition-all"
+                        >
+                          ›
+                        </button>
 
-                        {/* New TikTok videos container */}
-                        <div className="mt-12 max-w-4xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                          <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
-                            <div dangerouslySetInnerHTML={{__html: `<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ezcarewarranty/video/7547546516831997191" data-video-id="7547546516831997191" > <section> <a target="_blank" title="@ezcarewarranty" href="https://www.tiktok.com/@ezcarewarranty?refer=embed">@ezcarewarranty</a> <a target="_blank" title="♬ original sound  - Ezcare Warranty" href="https://www.tiktok.com/music/original-sound-Ezcare-Warranty-7547546595957508880?refer=embed">♬ original sound  - Ezcare Warranty</a> </section> </blockquote>`}} />
-                          </div>
-                          <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
-                            <iframe
-                              src="https://www.tiktok.com/embed/7012345678901234568"
-                              width="100%"
-                              allowFullScreen
-                              className="w-full h-full"
-                              frameBorder="0"
-                              scrolling="no"
-                              title="TikTok Video 2"
+                        {/* Dots indicator */}
+                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                          {purpleImages.map((_, index) => (
+                            <button
+                              key={index}
+                              onClick={() => setPurpleCarouselIndex(index)}
+                              className={`w-3 h-3 rounded-full transition-all ${
+                                index === purpleCarouselIndex ? 'bg-white' : 'bg-white bg-opacity-50'
+                              }`}
                             />
-                          </div>
-                          <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
-                            <iframe
-                              src="https://www.tiktok.com/embed/7012345678901234569"
-                              width="100%"
-                              allowFullScreen
-                              className="w-full h-full"
-                              frameBorder="0"
-                              scrolling="no"
-                              title="TikTok Video 3"
-                            />
-                          </div>
+                          ))}
                         </div>
+                      </div>
 
-                        
+                      {/* Right text content */}
+                      <div className="max-w-xl">
+                        <h2 className="mb-4 font-semibold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight">
+                          Now with Ezcare Mobile App - Warranty at Your Fingertips!
+                        </h2>
+                        <p className="mb-6 text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-snug">
+                          Say goodbye to bulky booklets. As a warranty holder, you can easily access your policy, track claims, and get support anytime, anywhere - all through the Ezcare app.
+                        </p>
+                        <div className="flex space-x-4">
+                          <a href="https://play.google.com/store/apps/details?id=com.ezcare.ezcaresuperapp" aria-label="Google Play Store">
+                            <img src="/google-play-badge.jpg" alt="Google Play" className="h-12 rounded-lg" />
+                          </a>
+                          <a href="https://apps.apple.com/my/app/ezcare-warranty-superapp/id6473253868" aria-label="Apple App Store">
+                            <img src="/app-store-badge.jpg" alt="App Store" className="h-12 rounded-lg" />
+                          </a>
+                          <a href="https://appgallery.huawei.com/app/C109957695" aria-label="Huawei AppGallery">
+                            <img src="/appgallery-badge.jpg" alt="AppGallery" className="h-12 rounded-lg" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
 
-                        {/* Why Choose Ezcare Warranty Section */}
-                        <section className="mt-16 bg-purple-700 py-12">
-                          <div className="max-w-7xl mx-auto px-6 text-white">
-                            <h2 className="text-center text-3xl font-semibold mb-10">Why Choose Ezcare Warranty?</h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                              {/* Card 1 */}
-                              <div className="bg-white text-purple-700 rounded-lg shadow-md p-4 sm:p-6 flex flex-col items-center text-center relative">
+                {/* TikTok videos container */}
+                <div className="mt-12 max-w-4xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                  <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
+                    <div dangerouslySetInnerHTML={{__html: `<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ezcarewarranty/video/7547546516831997191" data-video-id="7547546516831997191" > <section> <a target="_blank" title="@ezcarewarranty" href="https://www.tiktok.com/@ezcarewarranty?refer=embed">@ezcarewarranty</a> <a target="_blank" title="♬ original sound  - Ezcare Warranty" href="https://www.tiktok.com/music/original-sound-Ezcare-Warranty-7547546595957508880?refer=embed">♬ original sound  - Ezcare Warranty</a> </section> </blockquote>`}} />
+                  </div>
+                  <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
+                    <iframe
+                      src="https://www.tiktok.com/embed/7012345678901234568"
+                      width="100%"
+                      allowFullScreen
+                      className="w-full h-full"
+                      frameBorder="0"
+                      scrolling="no"
+                      title="TikTok Video 2"
+                    />
+                  </div>
+                  <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
+                    <iframe
+                      src="https://www.tiktok.com/embed/7012345678901234569"
+                      width="100%"
+                      allowFullScreen
+                      className="w-full h-full"
+                      frameBorder="0"
+                      scrolling="no"
+                      title="TikTok Video 3"
+                    />
+                  </div>
+                </div>
+                {/* Why Choose Ezcare Warranty Section */}
+                <section className="mt-16 bg-purple-700 py-12">
+                    <div className="max-w-7xl mx-auto px-6 text-white">
+                        <h2 className="text-center text-3xl font-semibold mb-10">Why Choose Ezcare Warranty?</h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                            {/* Card 1 */}
+                            <div className="bg-white text-purple-700 rounded-lg shadow-md p-4 sm:p-6 flex flex-col items-center text-center relative">
                                 <div className="absolute -top-4 left-4 bg-purple-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold">1</div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" d="M6 20V4zm9.925 3q-.65 0-1.225-.262t-1-.738l-4.475-5.35q-.25-.3-.225-.687t.3-.663l.475-.5q.45-.45 1.1-.562t1.225.187l2.9 1.45V7h2q1.65 0 2.825 1.175T21 11v8q0 1.65-1.175 2.825T17 23zM6 22q-.825 0-1.412-.587T4 20V4q0-.825.588-1.412T6 2h9q.825 0 1.413.588T17 4v3h-2V4H6v16h6.025l1.675 2zm4.5-15q.425 0 .713-.288T11.5 6t-.288-.712T10.5 5t-.712.288T9.5 6t.288.713T10.5 7m5.425 14H17q.825 0 1.413-.575T19 19v-8q0-.825-.587-1.412T17 9v8.5q0 .575-.475.863t-.975.037l-3.875-1.925l3.475 4.175q.15.175.35.263t.425.087"/></svg>
                                 <h3 className="font-semibold mb-1">Easy Policy Access</h3>
@@ -355,7 +445,7 @@ export default function Welcome() {
                               {/* Card 4 */}
                               <div className="bg-white text-purple-700 rounded-lg shadow-md p-4 sm:p-6 flex flex-col items-center text-center relative">
                                 <div className="absolute -top-4 left-4 bg-purple-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold">4</div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12"/></svg>
                                 <h3 className="font-semibold mb-1">Backed by International Insurance</h3>
                                 <p className="text-xs">Backed & Underwritten by Pacific Insurance</p>
                               </div>
@@ -387,70 +477,72 @@ export default function Welcome() {
                                 <h3 className="font-semibold mb-1">24/7 Towing Assistance</h3>
                                 <p className="text-sm">Reliable towing assistance anytime, anywhere.</p>
                               </div>
-                            </div>
-                          </div>
-                        </section>
-
-                        {/* New cards section under Why Choose Ezcare Warranty */}
-                        <section className="max-w-7xl mx-auto px-6 py-12 space-y-8">
-                          <Carousel />
-                        </section>
-                        {/* Add some bottom padding to avoid clipping */}
-                        <div className="pb-12" />
-
-                        {/* Statements of Satisfaction section */}
-                        <section className="mt-12 w-full px-4 rounded-lg bg-purple-500 p-8 text-white flex flex-col items-center gap-8 text-center">
-                          <h2 className="text-3xl font-semibold mb-8">Statements of Satisfaction</h2>
-                          <div className="flex flex-col sm:flex-row gap-8 w-full max-w-4xl">
-                            {/* Card 1 */}
-                            <div className="bg-white text-gray-900 rounded-lg shadow-md p-6 flex flex-col">
-                              <div className="flex items-center mb-4">
-                                <img src="/thumbs-up-icon.png" alt="Thumbs up" className="w-10 h-10 mr-4" />
-                              </div>
-                              <p className="text-sm">Customer satisfaction is our top priority.</p>
-                            </div>
-                            {/* Card 1 */}
-                            <div className="bg-white text-gray-900 rounded-lg shadow-md p-6 flex flex-col">
-                              <div className="flex items-center mb-4">
-                                <img src="/thumbs-up-icon.png" alt="Thumbs up" className="w-10 h-10 mr-4" />
-                              </div>
-                              <p className="text-sm">Customer satisfaction is our top priority.</p>
-                            </div>
-                            {/* Card 1 */}
-                            <div className="bg-white text-gray-900 rounded-lg shadow-md p-6 flex flex-col">
-                              <div className="flex items-center mb-4">
-                                <img src="/thumbs-up-icon.png" alt="Thumbs up" className="w-10 h-10 mr-4" />
-                              </div>
-                              <p className="text-sm">Customer satisfaction is our top priority.</p>
-                            </div>
-                          </div>
-                        </section>
-
-
-                        {/* New coverage section above NavFooter */} <div className="mt-12 w-full px-4 rounded-lg bg-purple-700 p-8 text-white flex flex-col items-center gap-6 text-center"> <h2 className="text-2xl font-semibold"> Coverage That Moves With You.<br />Choose Ezcare. </h2> <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4"> <button className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-md transition-colors"> Pricing </button> <button className="bg-white text-purple-700 px-4 py-2 rounded-md transition-colors"> Get Free Quote </button> </div> </div>
-
-                         <NavFooter />
-
-                        {/* Floating WhatsApp Icon */}
-                        <a
-                            href="https://wa.me/60123456789"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="fixed bottom-4 right-4 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-3 shadow-lg transition-colors"
-                            aria-label="Contact us on WhatsApp"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                            >
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52c.149-.174.198-.298.298-.497c.099-.198.05-.371-.025-.52c-.075-.149-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51c-.173-.008-.371-.01-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074c.149.198 2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413c.248-.694.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
-                            </svg>
-                        </a>
-
+                        </div>
+                    </div>
+                </section>
+                {/* New cards section under Why Choose Ezcare Warranty */}
+                <section className="max-w-7xl mx-auto px-6 py-12 space-y-8">
+                  <Carousel />
+                </section>
+                {/* Add some bottom padding to avoid clipping */}
+                <div className="pb-12" />
+                {/* Statements of Satisfaction section */}
+                <section className="mt-12 w-full px-4 rounded-lg bg-purple-500 p-8 text-white flex flex-col items-center gap-8 text-center">
+                  <h2 className="text-3xl font-semibold mb-8">Statements of Satisfaction</h2>
+                  <div className="flex flex-col sm:flex-row gap-8 w-full max-w-4xl">
+                    {/* Card 1 */}
+                    <div className="bg-white text-gray-900 rounded-lg shadow-md p-6 flex flex-col">
+                      <div className="flex items-center mb-4">
+                        <img src="/thumbs-up-icon.png" alt="Thumbs up" className="w-10 h-10 mr-4" />
+                      </div>
+                      <p className="text-sm">Customer satisfaction is our top priority.</p>
+                    </div>
+                    {/* Card 1 */}
+                    <div className="bg-white text-gray-900 rounded-lg shadow-md p-6 flex flex-col">
+                      <div className="flex items-center mb-4">
+                        <img src="/thumbs-up-icon.png" alt="Thumbs up" className="w-10 h-10 mr-4" />
+                      </div>
+                      <p className="text-sm">Customer satisfaction is our top priority.</p>
+                    </div>
+                    {/* Card 1 */}
+                    <div className="bg-white text-gray-900 rounded-lg shadow-md p-6 flex flex-col">
+                      <div className="flex items-center mb-4">
+                        <img src="/thumbs-up-icon.png" alt="Thumbs up" className="w-10 h-10 mr-4" />
+                      </div>
+                      <p className="text-sm">Customer satisfaction is our top priority.</p>
+                    </div>
+                  </div>
+                </section>
+                {/* New coverage section above NavFooter */}
+                <div className="mt-12 w-full px-4 rounded-lg bg-purple-700 p-8 text-white flex flex-col items-center gap-6 text-center">
+                  <h2 className="text-2xl font-semibold">
+                    Coverage That Moves With You.<br />Choose Ezcare.
+                  </h2>
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4">
+                    <button className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-md transition-colors"> Pricing </button>
+                    <button className="bg-white text-purple-700 px-4 py-2 rounded-md transition-colors"> Get Free Quote </button>
+                  </div>
                 </div>
-            </>
-        );
-        }
+                <NavFooter />
+                {/* Floating WhatsApp Icon */}
+                <a
+                    href="https://wa.me/60123456789"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="fixed bottom-4 right-4 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-3 shadow-lg transition-colors"
+                    aria-label="Contact us on WhatsApp"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                    >
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52c.149-.174.198-.298.298-.497c.099-.198.05-.371-.025-.52c-.075-.149-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51c-.173-.008-.371-.01-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074c.149.198 2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413c.248-.694.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+                    </svg>
+                </a>
+            </div>
+        </>
+    );
+}

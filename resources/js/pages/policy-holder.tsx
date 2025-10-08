@@ -1,41 +1,42 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import { NavFooter } from '@/components/nav-footer';
-import { Head, Link } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import axios from 'axios';
 
 export default function PolicyHolder() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [plateNumber, setPlateNumber] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [policies, setPolicies] = useState<any[]>([]);
+  const [policy, setPolicy] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleSearch = async () => {
-    if (!searchTerm.trim() || !phoneNumber.trim()) {
+    if (!plateNumber.trim() || !phoneNumber.trim()) {
       setError('Please enter both plate number and phone number.');
       return;
     }
 
     setError('');
     setLoading(true);
-    setPolicies([]);
+    setPolicy(null);
 
     try {
-      const response = await axios.get('/check-policy', {
-        params: {
-          plate_number: searchTerm,
-          phone: phoneNumber,
-        },
-      });
+      // Directly call the EZCare API
+      const response = await axios.get(
+        'https://www.systemmy.ezcare-warranty.com/api/customer/check-policy',
+        {
+          params: {
+            plate_number: plateNumber,
+            phone: phoneNumber,
+          },
+        }
+      );
 
-      if (response.data && Array.isArray(response.data) && response.data.length > 0) {
-        setPolicies(response.data);
-      } else if (response.data && response.data.policy_number) {
-        // Handle case where API returns single object
-        setPolicies([response.data]);
+      if (response.data && (response.data.policy_no || response.data.status_code)) {
+        setPolicy(response.data);
       } else {
-        setError('No policies found for the provided details.');
+        setError('No policy found for the provided details.');
       }
     } catch (err) {
       console.error(err);
@@ -48,7 +49,7 @@ export default function PolicyHolder() {
   return (
     <>
       <Head title="Policy Holder" />
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-gray-50">
         <Navbar />
 
         <main className="flex-grow container mx-auto px-4 py-12">
@@ -60,8 +61,8 @@ export default function PolicyHolder() {
             <label className="block mb-2 font-medium text-gray-700">Plate Number</label>
             <input
               type="text"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value.toUpperCase())}
+              value={plateNumber}
+              onChange={(e) => setPlateNumber(e.target.value.toUpperCase())}
               placeholder="e.g. ABC1234"
               className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 focus:ring-2 focus:ring-purple-400 outline-none"
             />
@@ -86,34 +87,36 @@ export default function PolicyHolder() {
             {error && <p className="text-red-600 text-sm mt-3 text-center">{error}</p>}
           </div>
 
+          {/* Results Section */}
           <div className="mt-10">
-            {policies.length > 0 && (
-              <>
+            {policy && (
+              <div className="max-w-2xl mx-auto bg-white shadow-md rounded-2xl p-6 border border-gray-200">
                 <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
                   Policy Details
                 </h2>
-                <div className="grid gap-6 md:grid-cols-2">
-                  {policies.map((policy, index) => (
-                    <div
-                      key={index}
-                      className="bg-white shadow-md rounded-2xl p-6 border border-gray-200"
-                    >
-                      <p className="text-gray-800 font-bold text-lg mb-2">
-                        Policy Number: {policy.policy_number || 'N/A'}
-                      </p>
-                      <p className="text-gray-700">Name: {policy.name || 'N/A'}</p>
-                      <p className="text-gray-700">Phone: {policy.phone || 'N/A'}</p>
-                      <p className="text-gray-700">Plate Number: {policy.plate_number || 'N/A'}</p>
-                      <p className="text-gray-700">Vehicle Model: {policy.vehicle_model || 'N/A'}</p>
-                      <p className="text-gray-700">Start Date: {policy.start_date || 'N/A'}</p>
-                      <p className="text-gray-700">End Date: {policy.end_date || 'N/A'}</p>
-                      <p className="text-gray-700">
-                        Warranty Status: {policy.warranty_status || 'Unknown'}
-                      </p>
-                    </div>
-                  ))}
+                <div className="space-y-3 text-gray-700">
+                  <p>
+                    <span className="font-semibold">Policy Number:</span>{' '}
+                    {policy.policy_no || 'N/A'}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Status Code:</span>{' '}
+                    {policy.status_code || 'N/A'}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Activated At:</span>{' '}
+                    {policy.activated_at || 'N/A'}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Expired At:</span>{' '}
+                    {policy.expired_at || 'N/A'}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Warranty Plan:</span>{' '}
+                    {policy.warranty_plan || 'N/A'}
+                  </p>
                 </div>
-              </>
+              </div>
             )}
           </div>
         </main>
