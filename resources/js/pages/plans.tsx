@@ -1,22 +1,13 @@
-import { Head, usePage } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
 import { NavFooter } from '@/components/nav-footer';
-import { Carousel } from '@/components/Carousel';
 import Navbar from '@/components/Navbar';
 import {
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
 } from '@/components/ui/collapsible';
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from '@/components/ui/card';
 
-// Comparison table data structure
 const warrantyPlansData = {
   reconditioned: {
     title: 'RECONDITIONED VEHICLE WARRANTY PLAN',
@@ -24,18 +15,20 @@ const warrantyPlansData = {
       { name: 'ENGINE', basic: true, premier: true },
       { name: 'TRANSMISSION', basic: true, premier: true },
       { name: 'ECU', basic: true, premier: true },
+      { name: 'ECM', basic: true, premier: true },
+      { name: 'TCM', basic: true, premier: true },
       { name: 'STEERING MECHANISM', basic: true, premier: true },
-      { name: 'BRAKING SYSTEM', basic: true, premier: true },
       { name: 'AIR CONDITIONING', basic: true, premier: true },
-      { name: 'TURBO', basic: true, premier: true },
-      { name: 'SUPERCHARGER', basic: true, premier: true },
-      { name: 'FRONT WHEEL & 4-WHEELS DRIVE', basic: false, premier: true },
-      { name: 'ELECTRICAL COMPONENTS', basic: false, premier: true },
-      { name: 'REAR AXLE', basic: false, premier: true },
+      { name: 'COOLING SYSTEM', basic: true, premier: true },
+      { name: 'BRAKING SYSTEM', basic: false, premier: true },
+      { name: 'TURBO', basic: false, premier: true },
+      { name: 'SUPERCHARGER', basic: false, premier: true },
       { name: 'FUEL SYSTEM', basic: false, premier: true },
       { name: 'IGNITION SYSTEM', basic: false, premier: true },
-      { name: 'COOLING SYSTEM', basic: false, premier: true },
-      { name: 'MAJOR OIL LEAKING (LABOUR ONLY)', basic: false, premier: true },
+      { name: 'REAR AXLE', basic: false, premier: true },
+      { name: 'FRONT WHEEL & 4-WHEEL DRIVE', basic: false, premier: true },
+      { name: 'ELECTRICAL COMPONENTS', basic: false, premier: true },
+      { name: 'MAJOR OIL LEAKS', basic: false, premier: true },
     ],
     plans: ['BASIC PLAN', 'PREMIER PLAN']
   },
@@ -45,13 +38,14 @@ const warrantyPlansData = {
       { name: 'ENGINE', basic: true, premier: true, ultimate: true },
       { name: 'TRANSMISSION', basic: true, premier: true, ultimate: true },
       { name: 'ECU', basic: true, premier: true, ultimate: true },
+      { name: 'ECM', basic: true, premier: true, ultimate: true },
+      { name: 'TCM', basic: true, premier: true, ultimate: true },
+      { name: 'STEERING MECHANISM', basic: true, premier: true, ultimate: true },
+      { name: 'AIR CONDITIONING', basic: true, premier: true, ultimate: true },
       { name: 'BRAKING SYSTEM', basic: false, premier: true, ultimate: true },
-      { name: 'AIR CONDITIONING', basic: false, premier: true, ultimate: true },
-      { name: 'ECM', basic: false, premier: false, ultimate: true },
-      { name: 'TURBO', basic: false, premier: false, ultimate: true },
-      { name: 'SUPERCHARGER', basic: false, premier: false, ultimate: true },
-      { name: 'FUEL SYSTEM', basic: false, premier: false, ultimate: true },
-      { name: 'STEERING MECHANISM', basic: false, premier: false, ultimate: true },
+      { name: 'TURBO', basic: false, premier: true, ultimate: true },
+      { name: 'SUPERCHARGER', basic: false, premier: true, ultimate: true },
+      { name: 'FUEL SYSTEM', basic: false, premier: true, ultimate: true },
     ],
     plans: ['BASIC PLAN', 'PREMIER PLAN', 'ULTIMATE PLAN']
   },
@@ -61,18 +55,20 @@ const warrantyPlansData = {
       { name: 'ENGINE', supercar: true },
       { name: 'TRANSMISSION', supercar: true },
       { name: 'ECU', supercar: true },
+      { name: 'ECM', supercar: true },
+      { name: 'TCM', supercar: true },
       { name: 'STEERING MECHANISM', supercar: true },
-      { name: 'BRAKING SYSTEM', supercar: true },
       { name: 'AIR CONDITIONING', supercar: true },
+      { name: 'BRAKING SYSTEM', supercar: true },
       { name: 'TURBO', supercar: true },
       { name: 'SUPERCHARGER', supercar: true },
-      { name: 'FRONT WHEEL & 4-WHEELS DRIVE', supercar: true },
-      { name: 'ELECTRICAL COMPONENTS', supercar: true },
-      { name: 'REAR AXLE', supercar: true },
       { name: 'FUEL SYSTEM', supercar: true },
       { name: 'IGNITION SYSTEM', supercar: true },
       { name: 'COOLING SYSTEM', supercar: true },
-      { name: 'MAJOR OIL LEAKS (LABOUR ONLY)', supercar: true },
+      { name: 'REAR AXLE', supercar: true },
+      { name: 'FRONT WHEEL & 4-WHEEL DRIVE', supercar: true },
+      { name: 'ELECTRICAL COMPONENTS', supercar: true },
+      { name: 'MAJOR OIL LEAKS', supercar: true },
     ],
     plans: ['SUPERCAR PLAN']
   },
@@ -82,7 +78,7 @@ const warrantyPlansData = {
       { name: 'ONBOARD CHARGER', nonTesla: true, tesla: true },
       { name: 'HIGH VOLTAGE LITHIUM-ION BATTERY', nonTesla: true, tesla: true },
       { name: 'DRIVE UNIT', nonTesla: true, tesla: true },
-      { name: 'MCU (MEDIA CONTROL UNIT)', nonTesla: false, tesla: true },
+      { name: 'MCU (Tesla Model Only)', nonTesla: false, tesla: true },
     ],
     plans: ['NON TESLA MODEL', 'TESLA MODEL']
   },
@@ -91,12 +87,13 @@ const warrantyPlansData = {
     features: [
       { name: 'ENGINE', basic: true, premier: true },
       { name: 'TRANSMISSION', basic: true, premier: true },
-      { name: 'ELECTRICAL SYSTEM', basic: true, premier: true },
+      { name: 'ECU', basic: true, premier: true },
+      { name: 'FUEL SYSTEM', basic: true, premier: true },
+      { name: 'SHAFT DRIVE', basic: false, premier: true },
+      { name: 'IGNITION SYSTEM', basic: false, premier: true },
+      { name: 'FLYWHEEL', basic: false, premier: true },
       { name: 'BRAKING SYSTEM', basic: true, premier: true },
-      { name: 'SUSPENSION', basic: true, premier: true },
-      { name: 'EXHAUST SYSTEM', basic: false, premier: true },
-      { name: 'FUEL SYSTEM', basic: false, premier: true },
-      { name: 'COOLING SYSTEM', basic: true, premier: true },
+      { name: 'ELECTRICAL COMPONENTS', basic: true, premier: true },
     ],
     plans: ['BASIC PLAN', 'PREMIER PLAN']
   },
@@ -111,6 +108,7 @@ const warrantyPlansData = {
   }
 };
 
+
 export default function Plans() {
   const [openSection, setOpenSection] = useState<string | null>('reconditioned');
   const [registeredPlansCount, setRegisteredPlansCount] = useState(0);
@@ -118,9 +116,10 @@ export default function Plans() {
 
   useEffect(() => {
     let start = 0;
+    let startClaims = 0;
     const end = 10000;
-    const duration = 5000; // animation duration in ms
-    const incrementTime = 20; // update every 20ms
+    const duration = 5000;
+    const incrementTime = 20;
     const totalIncrements = duration / incrementTime;
     const incrementValue = end / totalIncrements;
 
@@ -133,7 +132,6 @@ export default function Plans() {
       setRegisteredPlansCount(Math.floor(start));
     }, incrementTime);
 
-    let startClaims = 0;
     const successfulInterval = setInterval(() => {
       startClaims += incrementValue;
       if (startClaims >= end) {
@@ -159,77 +157,81 @@ export default function Plans() {
 
   const CoverageIcon = ({ covered }: { covered: boolean }) => (
     <span className={`inline-block w-6 h-6 rounded-full text-center leading-6 text-sm font-bold ${
-      covered
-        ? 'bg-green-500 text-white'
-        : 'bg-red-500 text-white'
+      covered ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
     }`}>
       {covered ? '✓' : '✗'}
     </span>
   );
 
-  const ComparisonTable = ({ data }: { data: any }) => {
-    return (
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
-        <div className="overflow-x-auto">
-          <div className="min-w-full">
-            {/* Header */}
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-4">
-              <div className="grid gap-3" style={{ gridTemplateColumns: `200px repeat(${data.plans.length}, 1fr)` }}>
-                <div className="font-bold text-gray-700 text-sm">COMPONENT</div>
-                {data.plans.map((plan: string, idx: number) => (
-                  <div key={idx} className="text-center">
-                    <div className="bg-white rounded-lg p-3 shadow-md border-2 border-purple-200">
-                      <div className="font-bold text-sm text-purple-800">{plan}</div>
-                    </div>
+  const ComparisonTable = ({ data }: { data: any }) => (
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+      <div className="overflow-x-auto">
+        <div className="min-w-full">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-4">
+            <div className="grid gap-3" style={{ gridTemplateColumns: `200px repeat(${data.plans.length}, 1fr)` }}>
+              <div className="font-bold text-gray-700 text-sm">COMPONENT</div>
+              {data.plans.map((plan: string, idx: number) => (
+                <div key={plan} className="text-center">
+                  <div className="bg-white rounded-lg p-3 shadow-md border-2 border-purple-200">
+                    <div className="font-bold text-sm text-purple-800">{plan}</div>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Feature rows */}
-            <div className="divide-y divide-gray-100">
-              {data.features.map((feature: any, idx: number) => (
-                <div key={idx} className="grid gap-3 hover:bg-gray-50 transition-colors" style={{ gridTemplateColumns: `200px repeat(${data.plans.length}, 1fr)` }}>
-                  <div className="font-medium text-gray-800 py-3 px-4 bg-gray-50 border-r border-gray-200 text-sm">
-                    {feature.name}
-                  </div>
-                  {data.plans.map((plan: string, planIdx: number) => {
-                    const planKey = plan.toLowerCase().replace(/\s+/g, '').replace(/plan$/, '');
-                    const isCovered = feature[planKey];
-                    return (
-                      <div key={planIdx} className="text-center py-3 px-2 bg-white">
-                        <CoverageIcon covered={isCovered} />
-                      </div>
-                    );
-                  })}
                 </div>
               ))}
             </div>
-
-            {/* CTA Buttons */}
-            <div className="bg-gray-50 p-4">
-              <div className="grid gap-3" style={{ gridTemplateColumns: `200px repeat(${data.plans.length}, 1fr)` }}>
-                <div></div>
-                {data.plans.map((plan: string, idx: number) => (
-                  <div key={idx} className="text-center">
-                    <button className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg py-2 px-3 text-xs font-semibold hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-md">
-                      Get a FREE Quotation
-                    </button>
-                  </div>
-                ))}
+          </div>
+          {/* Feature rows */}
+          <div className="divide-y divide-gray-100">
+            {data.features.map((feature: any, idx: number) => (
+              <div key={feature.name} className="grid gap-3 hover:bg-gray-50 transition-colors" style={{ gridTemplateColumns: `200px repeat(${data.plans.length}, 1fr)` }}>
+                <div className="font-medium text-gray-800 py-3 px-4 bg-gray-50 border-r border-gray-200 text-sm">
+                  {feature.name}
+                </div>
+                {data.plans.map((plan: string, planIdx: number) => {
+                  let planKey = '';
+                  if (data.title.includes('ELECTRIC VEHICLE')) {
+                    planKey = plan.toLowerCase().includes('tesla') ? 'tesla' : 'nonTesla';
+                  } else if (data.title.includes('BIKERS')) {
+                    planKey = plan.toLowerCase().includes('basic') ? 'basic' : 'premier';
+                  } else if (data.title.includes('SUPERCAR')) {
+                    planKey = 'supercar';
+                  } else {
+                    // Default for basic/premier/ultimate
+                    planKey = plan.toLowerCase().replace(/\s+/g, '').replace(/plan$/, '');
+                  }
+                  const isCovered = feature[planKey];
+                  return (
+                    <div key={plan + feature.name} className="text-center py-3 px-2 bg-white">
+                      <CoverageIcon covered={!!isCovered} />
+                    </div>
+                  );
+                })}
               </div>
+            ))}
+          </div>
+          {/* CTA Buttons */}
+          <div className="bg-gray-50 p-4">
+            <div className="grid gap-3" style={{ gridTemplateColumns: `200px repeat(${data.plans.length}, 1fr)` }}>
+              <div></div>
+              {data.plans.map((plan: string, idx: number) => (
+                <div key={plan + '-cta'} className="text-center">
+                  <button className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg py-2 px-3 text-xs font-semibold hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-md">
+                    Get a FREE Quotation
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 
   return (
     <>
+      <Head title="Warranty Plans" />
       <div className="min-h-screen bg-[#FDFDFC] text-[#1b1b18] dark:bg-[#0a0a0a]">
         <Navbar />
-
         <div className="max-w-7xl mx-auto px-4 pt-24 pb-8">
           {Object.entries(warrantyPlansData).map(([sectionKey, sectionData]) => (
             <Collapsible key={sectionKey} open={openSection === sectionKey}>
@@ -255,7 +257,7 @@ export default function Plans() {
                     <h3 className="text-purple-800 font-bold mb-4 text-center text-sm sm:text-base">OPTIONAL ADD ON HYBRID COVERAGE</h3>
                     <ul className="text-sm text-gray-700 space-y-3 flex-grow">
                       {warrantyPlansData.optional_add_on_hybrid_coverage.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-3">
+                        <li key={feature.name} className="flex items-center gap-3">
                           <span className="inline-block w-6 h-6 rounded-full bg-green-500 text-white text-center leading-6 font-bold">✓</span>
                           <span className="uppercase">{feature.name}</span>
                         </li>
@@ -305,7 +307,6 @@ export default function Plans() {
             </div>
           </div>
         </div>
-
         <NavFooter />
       </div>
     </>
