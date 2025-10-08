@@ -41,5 +41,8 @@ Route::get('/policy-holder', function () {
     return Inertia::render('policy-holder');
 })->name('policy-holder');
 
+Route::get('/check-policy', [App\Http\Controllers\PolicyController::class, 'checkPolicy']);
+
+
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
