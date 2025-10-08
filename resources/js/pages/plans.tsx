@@ -237,45 +237,47 @@ export default function Plans() {
       <div className="min-h-screen bg-[#FDFDFC] text-[#1b1b18] dark:bg-[#0a0a0a]">
         <Navbar />
         <div className="max-w-5xl mx-auto px-4 pt-24 pb-8">
-          {Object.entries(warrantyPlansData).map(([sectionKey, sectionData]) => (
-            <Collapsible key={sectionKey} open={openSection === sectionKey}>
-              <CollapsibleTrigger
-                onClick={() => toggleSection(sectionKey)}
-                className="w-full flex justify-between items-center border rounded-md px-4 py-3 font-semibold cursor-pointer select-none mb-10"
-              >
-                {sectionData.title}
-                <span
-                  className={`transform transition-transform duration-300 ${
-                    openSection === sectionKey ? 'rotate-180' : ''
-                  }`}
+          {Object.entries(warrantyPlansData)
+            .filter(([sectionKey]) => sectionKey !== 'optional_add_on_hybrid_coverage') // Remove the collapse for hybrid coverage
+            .map(([sectionKey, sectionData]) => (
+              <Collapsible key={sectionKey} open={openSection === sectionKey}>
+                <CollapsibleTrigger
+                  onClick={() => toggleSection(sectionKey)}
+                  className="w-full flex justify-between items-center border rounded-md px-4 py-3 font-semibold cursor-pointer select-none mb-10"
                 >
-                  ▼
-                </span>
-              </CollapsibleTrigger>
-              <CollapsibleContent className="mt-10 pb-20 flex flex-wrap gap-8 justify-start items-start">
-                <div className="flex-1 min-w-[320px] max-w-[720px]">
-                  <ComparisonTable data={sectionData} />
-                </div>
-                {(sectionKey === 'used' || sectionKey === 'reconditioned') && (
-                  <div className="w-full sm:w-72 bg-white rounded-lg shadow-md border border-gray-200 p-6 flex flex-col justify-between">
-                    <h3 className="text-purple-800 font-bold mb-4 text-center text-sm sm:text-base">OPTIONAL ADD ON HYBRID COVERAGE</h3>
-                    <ul className="text-sm text-gray-700 space-y-3 flex-grow">
-                      {warrantyPlansData.optional_add_on_hybrid_coverage.features.map((feature, idx) => (
-                        <li key={feature.name} className="flex items-center gap-3">
-                          <span className="inline-block w-6 h-6 rounded-full bg-green-500 text-white text-center leading-6 font-bold">✓</span>
-                          <span className="uppercase">{feature.name}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-6 text-center">
-                      <button className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg py-2 px-4 text-xs font-semibold hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-md">
-                        Get a FREE Quotation
-                      </button>
-                    </div>
+                  {sectionData.title}
+                  <span
+                    className={`transform transition-transform duration-300 ${
+                      openSection === sectionKey ? 'rotate-180' : ''
+                    }`}
+                  >
+                    ▼
+                  </span>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="mt-10 pb-20 flex flex-wrap gap-8 justify-start items-start">
+                  <div className="flex-1 min-w-[320px] max-w-[720px]">
+                    <ComparisonTable data={sectionData} />
                   </div>
-                )}
-              </CollapsibleContent>
-            </Collapsible>
+                  {(sectionKey === 'used' || sectionKey === 'reconditioned' || sectionKey === 'supercar') && (
+                    <div className="w-full sm:w-72 bg-white rounded-lg shadow-md border border-gray-200 p-6 flex flex-col justify-between">
+                      <h3 className="text-purple-800 font-bold mb-4 text-center text-sm sm:text-base">OPTIONAL ADD ON HYBRID COVERAGE</h3>
+                      <ul className="text-sm text-gray-700 space-y-3 flex-grow">
+                        {warrantyPlansData.optional_add_on_hybrid_coverage.features.map((feature, idx) => (
+                          <li key={feature.name} className="flex items-center gap-3">
+                            <span className="inline-block w-6 h-6 rounded-full bg-green-500 text-white text-center leading-6 font-bold">✓</span>
+                            <span className="uppercase">{feature.name}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-6 text-center">
+                        <button className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg py-2 px-4 text-xs font-semibold hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-md">
+                          Get a FREE Quotation
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </CollapsibleContent>
+              </Collapsible>
           ))}
 
           <div className="mt-20 bg-purple-100 rounded-lg p-8 text-center max-w-full mx-4 sm:mx-8 md:mx-auto">
