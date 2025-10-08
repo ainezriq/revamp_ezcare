@@ -10,6 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
+import { Phone } from 'lucide-react';
 
 export default function Navbar() {
     const { auth } = usePage<SharedData>().props;
@@ -145,6 +146,11 @@ export default function Navbar() {
 
                     {/* Auth Links */}
                     <div className="flex items-center space-x-4">
+                        {/* Hotline number added here */}
+                        <span className="hidden md:flex items-center text-[#4C1D95] font-semibold text-sm px-3 py-2 rounded-md bg-purple-50">
+                            <Phone className="w-4 h-4 mr-2" />
+                            1 300 88 8287
+                        </span>
                         {auth.user ? (
                             <Link
                                 href={dashboard()}
