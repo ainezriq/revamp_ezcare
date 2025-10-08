@@ -207,186 +207,191 @@ export default function Welcome() {
                             />
                         </svg>
                         <div className="absolute inset-0 rounded-t-lg shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] lg:rounded-t-none lg:rounded-r-lg dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]" />
-                        {/* Right Column - Quote Form */}
-                        <div className="bg-white/50 backdrop-blur-sm rounded-lg p-6 lg:ml-8 lg:w-[400px]">
-                            <h2 className="text-2xl font-bold text-center mb-6 text-black">GET YOUR FREE QUOTE</h2>
-                            <form onSubmit={handleSubmit} className="space-y-4">
-                                {/* Name Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-black mb-1">Name</label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleInputChange}
-                                        placeholder="Value"
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
-                                        required
-                                    />
-                                </div>
-
-                                {/* Email Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-black mb-1">Email</label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleInputChange}
-                                        placeholder="Value"
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
-                                        required
-                                    />
-                                </div>
-
-                                {/* Phone Number Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-black mb-1">Phone Number</label>
-                                    <input
-                                        type="tel"
-                                        name="phoneNumber"
-                                        value={formData.phoneNumber}
-                                        onChange={handleInputChange}
-                                        placeholder="Value"
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
-                                        required
-                                    />
-                                </div>
-
-                                {/* Vehicle Model Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-black mb-1">Vehicle Model</label>
-                                    <input
-                                        type="text"
-                                        name="vehicleModel"
-                                        value={formData.vehicleModel}
-                                        onChange={handleInputChange}
-                                        placeholder="Value"
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
-                                        required
-                                    />
-                                </div>
-
-                                {/* Vehicle Year Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-black mb-1">Vehicle Year</label>
-                                    <input
-                                        type="text"
-                                        name="vehicleYear"
-                                        value={formData.vehicleYear}
-                                        onChange={handleInputChange}
-                                        placeholder="Value"
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
-                                        required
-                                    />
-                                </div>
-
-                                {/* Message Field */}
-                                <div>
-                                    <label className="block text-sm font-medium text-black mb-1">Message</label>
-                                    <textarea
-                                        name="message"
-                                        value={formData.message}
-                                        onChange={handleInputChange}
-                                        placeholder="Value"
-                                        rows={4}
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500 resize-none"
-                                        required
-                                    />
-                                </div>
-
-                                {/* Submit Button */}
-                                <button
-                                    type="submit"
-                                    className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-purple-600"
-                                >
-                                    GET QUOTE
-                                </button>
-                            </form>
-                        </div>
                     </main>
                 </div>
+                {/* Quote Form placed directly under the banner */}
+                <div className="flex w-full justify-center mt-8">
+                  <div className="bg-purple-100 backdrop-blur-sm rounded-lg p-6 w-full max-w-2xl">
+                    <h2 className="text-2xl font-bold text-center mb-6 text-black">GET YOUR FREE QUOTE</h2>
+                    <form onSubmit={handleSubmit}>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Left column */}
+                        <div className="flex flex-col gap-4">
+                          {/* Name Field */}
+                          <div>
+                            <label className="block text-sm font-medium text-black mb-1">Name</label>
+                            <input
+                              type="text"
+                              name="name"
+                              value={formData.name}
+                              onChange={handleInputChange}
+                              placeholder="Value"
+                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                              required
+                            />
+                          </div>
+                          {/* Email Field */}
+                          <div>
+                            <label className="block text-sm font-medium text-black mb-1">Email</label>
+                            <input
+                              type="email"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleInputChange}
+                              placeholder="Value"
+                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                              required
+                            />
+                          </div>
+                          {/* Phone Number Field */}
+                          <div>
+                            <label className="block text-sm font-medium text-black mb-1">Phone Number</label>
+                            <input
+                              type="tel"
+                              name="phoneNumber"
+                              value={formData.phoneNumber}
+                              onChange={handleInputChange}
+                              placeholder="Value"
+                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                              required
+                            />
+                          </div>
+                        </div>
+                        {/* Right column */}
+                        <div className="flex flex-col gap-4">
+                          {/* Vehicle Model Field */}
+                          <div>
+                            <label className="block text-sm font-medium text-black mb-1">Vehicle Model</label>
+                            <input
+                              type="text"
+                              name="vehicleModel"
+                              value={formData.vehicleModel}
+                              onChange={handleInputChange}
+                              placeholder="Value"
+                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                              required
+                            />
+                          </div>
+                          {/* Vehicle Year Field */}
+                          <div>
+                            <label className="block text-sm font-medium text-black mb-1">Vehicle Year</label>
+                            <input
+                              type="text"
+                              name="vehicleYear"
+                              value={formData.vehicleYear}
+                              onChange={handleInputChange}
+                              placeholder="Value"
+                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                              required
+                            />
+                          </div>
+                          {/* Message Field */}
+                          <div>
+                            <label className="block text-sm font-medium text-black mb-1">Message</label>
+                            <textarea
+                              name="message"
+                              value={formData.message}
+                              onChange={handleInputChange}
+                              placeholder="Value"
+                              rows={4}
+                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500 resize-none"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      {/* Submit Button (full width under fields) */}
+                      <div className="mt-6">
+                        <button
+                          type="submit"
+                          className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-purple-600"
+                        >
+                          GET QUOTE
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
                 {/* Purple container with 4-image carousel and text */}
-                <div className="mt-12 max-w-5xl mx-auto rounded-lg bg-purple-700 p-8 text-white flex flex-col lg:flex-row items-center gap-8">
+                <div className="mt-12 max-w-8xl mx-auto rounded-lg bg-purple-700 p-8 flex justify-center items-center">
+                  <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-4xl mx-auto text-center">
                     {/* Left carousel */}
                     <div
-                        className="relative w-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] overflow-hidden rounded-lg"
-                        style={containerSize ? { aspectRatio: containerSize.width / containerSize.height } : {}}
-                        onTouchStart={handlePurpleTouchStart}
-                        onTouchMove={handlePurpleTouchMove}
-                        onTouchEnd={handlePurpleTouchEnd}
+                      className="relative max-w-[250px] w-full flex-shrink-0 flex justify-center items-center"
+                      style={containerSize ? { aspectRatio: containerSize.width / containerSize.height } : {}}
+                      onTouchStart={handlePurpleTouchStart}
+                      onTouchMove={handlePurpleTouchMove}
+                      onTouchEnd={handlePurpleTouchEnd}
                     >
-                        {purpleImages.map((image, index) => (
-                            <div
-                                key={index}
-                                className={`absolute inset-0 transition-opacity duration-500 ${
-                                    index === purpleCarouselIndex ? 'opacity-100' : 'opacity-0'
-                                }`}
-                            >
-                                <img
-                                    ref={index === 0 ? imgRef : undefined}
-                                    src={image.src}
-                                    alt={image.alt}
-                                    className="w-full h-full object-cover rounded-3xl"
-                                    onLoad={index === 0 ? () => {
-                                        if (imgRef.current && !containerSize) {
-                                          const img = imgRef.current!;
-                                          setContainerSize({ width: img.naturalWidth, height: img.naturalHeight });
-                                        }
-                                      } : undefined}
-                                />
-                            </div>
+                      {purpleImages.map((image, index) => (
+                        <div
+                          key={index}
+                          className={`absolute inset-0 transition-opacity duration-500 flex justify-center items-center ${
+                            index === purpleCarouselIndex ? 'opacity-100' : 'opacity-0'
+                          }`}
+                        >
+                          <img
+                            ref={index === 0 ? imgRef : undefined}
+                            src={image.src}
+                            alt={image.alt}
+                            className="w-full h-full object-cover rounded-3xl"
+                            onLoad={index === 0 ? () => {
+                              if (imgRef.current && !containerSize) {
+                                const img = imgRef.current!;
+                                setContainerSize({ width: img.naturalWidth, height: img.naturalHeight });
+                              }
+                            } : undefined}
+                          />
+                        </div>
+                      ))}
+                      {/* Navigation arrows */}
+                      <button
+                        onClick={prevPurpleSlide}
+                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 transition-all"
+                      >
+                        ‹
+                      </button>
+                      <button
+                        onClick={nextPurpleSlide}
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 transition-all"
+                      >
+                        ›
+                      </button>
+                      {/* Dots indicator */}
+                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        {purpleImages.map((_, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setPurpleCarouselIndex(index)}
+                            className={`w-3 h-3 rounded-full transition-all ${
+                              index === purpleCarouselIndex ? 'bg-white' : 'bg-white bg-opacity-50'
+                            }`}
+                          />
                         ))}
-
-                        {/* Navigation arrows */}
-                        <button
-                          onClick={prevPurpleSlide}
-                          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 transition-all"
-                        >
-                          ‹
-                        </button>
-                        <button
-                          onClick={nextPurpleSlide}
-                          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 transition-all"
-                        >
-                          ›
-                        </button>
-
-                        {/* Dots indicator */}
-                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                          {purpleImages.map((_, index) => (
-                            <button
-                              key={index}
-                              onClick={() => setPurpleCarouselIndex(index)}
-                              className={`w-3 h-3 rounded-full transition-all ${
-                                index === purpleCarouselIndex ? 'bg-white' : 'bg-white bg-opacity-50'
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Right text content */}
-                      <div className="max-w-xl">
-                        <h2 className="mb-4 font-semibold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight">
-                          Now with Ezcare Mobile App - Warranty at Your Fingertips!
-                        </h2>
-                        <p className="mb-6 text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-snug">
-                          Say goodbye to bulky booklets. As a warranty holder, you can easily access your policy, track claims, and get support anytime, anywhere - all through the Ezcare app.
-                        </p>
-                        <div className="flex space-x-4">
-                          <a href="https://play.google.com/store/apps/details?id=com.ezcare.ezcaresuperapp" aria-label="Google Play Store">
-                            <img src="/google-play-badge.jpg" alt="Google Play" className="h-12 rounded-lg" />
-                          </a>
-                          <a href="https://apps.apple.com/my/app/ezcare-warranty-superapp/id6473253868" aria-label="Apple App Store">
-                            <img src="/app-store-badge.jpg" alt="App Store" className="h-12 rounded-lg" />
-                          </a>
-                          <a href="https://appgallery.huawei.com/app/C109957695" aria-label="Huawei AppGallery">
-                            <img src="/appgallery-badge.jpg" alt="AppGallery" className="h-12 rounded-lg" />
-                          </a>
-                        </div>
                       </div>
                     </div>
+                    {/* Right text content */}
+                    <div className="flex flex-col items-center justify-center text-center w-full">
+                      <h2 className="mb-4 font-semibold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight">
+                        Now with Ezcare Mobile App - Warranty at Your Fingertips!
+                      </h2>
+                      <p className="mb-6 text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-snug max-w-lg">
+                        Say goodbye to bulky booklets. As a warranty holder, you can easily access your policy, track claims, and get support anytime, anywhere - all through the Ezcare app.
+                      </p>
+                      <div className="flex space-x-4 justify-center">
+                        <a href="https://play.google.com/store/apps/details?id=com.ezcare.ezcaresuperapp" aria-label="Google Play Store">
+                          <img src="/google-play-badge.jpg" alt="Google Play" className="h-12 rounded-lg" />
+                        </a>
+                        <a href="https://apps.apple.com/my/app/ezcare-warranty-superapp/id6473253868" aria-label="Apple App Store">
+                          <img src="/app-store-badge.jpg" alt="App Store" className="h-12 rounded-lg" />
+                        </a>
+                        <a href="https://appgallery.huawei.com/app/C109957695" aria-label="Huawei AppGallery">
+                          <img src="/appgallery-badge.jpg" alt="AppGallery" className="h-12 rounded-lg" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 {/* TikTok videos container */}
                 <div className="mt-12 max-w-4xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
