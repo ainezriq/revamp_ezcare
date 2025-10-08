@@ -117,25 +117,28 @@ export default function Plans() {
   useEffect(() => {
     let start = 0;
     let startClaims = 0;
-    const end = 10000;
+    const registeredEnd = 50000;
+    const claimsEnd = 30000;
     const duration = 5000;
-    const incrementTime = 20;
-    const totalIncrements = duration / incrementTime;
-    const incrementValue = end / totalIncrements;
+    const incrementTime = 74;
+    const registeredIncrements = duration / incrementTime;
+    const claimsIncrements = duration / incrementTime;
+    const registeredIncrementValue = registeredEnd / registeredIncrements;
+    const claimsIncrementValue = claimsEnd / claimsIncrements;
 
     const registeredInterval = setInterval(() => {
-      start += incrementValue;
-      if (start >= end) {
-        start = end;
+      start += registeredIncrementValue;
+      if (start >= registeredEnd) {
+        start = registeredEnd;
         clearInterval(registeredInterval);
       }
       setRegisteredPlansCount(Math.floor(start));
     }, incrementTime);
 
     const successfulInterval = setInterval(() => {
-      startClaims += incrementValue;
-      if (startClaims >= end) {
-        startClaims = end;
+      startClaims += claimsIncrementValue;
+      if (startClaims >= claimsEnd) {
+        startClaims = claimsEnd;
         clearInterval(successfulInterval);
       }
       setSuccessfulClaimsCount(Math.floor(startClaims));
@@ -147,8 +150,14 @@ export default function Plans() {
     };
   }, []);
 
-  const formatCount = (count: number) => {
-    return count >= 10000 ? '10,000+' : count.toLocaleString();
+  const formatCount = (count: number, type: 'registered' | 'claims') => {
+    if (type === 'registered') {
+      return count >= 50000 ? '50,000+' : count.toLocaleString();
+    }
+    if (type === 'claims') {
+      return count >= 30000 ? '30,000+' : count.toLocaleString();
+    }
+    return count.toLocaleString();
   };
 
   const toggleSection = (section: string) => {
@@ -209,17 +218,12 @@ export default function Plans() {
               </div>
             ))}
           </div>
-          {/* CTA Buttons */}
+          {/* CTA Button - only one for each PLAN, not for each plan column */}
           <div className="bg-gray-50 p-4">
-            <div className="grid gap-3" style={{ gridTemplateColumns: `200px repeat(${data.plans.length}, 1fr)` }}>
-              <div></div>
-              {data.plans.map((plan: string, idx: number) => (
-                <div key={plan + '-cta'} className="text-center">
-                  <button className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg py-2 px-3 text-xs font-semibold hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-md">
-                    Get a FREE Quotation
-                  </button>
-                </div>
-              ))}
+            <div className="flex justify-end">
+              <button className="bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg py-2 px-6 text-xs font-semibold hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-md">
+                Get a FREE Quotation
+              </button>
             </div>
           </div>
         </div>
@@ -232,7 +236,7 @@ export default function Plans() {
       <Head title="Warranty Plans" />
       <div className="min-h-screen bg-[#FDFDFC] text-[#1b1b18] dark:bg-[#0a0a0a]">
         <Navbar />
-        <div className="max-w-7xl mx-auto px-4 pt-24 pb-8">
+        <div className="max-w-5xl mx-auto px-4 pt-24 pb-8">
           {Object.entries(warrantyPlansData).map(([sectionKey, sectionData]) => (
             <Collapsible key={sectionKey} open={openSection === sectionKey}>
               <CollapsibleTrigger
@@ -281,7 +285,7 @@ export default function Plans() {
               src="/pacific-insurance-logo.png"
               alt="Pacific Insurance"
               className="mx-auto mb-2"
-              style={{ maxWidth: '300px' }}
+              style={{ maxWidth: '400px' }}
             />
             <div className="flex justify-center gap-16">
               <div>
@@ -289,9 +293,9 @@ export default function Plans() {
                   src="clipboard-icon.png"
                   alt="Registered Plans"
                   className="mx-auto mb-2"
-                  style={{ width: '60px', height: '60px' }}
+                  style={{ width: '80px', height: '80px' }}
                 />
-                <p className="text-lg font-semibold">{formatCount(registeredPlansCount)}</p>
+                <p className="text-3xl font-semibold">{formatCount(registeredPlansCount, 'registered')}</p>
                 <p>Registered Plans</p>
               </div>
               <div>
@@ -299,9 +303,9 @@ export default function Plans() {
                   src="/thumbs-up-icon.png"
                   alt="Successful Claims"
                   className="mx-auto mb-2"
-                  style={{ width: '60px', height: '60px' }}
+                  style={{ width: '80px', height: '80px' }}
                 />
-                <p className="text-lg font-semibold">{formatCount(successfulClaimsCount)}</p>
+                <p className="text-3xl font-semibold">{formatCount(successfulClaimsCount, 'claims')}</p>
                 <p>Successful Claims</p>
               </div>
             </div>
