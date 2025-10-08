@@ -1,32 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import { NavFooter } from '@/components/nav-footer';
 import { Mail, Phone, MessageCircle, Clock } from 'lucide-react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
-    vehicleModel: '',
-    vehicleYear: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-  };
-
   return (
     <>
       <Navbar />
@@ -106,9 +83,7 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-
-              
-              </div>
+              {/* Right Column intentionally left blank (no contact form) */}
             </div>
 
             {/* Maps Section - Below Contact Info */}
@@ -191,8 +166,8 @@ export default function Contact() {
                   <h3 className="text-white font-semibold text-center">INDONESIA OFFICE</h3>
                   <p className="text-white text-sm text-center mt-1 opacity-90">
                     JL. RS. FATMAWATI RAYA NO 98,RT. 2/RW 7,<br />
-                  GANDARIA UTARA KEC. KEBAYORAN BARU, KOTA JAKARTA SELATAN<br />
-                  DAERAH KHUSUS IBUKOTA JAKARTA, 12140 INDONESIA
+                    GANDARIA UTARA KEC. KEBAYORAN BARU, KOTA JAKARTA SELATAN<br />
+                    DAERAH KHUSUS IBUKOTA JAKARTA, 12140 INDONESIA
                   </p>
                 </div>
                 <div className="h-48 rounded-b-lg overflow-hidden">
