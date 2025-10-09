@@ -211,15 +211,15 @@ export default function Welcome() {
                 </div>
                 {/* Quote Form placed directly under the banner */}
                 <div className="flex w-full justify-center mt-8">
-                  <div className="bg-purple-100 backdrop-blur-sm rounded-lg p-6 w-full max-w-2xl">
-                    <h2 className="text-2xl font-bold text-center mb-6 text-black">GET YOUR FREE QUOTE</h2>
+                  <div className="bg-purple-900 backdrop-blur-sm rounded-lg p-6 w-full max-w-2xl">
+                    <h2 className="text-2xl font-bold text-center mb-6 text-white">GET YOUR FREE QUOTE</h2>
                     <form onSubmit={handleSubmit}>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* Left column */}
                         <div className="flex flex-col gap-4">
                           {/* Name Field */}
                           <div>
-                            <label className="block text-sm font-medium text-black mb-1">Name</label>
+                            <label className="block text-sm font-medium text-white mb-1">Name</label>
                             <input
                               type="text"
                               name="name"
@@ -232,7 +232,7 @@ export default function Welcome() {
                           </div>
                           {/* Email Field */}
                           <div>
-                            <label className="block text-sm font-medium text-black mb-1">Email</label>
+                            <label className="block text-sm font-medium text-white mb-1">Email</label>
                             <input
                               type="email"
                               name="email"
@@ -245,7 +245,7 @@ export default function Welcome() {
                           </div>
                           {/* Phone Number Field */}
                           <div>
-                            <label className="block text-sm font-medium text-black mb-1">Phone Number</label>
+                            <label className="block text-sm font-medium text-white mb-1">Phone Number</label>
                             <input
                               type="tel"
                               name="phoneNumber"
@@ -261,7 +261,7 @@ export default function Welcome() {
                         <div className="flex flex-col gap-4">
                           {/* Vehicle Model Field */}
                           <div>
-                            <label className="block text-sm font-medium text-black mb-1">Vehicle Model</label>
+                            <label className="block text-sm font-medium text-white mb-1">Vehicle Model</label>
                             <input
                               type="text"
                               name="vehicleModel"
@@ -274,7 +274,7 @@ export default function Welcome() {
                           </div>
                           {/* Vehicle Year Field */}
                           <div>
-                            <label className="block text-sm font-medium text-black mb-1">Vehicle Year</label>
+                            <label className="block text-sm font-medium text-white mb-1">Vehicle Year</label>
                             <input
                               type="text"
                               name="vehicleYear"
@@ -287,7 +287,7 @@ export default function Welcome() {
                           </div>
                           {/* Message Field */}
                           <div>
-                            <label className="block text-sm font-medium text-black mb-1">Message</label>
+                            <label className="block text-sm font-medium text-white mb-1">Message</label>
                             <textarea
                               name="message"
                               value={formData.message}
@@ -490,7 +490,7 @@ export default function Welcome() {
                   <Carousel />
                 </section>
                 {/* Add some bottom padding to avoid clipping */}
-                <div className="pb-12" />
+                <div className="pb-2" />
                 {/* Statements of Satisfaction section */}
                 <section className="mt-12 w-full px-4 rounded-lg bg-purple-900 p-8 text-white flex flex-col items-center gap-8 text-center">
                   <h2 className="text-3xl font-semibold mb-8">Statements of Satisfaction</h2>
@@ -518,8 +518,12 @@ export default function Welcome() {
                     </div>
                   </div>
                 </section>
+                {/* Dashed divider between sections */}
+                <div className="w-full flex justify-center my-8">
+                  <hr className="w-full border-t-2 border-dashed border-purple-900" />
+                </div>
                 {/* New coverage section above NavFooter */}
-                <div className="mt-12 w-full px-4 rounded-lg bg-purple-900 p-8 text-white flex flex-col items-center gap-6 text-center">
+                <div className="mt-12 w-full px-4 rounded-lg bg-purple-800 p-8 text-white flex flex-col items-center gap-4 text-center">
                   <h2 className="text-2xl font-semibold">
                     Coverage That Moves With You.<br />Choose Ezcare.
                   </h2>
