@@ -52,7 +52,7 @@ export default function PolicyHolder() {
       <div className="min-h-screen flex flex-col bg-gray-50">
         <Navbar />
 
-        <main className="flex-grow container mx-auto px-4 py-12">
+        <main className="flex-grow container mx-auto px-4 py-12 pt-24">
           <h1 className="text-3xl font-bold text-center text-purple-700 mb-8">
             Policy Holder Lookup
           </h1>
