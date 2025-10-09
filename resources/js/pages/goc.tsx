@@ -100,7 +100,9 @@ const companies: Company[] = [
 ];
 
 export default function GroupOfCompanies() {
-  const [openCompany, setOpenCompany] = useState<number | null>(null);
+  const [openCompany, setOpenCompany] = useState<number | null>(companies[0].id); // Default to first company open
+
+  const filteredCompanies = companies.filter(company => company.name !== "ECW Mobile Service");
 
   const toggleCompany = (companyId: number) => {
     setOpenCompany(openCompany === companyId ? null : companyId);
@@ -148,7 +150,7 @@ export default function GroupOfCompanies() {
         <div className="min-h-screen bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="space-y-4">
-              {companies.map((company) => (
+              {filteredCompanies.map((company) => (
                 <div key={company.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                   {/* Company Header - Always Visible */}
                   <div
@@ -169,7 +171,7 @@ export default function GroupOfCompanies() {
                     </div>
                   </div>
 
-                  {/* Company Details - Only Visible When Expanded */}
+                  {/* Company Details - Visible if openCompany matches */}
                   {openCompany === company.id && (
                     <div className="border-t border-gray-200">
                       <div className="p-6">

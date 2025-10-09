@@ -195,115 +195,57 @@ export default function Navbar() {
             {/* Mobile menu */}
             <div className={`md:hidden ${isMobileMenuOpen ? '' : 'hidden'}`}>
                 <div className="px-4 py-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-                    <NavigationMenu>
-                        <NavigationMenuList className="flex flex-col space-y-1">
-                            <NavigationMenuItem>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        href="/"
-                                        className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] block"
-                                    >
-                                        Home
-                                    </Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        href="/plans"
-                                        className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] block"
-                                    >
-                                        Warranty Plans
-                                    </Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <NavigationMenuTrigger className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] w-full justify-start">
-                                    About Us
-                                </NavigationMenuTrigger>
-                                <NavigationMenuContent>
-                                    <ul className="grid gap-2 p-4 w-[320px] grid-cols-1">
-                                        <li>
-                                            <NavigationMenuLink asChild>
-                                                <Link
-                                                    className="flex h-full w-full select-none flex-col justify-center rounded-md bg-gradient-to-b from-muted/30 to-muted/10 p-4 no-underline outline-none focus:shadow-md border border-gray-100 dark:border-gray-700"
-                                                    href="/about"
-                                                >
-                                                    <div className="text-lg font-medium text-[#1b1b18] dark:text-[#EDEDEC]">
-                                                        About Ezcare Warranty
-                                                    </div>
-                                                    <p className="text-lg leading-tight text-muted-foreground mt-1">
-                                                        Learn more about Ezcare Warranty and our mission.
-                                                    </p>
-                                                </Link>
-                                            </NavigationMenuLink>
-                                        </li>
-                                        <li>
-                                            <NavigationMenuLink asChild>
-                                                <Link
-                                                    href="/career"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground border border-gray-100 dark:border-gray-700"
-                                                >
-                                                    <div className="text-lg font-medium leading-none text-[#1b1b18] dark:text-[#EDEDEC]">Career at Ezcare</div>
-                                                    <p className="line-clamp-2 text-lg leading-snug text-muted-foreground">
-                                                        Discover the history of Ezcare.
-                                                    </p>
-                                                </Link>
-                                            </NavigationMenuLink>
-                                        </li>
-                                        <li>
-                                            <NavigationMenuLink asChild>
-                                                <Link
-                                                    href="/goc"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground border border-gray-100 dark:border-gray-700"
-                                                >
-                                                    <div className="text-lg font-medium leading-none text-[#1b1b18] dark:text-[#EDEDEC]">Group of Companies</div>
-                                                    <p className="line-clamp-2 text-lg leading-snug text-muted-foreground">
-                                                        Meet our dedicated team.
-                                                    </p>
-                                                </Link>
-                                            </NavigationMenuLink>
-                                        </li>
-                                    </ul>
-                                </NavigationMenuContent>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <NavigationMenuTrigger className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] w-full justify-start">
-                                    Support Center
-                                </NavigationMenuTrigger>
-                                <NavigationMenuContent>
-                                    <ul className="grid w-[320px] gap-2 p-4 grid-cols-1">
-                                        <li>
-                                            <NavigationMenuLink asChild>
-                                                <Link
-                                                    href="/faq"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground border border-gray-100 dark:border-gray-700"
-                                                >
-                                                    <div className="text-lg font-medium leading-none text-[#1b1b18] dark:text-[#EDEDEC]">FAQ</div>
-                                                    <p className="line-clamp-2 text-lg leading-snug text-muted-foreground">
-                                                        Frequently asked questions.
-                                                    </p>
-                                                </Link>
-                                            </NavigationMenuLink>
-                                        </li>
-                                        <li>
-                                            <NavigationMenuLink asChild>
-                                                <Link
-                                                    href="/contact"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground border border-gray-100 dark:border-gray-700"
-                                                >
-                                                    <div className="text-lg font-medium leading-none text-[#1b1b18] dark:text-[#EDEDEC]">Contact Us</div>
-                                                    <p className="line-clamp-2 text-lg leading-snug text-muted-foreground">
-                                                        Get help and support.
-                                                    </p>
-                                                </Link>
-                                            </NavigationMenuLink>
-                                        </li>
-                                    </ul>
-                                </NavigationMenuContent>
-                            </NavigationMenuItem>
-                        </NavigationMenuList>
-                    </NavigationMenu>
+                    <nav className="flex flex-col space-y-2">
+                        <Link
+                            href="/"
+                            className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] block"
+                        >
+                            Home
+                        </Link>
+                        <Link
+                            href="/plans"
+                            className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] block"
+                        >
+                            Warranty Plans
+                        </Link>
+                        <Link
+                            href="/about"
+                            className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] block"
+                        >
+                            About Ezcare Warranty
+                        </Link>
+                        <Link
+                            href="/career"
+                            className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] block"
+                        >
+                            Career at Ezcare
+                        </Link>
+                        <Link
+                            href="/goc"
+                            className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] block"
+                        >
+                            Group of Companies
+                        </Link>
+                        <Link
+                            href="/faq"
+                            className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] block"
+                        >
+                            FAQ
+                        </Link>
+                        <Link
+                            href="/contact"
+                            className="text-[#1b1b18] hover:text-[#4C1D95] px-4 py-3 rounded-md text-lg font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1] block"
+                        >
+                            Contact Us
+                        </Link>
+                        <a
+                            href="tel:1300888287"
+                            className="flex items-center justify-center bg-purple-50 text-[#4C1D95] px-4 py-3 rounded-md text-lg font-semibold hover:bg-purple-100 transition-colors block"
+                        >
+                            <Phone className="w-5 h-5 mr-2" />
+                             Hotline : 1 300 88 8287
+                        </a>
+                    </nav>
                 </div>
             </div>
         </header>

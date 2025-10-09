@@ -247,7 +247,19 @@ export default function Plans() {
       <Head title="Warranty Plans" />
       <div className="min-h-screen bg-[#FDFDFC] text-[#1b1b18] dark:bg-[#0a0a0a]">
         <Navbar />
-        <div className="max-w-5xl mx-auto px-4 pt-24 pb-8">
+        {/* Add heading above the plans */}
+        <div className="w-full bg-purple-900 py-12 mb-8 pt-28">
+          <h1
+            className="text-5xl md:text-6xl font-bold mb-4 text-white text-center w-full"
+            style={{
+              textShadow:
+                '0 4px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.85)',
+            }}
+          >
+            WARRANTY PLANS
+          </h1>
+        </div>
+        <div className="max-w-5xl mx-auto px-4 pt-4 pb-8">
           {Object.entries(warrantyPlansData)
             .filter(([sectionKey]) => sectionKey !== 'optional_add_on_hybrid_coverage')
             .map(([sectionKey, sectionData]) => (
