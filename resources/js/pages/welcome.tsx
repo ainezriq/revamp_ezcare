@@ -535,7 +535,7 @@ export default function Welcome() {
                 <NavFooter />
                 {/* Floating WhatsApp Icon */}
                 <a
-                    href="https://wa.me/60123456789"
+                    href="https://wa.me/60132880177"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="fixed bottom-4 right-4 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-3 shadow-lg transition-colors"

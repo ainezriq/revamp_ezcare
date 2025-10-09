@@ -14,13 +14,11 @@ export default function About() {
             alt="Banner"
             className="w-full h-125 object-cover"
           />
-          <div className="absolute inset-0 bg-opacity-40"></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white px-4">
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-                ABOUT EZCARE WARRANTY
-              </h1>
-            </div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white text-center w-full"
+                style={{ textShadow: '0 4px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.85)' }}>
+              ABOUT EZCARE WARRANTY
+            </h1>
           </div>
         </div>
         <div className="bg-purple-200 rounded-lg p-6 mt-8 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-6">

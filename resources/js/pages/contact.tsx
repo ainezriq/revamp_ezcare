@@ -15,7 +15,8 @@ export default function Contact() {
               {/* Left Column - Contact Information */}
               <div>
                 <div className="mb-6">
-                  <h1 className="text-4xl md:text-5xl font-bold mb-3">Get In Touch</h1>
+                  <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white text-center w-full"
+                style={{ textShadow: '0 4px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.85)' }}>Get In Touch</h1>
                   <p className="text-lg opacity-90 mb-6">
                     Leave your message and we will get back to you within 24 hours
                   </p>

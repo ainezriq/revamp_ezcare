@@ -122,7 +122,8 @@ export default function FAQ() {
           <div className="absolute inset-0 bg-opacity-40 flex items-center justify-center">
             <div className="text-center text-white">
               <HelpCircle className="h-16 w-16 mx-auto mb-4" />
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">FREQUENTLY ASKED QUESTIONS</h1>
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white text-center w-full"
+                style={{ textShadow: '0 4px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.85)' }}>FREQUENTLY ASKED QUESTIONS</h1>
               <p className="text-lg md:text-xl">Find answers to common questions about our warranty services</p>
             </div>
           </div>
