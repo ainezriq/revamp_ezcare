@@ -211,7 +211,7 @@ export default function Welcome() {
                 </div>
                 {/* Quote Form placed directly under the banner */}
                 <div className="flex w-full justify-center mt-8">
-                  <div className="bg-purple-900 backdrop-blur-sm rounded-lg p-6 w-full max-w-2xl">
+                  <div className="bg-[#4C1D95] backdrop-blur-sm rounded-lg p-6 w-full max-w-2xl">
                     <h2 className="text-2xl font-bold text-center mb-6 text-white">GET YOUR FREE QUOTE</h2>
                     <form onSubmit={handleSubmit}>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -313,7 +313,7 @@ export default function Welcome() {
                   </div>
                 </div>
                 {/* Purple container with 4-image carousel and text */}
-                <div className="mt-12 max-w-8xl mx-auto rounded-lg bg-purple-700 p-8 flex justify-center items-center">
+                <div className="mt-12 max-w-8xl mx-auto rounded-lg bg-[#4C1D95] p-8 flex justify-center items-center">
                   <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-4xl mx-auto text-center">
                     {/* Left carousel */}
                     <div
@@ -422,7 +422,7 @@ export default function Welcome() {
                   </div>
                 </div>
                 {/* Why Choose Ezcare Warranty Section */}
-                <section className="mt-16 bg-purple-900 py-12">
+                <section className="mt-16 bg-[#4C1D95] py-12">
                     <div className="max-w-7xl mx-auto px-6 text-white">
                         <h2 className="text-center text-3xl font-semibold mb-10">Why Choose Ezcare Warranty?</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -492,7 +492,7 @@ export default function Welcome() {
                 {/* Add some bottom padding to avoid clipping */}
                 <div className="pb-2" />
                 {/* Statements of Satisfaction section */}
-                <section className="mt-12 w-full px-4 rounded-lg bg-purple-900 p-8 text-white flex flex-col items-center gap-8 text-center">
+                <section className="mt-12 w-full px-4 rounded-lg bg-[#4C1D95] p-8 text-white flex flex-col items-center gap-8 text-center">
                   <h2 className="text-3xl font-semibold mb-8">Statements of Satisfaction</h2>
                   <div className="flex flex-col sm:flex-row gap-8 w-full max-w-4xl">
                     {/* Card 1 */}
@@ -523,13 +523,25 @@ export default function Welcome() {
                   <hr className="w-full border-t-2 border-dashed border-purple-900" />
                 </div>
                 {/* New coverage section above NavFooter */}
-                <div className="mt-12 w-full px-4 rounded-lg bg-purple-800 p-8 text-white flex flex-col items-center gap-4 text-center">
+                <div className="mt-12 w-full px-4 rounded-lg bg-[#4C1D95] p-8 text-white flex flex-col items-center gap-4 text-center">
                   <h2 className="text-2xl font-semibold">
                     Coverage That Moves With You.<br />Choose Ezcare.
                   </h2>
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4">
-                    <button className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-md transition-colors"> Pricing </button>
-                    <button className="bg-white text-purple-700 px-4 py-2 rounded-md transition-colors"> Get Free Quote </button>
+                    <a
+                      href="/plans"
+                      className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-md transition-colors text-center"
+                    >
+                      Pricing
+                    </a>
+                    <a
+                      href="https://wa.me/60132880177"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white text-purple-700 px-4 py-2 rounded-md transition-colors text-center"
+                    >
+                      Get Free Quote
+                    </a>
                   </div>
                 </div>
                 <NavFooter />
