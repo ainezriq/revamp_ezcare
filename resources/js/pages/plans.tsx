@@ -173,7 +173,18 @@ export default function Plans() {
   );
 
   const ComparisonTable = ({ data }: { data: any }) => (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+    <div
+      className={`bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 ${
+        (data.title.includes('ELECTRIC VEHICLE') || data.title.includes('BIKERS'))
+          ? 'w-full'
+          : ''
+      }`}
+      style={
+        (data.title.includes('ELECTRIC VEHICLE') || data.title.includes('BIKERS'))
+          ? { maxWidth: '100%' }
+          : {}
+      }
+    >
       <div className="overflow-x-auto">
         <div className="min-w-full">
           {/* Header */}
@@ -238,7 +249,7 @@ export default function Plans() {
         <Navbar />
         <div className="max-w-5xl mx-auto px-4 pt-24 pb-8">
           {Object.entries(warrantyPlansData)
-            .filter(([sectionKey]) => sectionKey !== 'optional_add_on_hybrid_coverage') // Remove the collapse for hybrid coverage
+            .filter(([sectionKey]) => sectionKey !== 'optional_add_on_hybrid_coverage')
             .map(([sectionKey, sectionData]) => (
               <Collapsible key={sectionKey} open={openSection === sectionKey}>
                 <CollapsibleTrigger
@@ -255,9 +266,15 @@ export default function Plans() {
                   </span>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-10 pb-20 flex flex-wrap gap-8 justify-start items-start">
-                  <div className="flex-1 min-w-[320px] max-w-[720px]">
-                    <ComparisonTable data={sectionData} />
-                  </div>
+                  {(sectionKey === 'ev' || sectionKey === 'bikers') ? (
+                    <div className="w-full">
+                      <ComparisonTable data={sectionData} />
+                    </div>
+                  ) : (
+                    <div className="flex-1 min-w-[320px] max-w-[720px]">
+                      <ComparisonTable data={sectionData} />
+                    </div>
+                  )}
                   {(sectionKey === 'used' || sectionKey === 'reconditioned' || sectionKey === 'supercar') && (
                     <div className="w-full sm:w-72 bg-white rounded-lg shadow-md border border-gray-200 p-6 flex flex-col justify-between">
                       <h3 className="text-purple-800 font-bold mb-4 text-center text-sm sm:text-base">OPTIONAL ADD ON HYBRID COVERAGE</h3>
@@ -279,37 +296,37 @@ export default function Plans() {
                 </CollapsibleContent>
               </Collapsible>
           ))}
-
-          <div className="mt-20 bg-purple-100 rounded-lg p-8 text-center max-w-full mx-4 sm:mx-8 md:mx-auto">
-            <h2 className="text-2xl font-bold mb-4">Ezcare by the Numbers</h2>
-            <p className="mb-2">Underwritten by:</p>
-            <img
-              src="/pacific-insurance-logo.png"
-              alt="Pacific Insurance"
-              className="mx-auto mb-2"
-              style={{ maxWidth: '400px' }}
-            />
-            <div className="flex justify-center gap-16">
-              <div>
-                <img
-                  src="clipboard-icon.png"
-                  alt="Registered Plans"
-                  className="mx-auto mb-2"
-                  style={{ width: '80px', height: '80px' }}
-                />
-                <p className="text-3xl font-semibold">{formatCount(registeredPlansCount, 'registered')}</p>
-                <p>Registered Plans</p>
-              </div>
-              <div>
-                <img
-                  src="/thumbs-up-icon.png"
-                  alt="Successful Claims"
-                  className="mx-auto mb-2"
-                  style={{ width: '80px', height: '80px' }}
-                />
-                <p className="text-3xl font-semibold">{formatCount(successfulClaimsCount, 'claims')}</p>
-                <p>Successful Claims</p>
-              </div>
+        </div>
+        {/* Move the purple container here, above NavFooter and outside the max-w-5xl container */}
+        <div className="mt-20 bg-purple-100 rounded-lg p-8 text-center w-full">
+          <h2 className="text-2xl font-bold mb-4">Ezcare by the Numbers</h2>
+          <p className="mb-2">Underwritten by:</p>
+          <img
+            src="/pacific-insurance-logo.png"
+            alt="Pacific Insurance"
+            className="mx-auto mb-2"
+            style={{ maxWidth: '400px' }}
+          />
+          <div className="flex justify-center gap-16">
+            <div>
+              <img
+                src="clipboard-icon.png"
+                alt="Registered Plans"
+                className="mx-auto mb-2"
+                style={{ width: '80px', height: '80px' }}
+              />
+              <p className="text-3xl font-semibold">{formatCount(registeredPlansCount, 'registered')}</p>
+              <p>Registered Plans</p>
+            </div>
+            <div>
+              <img
+                src="/thumbs-up-icon.png"
+                alt="Successful Claims"
+                className="mx-auto mb-2"
+                style={{ width: '80px', height: '80px' }}
+              />
+              <p className="text-3xl font-semibold">{formatCount(successfulClaimsCount, 'claims')}</p>
+              <p>Successful Claims</p>
             </div>
           </div>
         </div>
