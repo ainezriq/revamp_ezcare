@@ -422,7 +422,7 @@ export default function Welcome() {
                   </div>
                 </div>
                 {/* Why Choose Ezcare Warranty Section */}
-                <section className="mt-16 bg-purple-700 py-12">
+                <section className="mt-16 bg-purple-900 py-12">
                     <div className="max-w-7xl mx-auto px-6 text-white">
                         <h2 className="text-center text-3xl font-semibold mb-10">Why Choose Ezcare Warranty?</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -492,7 +492,7 @@ export default function Welcome() {
                 {/* Add some bottom padding to avoid clipping */}
                 <div className="pb-12" />
                 {/* Statements of Satisfaction section */}
-                <section className="mt-12 w-full px-4 rounded-lg bg-purple-500 p-8 text-white flex flex-col items-center gap-8 text-center">
+                <section className="mt-12 w-full px-4 rounded-lg bg-purple-900 p-8 text-white flex flex-col items-center gap-8 text-center">
                   <h2 className="text-3xl font-semibold mb-8">Statements of Satisfaction</h2>
                   <div className="flex flex-col sm:flex-row gap-8 w-full max-w-4xl">
                     {/* Card 1 */}
@@ -519,7 +519,7 @@ export default function Welcome() {
                   </div>
                 </section>
                 {/* New coverage section above NavFooter */}
-                <div className="mt-12 w-full px-4 rounded-lg bg-purple-700 p-8 text-white flex flex-col items-center gap-6 text-center">
+                <div className="mt-12 w-full px-4 rounded-lg bg-purple-900 p-8 text-white flex flex-col items-center gap-6 text-center">
                   <h2 className="text-2xl font-semibold">
                     Coverage That Moves With You.<br />Choose Ezcare.
                   </h2>
