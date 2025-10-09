@@ -21,14 +21,14 @@ export default function About() {
             </h1>
           </div>
         </div>
-        <div className="bg-purple-200 rounded-lg p-6 mt-8 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-6">
+        <div className="bg-[#4C1D95] rounded-lg p-6 mt-8 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-6">
           <img
             src="/about2.jpg"
             alt="Ezcare Building"
             className="w-full md:w-1/3 rounded-lg object-cover"
             style={{ maxHeight: '300px' }}
           />
-          <div className="text-black text-base md:text-lg">
+          <div className="text-white text-base md:text-lg">
             <h2 className="text-center md:text-left font-bold text-3xl mb-4">Our Story</h2>
             <p className="mb-4">
               Ezcare Warranty is a leading after-market provider for reconditioned and pre-owned vehicles, including hybrids, EVs, and high-performance motorcycles.
@@ -85,7 +85,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="bg-purple-700 text-white py-12 mt-12">
+        <div className="bg-purple-900 text-white py-12 mt-12">
           <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-center text-3xl font-bold mb-12">Ezcare Offices Across Malaysia & Indonesia</h2>
 

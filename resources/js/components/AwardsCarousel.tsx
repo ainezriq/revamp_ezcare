@@ -86,11 +86,11 @@ export function AwardsCarousel() {
                 className="group relative bg-white rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:scale-105"
                 onClick={() => handleCertificateClick(certificate)}
               >
-                <div className="aspect-w-4 aspect-h-3 bg-gray-50 p-6 flex items-center justify-center min-h-[300px]">
+                <div className="aspect-w-4 aspect-h-3 bg-gray-50 p-6 flex items-center justify-center min-h-[200px] md:min-h-[300px]">
                   <img
                     src={certificate.image}
                     alt={certificate.alt}
-                    className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="w-full h-auto max-h-72 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="p-4 bg-white">
