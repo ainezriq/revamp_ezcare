@@ -232,9 +232,16 @@ export default function Plans() {
           {/* CTA Button - only one for each PLAN, not for each plan column */}
           <div className="bg-gray-50 p-4">
             <div className="flex justify-end">
-              <button className="bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg py-2 px-6 text-xs font-semibold hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-md">
+              <a
+                href={`https://wa.me/60132880177?text=${encodeURIComponent(
+                  `Hi, can I get a quote on ${data.title}?`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg py-2 px-6 text-xs font-semibold hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-md flex items-center justify-center"
+              >
                 Get a FREE Quotation
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -299,9 +306,16 @@ export default function Plans() {
                         ))}
                       </ul>
                       <div className="mt-6 text-center">
-                        <button className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg py-2 px-4 text-xs font-semibold hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-md">
+                        <a
+                          href={`https://wa.me/60132880177?text=${encodeURIComponent(
+                            `Hi, can I get a quote on ${sectionData.title} include OPTIONAL ADD ON HYBRID COVERAGE?`
+                          )}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg py-2 px-4 text-xs font-semibold hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-md flex items-center justify-center"
+                        >
                           Get a FREE Quotation
-                        </button>
+                        </a>
                       </div>
                     </div>
                   )}
