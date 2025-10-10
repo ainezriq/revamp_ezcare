@@ -27,7 +27,7 @@ const certificates: Certificate[] = [
     image: '/cert1.png',
     alt: 'MIAPEX Certificate',
     title: 'MIAPEX19 Participation',
-    description: 'EZCare Warranty participated as an exhibitor at the Malaysia International Automotive & Parts Expo (MIAPEX19), held at the Mines International Exhibition & Convention Centre. This event brought together key players in the automotive industry, offering a platform for innovation, networking, and showcasing cutting-edge solutions. EZCare’s presence highlighted its commitment to engaging with industry stakeholders and promoting excellence in after-sales warranty services for reconditioned and pre-owned vehicles.',
+    description: 'Ezcare Warranty participated as an exhibitor at the Malaysia International Automotive & Parts Expo (MIAPEX19), held at the Mines International Exhibition & Convention Centre. This event brought together key players in the automotive industry, offering a platform for innovation, networking, and showcasing cutting-edge solutions. Ezcare’s presence highlighted its commitment to engaging with industry stakeholders and promoting excellence in after-sales warranty services for reconditioned and pre-owned vehicles.',
     issuer: 'MotoNation (on behalf of MIAPEX)',
     date: '24–27 October 2019',
     category: 'Industry Participation (Exhibitor)'
