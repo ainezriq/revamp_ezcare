@@ -17,40 +17,80 @@ const certificates: Certificate[] = [
     image: '/cert2.png',
     alt: 'Superbrands Certificate',
     title: 'Superbrands Recognition',
-    description: 'Recognized as a leading brand in the automotive warranty industry for exceptional service and customer trust.',
-    issuer: 'Superbrands Council',
-    date: '2023',
+    description: 'Ezcare Warranty was awarded Superbrand Status in 2020 by the Malaysia Superbrands Council, following a rigorous selection process that highlights outstanding brand reputation, market dominance, and customer trust. This recognition affirms Ezcare’s commitment to delivering reliable, high-quality warranty services across Malaysia and beyond. Being named a Superbrand places Ezcare among the top-tier brands that consistently exceed industry standards and customer expectations.',
+    issuer: 'Superbrands Malaysia Council',
+    date: '2020',
     category: 'Brand Excellence'
   },
   {
     id: 2,
     image: '/cert1.png',
     alt: 'MIAPEX Certificate',
-    title: 'MIAPEX Participation Certificate',
-    description: 'Certificate of participation in the Malaysia International Automotive Parts & Accessories Expo.',
-    issuer: 'MIAPEX',
-    date: '2023',
-    category: 'Industry Participation'
+    title: 'MIAPEX19 Participation',
+    description: 'EZCare Warranty participated as an exhibitor at the Malaysia International Automotive & Parts Expo (MIAPEX19), held at the Mines International Exhibition & Convention Centre. This event brought together key players in the automotive industry, offering a platform for innovation, networking, and showcasing cutting-edge solutions. EZCare’s presence highlighted its commitment to engaging with industry stakeholders and promoting excellence in after-sales warranty services for reconditioned and pre-owned vehicles.',
+    issuer: 'MotoNation (on behalf of MIAPEX)',
+    date: '24–27 October 2019',
+    category: 'Industry Participation (Exhibitor)'
   },
   {
     id: 3,
     image: '/cert3.png',
-    alt: 'Industry Leadership Award',
-    title: 'Industry Leadership Award',
-    description: 'Recognition for outstanding leadership and innovation in the automotive warranty sector.',
-    issuer: 'ASEAN Insurance Council',
-    date: '2023',
-    category: 'Leadership Excellence'
+    alt: 'Sponsorship Appreciation',
+    title: 'KUASA 5th Anniversary Sponsorship Appreciation',
+    description: 'Ezcare was honored by the Kuala Lumpur & Selangor Automotive Charity Association (KUASA) during its 5th anniversary celebration, in recognition of Ezcare’s generous sponsorship and meaningful contribution to the association’s charitable initiatives. This appreciation reflects Ezcare’s commitment not only to automotive excellence, but also to community engagement and social responsibility—supporting causes that uplift industry professionals and local communities alike.',
+    issuer: 'Kuala Lumpur & Selangor Automotive Charity Association (KUASA)',
+    date: '17 February 2019',
+    category: 'Sponsorship Appreciation'
   },
   {
     id: 4,
     image: '/cert4.png',
     alt: 'EVMASIA Certificate',
-    title: 'EVMASIA Partnership Certificate',
-    description: 'Certificate of partnership for advancing electric vehicle warranty solutions and services.',
-    issuer: 'EVMASIA',
-    date: '2022',
-    category: 'Strategic Partnership'
+    title: 'EV MASIA 22 Participation',
+    description: 'Ezcare participated in EV MASIA 22, a premier event focused on electric vehicles and sustainable mobility, held at MITEC Kuala Lumpur. This recognition highlights Ezcare’s proactive engagement in the evolving EV landscape, showcasing its commitment to future-forward automotive solutions. By joining forces with industry leaders and innovators, Ezcare continues to explore new frontiers in warranty services that align with Malaysia’s green mobility goals.',
+    issuer: 'EV MASIA (in partnership with Smart Nation Expo, MARii, MIGHT, and others)',
+    date: '27–29 September 2022',
+    category: 'Industry Participation (Electric Vehicle & Sustainable Mobility Expo)'
+  },
+  {
+    id: 5,
+    image: '/cert5.png',
+    alt: 'EVTech Talk & Training Attendance',
+    title: 'EV Tech Talk & Training Attendance',
+    description: 'Ezcare participated in the EV Tech Talk & Training session held at Bangi Golf Resort, an event dedicated to advancing knowledge in electric vehicle systems and sustainable mobility. Organized in collaboration with UKM and KWT, this training reflects Ezcare’s ongoing commitment to upskilling its team and staying ahead of emerging automotive technologies. By engaging in technical forums like this, Ezcare reinforces its role as a forward-thinking warranty provider in Malaysia’s evolving EV ecosystem.',
+    issuer: 'Universiti Kebangsaan Malaysia (UKM), in collaboration with Ezcare and KWT',
+    date: '16 July 2023',
+    category: 'Technical Training & Knowledge Sharing (Electric Vehicle Technology)'
+  },
+  {
+    id: 6,
+    image: '/cert6.png',
+    alt: 'Tesla Repair Level 3 Intensive Training',
+    title: 'Tesla Repair Level 3 Intensive Training',
+    description: 'Ezcare successfully completed the Tesla Repair Level 3 Intensive Training, a specialized program conducted by YSNEV and KWT to deepen technical expertise in high-voltage electric vehicle systems. Held at Ezcare’s own facility in Bandar Baru Bangi, this training reflects Ezcare’s dedication to mastering advanced EV diagnostics and repair protocols—especially for premium brands like Tesla. This milestone reinforces Ezcare’s position as a trusted, future-ready warranty and service provider in Malaysia’s evolving automotive landscape.',
+    issuer: 'YSNEV (in collaboration with KWT and Ezcare)',
+    date: '18–24 July 2023',
+    category: 'Technical Training – Tesla Vehicle Repair (Level 3 Intensive)'
+  },
+  {
+    id: 7,
+    image: '/cert7.png',
+    alt: 'FMC 37th Anniversary Appreciation',
+    title: 'FMC 37th Anniversary Appreciation',
+    description: 'Ezcare was recognized by Persatuan Perniagaan Motor dan Kredit Pahang (FMC) during its 37th Anniversary Dinner for its valued support and contribution to the association’s ongoing efforts in the automotive and credit industry. This appreciation reflects Ezcare’s dedication to building strong industry relationships and supporting regional initiatives that promote growth, collaboration, and community engagement within Malaysia’s automotive sector.',
+    issuer: 'Persatuan Perniagaan Motor dan Kredit Pahang (FMC)',
+    date: '10 November 2018',
+    category: 'Appreciation for Support & Participation'
+  },
+  {
+    id: 8,
+    image: '/cert8.png',
+    alt: 'Asia Automotive Award - Rising Star',
+    title: 'Asia Automotive Award - Rising Star',
+    description: 'Ezcare’s very own Ahmad Bin Ibrahim was honored with the Rising Star Award at the Asia Automotive Award 2019, recognizing outstanding leadership and innovation in the field of automotive warranty services. Presented by MotoNation and SpanarBoy, this award celebrates emerging industry figures who are driving change, elevating service standards, and shaping the future of automotive care in Malaysia. Ahmad’s achievement reflects Ezcare’s culture of excellence, growth, and forward-thinking service delivery.',
+    issuer: 'MotoNation & SpanarBoy (as part of Asia Automotive Award 2019)',
+    date: '2019',
+    category: 'Rising Star Award – Automotive Warranty Services'
   }
 ];
 
@@ -71,7 +111,7 @@ export function AwardsCarousel() {
   return (
     <>
       <div className="bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 py-16">
-        <div className="max-w-2xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">Awards & Recognitions</h2>
             <p className="text-purple-100 text-lg max-w-3xl mx-auto">
@@ -79,7 +119,7 @@ export function AwardsCarousel() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {certificates.map((certificate) => (
               <div
                 key={certificate.id}
