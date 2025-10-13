@@ -219,7 +219,7 @@ export default function Welcome() {
                         <div className="flex flex-col gap-4">
                           {/* Name Field */}
                           <div>
-                            <label className="block text-sm font-medium text-white mb-1">Name</label>
+                            <label className="block text-sm font-medium text-white mb-1">Name<span className="text-red-500">*</span></label>
                             <input
                               type="text"
                               name="name"
@@ -232,7 +232,7 @@ export default function Welcome() {
                           </div>
                           {/* Email Field */}
                           <div>
-                            <label className="block text-sm font-medium text-white mb-1">Email</label>
+                            <label className="block text-sm font-medium text-white mb-1">Email<span className="text-red-500">*</span></label>
                             <input
                               type="email"
                               name="email"
@@ -245,7 +245,7 @@ export default function Welcome() {
                           </div>
                           {/* Phone Number Field */}
                           <div>
-                            <label className="block text-sm font-medium text-white mb-1">Phone Number</label>
+                            <label className="block text-sm font-medium text-white mb-1">Phone Number<span className="text-red-500">*</span></label>
                             <input
                               type="tel"
                               name="phoneNumber"
@@ -261,7 +261,7 @@ export default function Welcome() {
                         <div className="flex flex-col gap-4">
                           {/* Vehicle Model Field */}
                           <div>
-                            <label className="block text-sm font-medium text-white mb-1">Vehicle Model</label>
+                            <label className="block text-sm font-medium text-white mb-1">Vehicle Model<span className="text-red-500">*</span></label>
                             <input
                               type="text"
                               name="vehicleModel"
@@ -274,7 +274,7 @@ export default function Welcome() {
                           </div>
                           {/* Vehicle Year Field */}
                           <div>
-                            <label className="block text-sm font-medium text-white mb-1">Vehicle Year</label>
+                            <label className="block text-sm font-medium text-white mb-1">Vehicle Year<span className="text-red-500">*</span></label>
                             <input
                               type="text"
                               name="vehicleYear"
@@ -287,7 +287,7 @@ export default function Welcome() {
                           </div>
                           {/* Message Field */}
                           <div>
-                            <label className="block text-sm font-medium text-white mb-1">Message</label>
+                            <label className="block text-sm font-medium text-white mb-1">Message<span className="text-red-500">*</span></label>
                             <textarea
                               name="message"
                               value={formData.message}
