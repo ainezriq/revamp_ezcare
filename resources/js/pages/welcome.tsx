@@ -472,7 +472,7 @@ export default function Welcome() {
                               <div className="bg-white text-purple-700 rounded-lg shadow-md p-4 sm:p-6 flex flex-col items-center text-center relative">
                                 <div className="absolute -top-4 left-4 bg-purple-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold">7</div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" d="m11.998 2l.032.002l.086.005a1 1 0 0 1 .342.104l.105.062l.097.076l.016.015l.247.21a11 11 0 0 0 7.189 2.537l.342-.01a1 1 0 0 1 1.005.717a13 13 0 0 1-9.208 16.25a1 1 0 0 1-.502 0A13 13 0 0 1 2.54 5.718a1 1 0 0 1 1.005-.717a11 11 0 0 0 7.791-2.75l.046-.036l.053-.041a1 1 0 0 1 .217-.112l.075-.023l.036-.01a1 1 0 0 1 .12-.022l.086-.005zM12 4.296l-.176.135a13 13 0 0 1-7.288 2.572l-.264.006l-.064.31a11 11 0 0 0 1.064 7.175l.17.314a11 11 0 0 0 6.49 5.136l.068.019z"/></svg>
-                                <h3 className="font-semibold mb-1">Warranty Coverage Up to RM50,000.00</h3>
+                                <h3 className="font-semibold mb-1">Highest Warranty Coverage</h3>
                                 <p className="text-sm">Comprehensive warranty coverage up to RM50,000.00</p>
                               </div>
                               {/* Card 8 */}
