@@ -101,7 +101,7 @@ export default function Contact() {
                 </div>
                 <div className="h-48 rounded-b-lg overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dO_BzDi2rGP1dE&q=NO+1A+3A+Jalan+8+1+Seksyen+8+43650+Bandar+Baru+Bangi+Selangor+Malaysia"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3984.4828058114144!2d101.746819!3d2.9634502!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4f94cde47edb%3A0x942aa8ca156ea69a!2sEzcare%20Warranty!5e0!3m2!1sen!2smy!4v1760319624913!5m2!1sen!2smy"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -125,7 +125,7 @@ export default function Contact() {
                 </div>
                 <div className="h-48 rounded-b-lg overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dO_BzDi2rGP1dE&q=12+Jalan+Setia+Tropika+1+7+Taman+Setia+Tropika+81200+Johor+Bahru+Johor+Malaysia"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.3650575597926!2d103.70823277477791!3d1.5464871984390502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da73618aa4d423%3A0x448da1408af84819!2sEzcare%20Warranty%20(Southern%20Region)!5e0!3m2!1sen!2smy!4v1760319757624!5m2!1sen!2smy" 
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -149,7 +149,7 @@ export default function Contact() {
                 </div>
                 <div className="h-48 rounded-b-lg overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dO_BzDi2rGP1dE&q=LOT+3225+SL+12+ITSHMUS+SHOWROOM+Jalan+Kebun+93450+Kuching+Sarawak+Malaysia"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.3225085441363!2d110.40580377477791!3d1.5689644984163849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba707355a7f1b%3A0xe4549308aa7e4e3d!2sEzcare%20Warranty%20(East%20Malaysia%20Region)!5e0!3m2!1sen!2smy!4v1760319886390!5m2!1sen!2smy" 
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -173,7 +173,7 @@ export default function Contact() {
                 </div>
                 <div className="h-48 rounded-b-lg overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dO_BzDi2rGP1dE&q=JL+RS+FATMAWATI+RAYA+NO+98+RT+2+RW+7+GANDARIA+UTARA+KEC+KEBAYORAN+BARU+KOTA+JAKARTA+SELATAN+DAERAH+KHUSUS+IBUKOTA+JAKARTA+12140+Indonesia"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.009177949265!2d106.79394847480354!3d-6.262520393726061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1ab02de7bc7%3A0x7ea27c7b3a3cb85a!2sEzcare%20Warranty%20Indonesia!5e0!3m2!1sen!2smy!4v1760319827642!5m2!1sen!2smy" 
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
