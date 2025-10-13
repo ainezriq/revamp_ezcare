@@ -324,14 +324,13 @@ export default function Plans() {
           ))}
         </div>
         {/* Move the purple container here, above NavFooter and outside the max-w-5xl container */}
-        <div className="mt-20 bg-purple-100 rounded-lg p-8 text-center w-full">
-          <h2 className="text-2xl font-bold mb-4">Ezcare by the Numbers</h2>
-          <p className="mb-2">Underwritten by:</p>
+        <div className="mt-20 bg-[#4C1D95] rounded-lg p-8 text-center w-full text-white">
+          <h2 className="text-2xl font-bold mb-4 text-white">Underwritten by:</h2>
           <img
             src="/pacific-insurance-logo.png"
             alt="Pacific Insurance"
             className="mx-auto mb-2"
-            style={{ maxWidth: '400px' }}
+            style={{ maxWidth: '500px' }}
           />
           <div className="flex justify-center gap-16">
             <div>
@@ -341,7 +340,7 @@ export default function Plans() {
                 className="mx-auto mb-2"
                 style={{ width: '80px', height: '80px' }}
               />
-              <p className="text-3xl font-semibold">{formatCount(registeredPlansCount, 'registered')}</p>
+              <p className="text-3xl text-white font-semibold">{formatCount(registeredPlansCount, 'registered')}</p>
               <p>Registered Plans</p>
             </div>
             <div>
@@ -351,7 +350,7 @@ export default function Plans() {
                 className="mx-auto mb-2"
                 style={{ width: '80px', height: '80px' }}
               />
-              <p className="text-3xl font-semibold">{formatCount(successfulClaimsCount, 'claims')}</p>
+              <p className="text-3xl font-semibold text-white">{formatCount(successfulClaimsCount, 'claims')}</p>
               <p>Successful Claims</p>
             </div>
           </div>

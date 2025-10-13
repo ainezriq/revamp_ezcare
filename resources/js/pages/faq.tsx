@@ -203,7 +203,7 @@ export default function FAQ() {
             </div>
 
             {/* Still Need Help Section */}
-            <div className="mt-16 bg-purple-600 text-white rounded-lg p-8 text-center">
+            <div className="mt-16 bg-[#4C1D95] text-white rounded-lg p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Still Need Help?</h3>
               <p className="text-lg mb-6 opacity-90">
                 Can't find the answer you're looking for? Our support team is here to help.

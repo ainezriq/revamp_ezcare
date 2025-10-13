@@ -126,17 +126,17 @@ ${formData.name}`
             </div>
 
             {/* Career Application Form */}
-            <div className="bg-purple-200 rounded-lg p-8 shadow-lg border border-gray-200">
+            <div className="bg-[#4C1D95] rounded-lg p-8 shadow-lg border border-gray-200 text-white">
               <div className="flex items-center justify-center mb-8">
                 <svg className="mr-4" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"><path d="m9.485 16.248l-1.963 3.927c-.491.884-1.571 1.178-2.455.687c-.687-.49-.982-1.374-.589-2.16l1.178-2.454m8.64-3.828v-.884c0-1.768-1.276-3.338-2.945-3.633a2.65 2.65 0 0 0-1.458 0"/><path d="M2.318 16.248L1.14 18.703c-.352.736-.098 1.669.59 2.16c.883.49 1.963.196 2.454-.688l.17-.322m6.408-13.525a2.454 2.454 0 1 0 0-4.908a2.454 2.454 0 0 0 0 4.908m-2.416 7.024H2.652a.74.74 0 0 1-.687-.491l-.97-3.532c-.095-.357.184-.886.675-.886h4.713c.294 0 .589.196.687.49zm2.946 0H8.346m12.45 2.945c.393-.393.59-.982.59-1.669v-2.945l-1.965.981h-.981l-1.964-.981v2.945c0 .687.295 1.375.786 1.865m3.534-.196l1.767 2.553c.295.49.46 1.097.46 1.686v.098c0 1.08-.852 1.947-1.932 1.947H15.2m2.258-6.087v6.087"/></g></svg>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-2xl font-bold text-white">
                   Career Form
                 </h3>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Field */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Name
                   </label>
                   <input
@@ -152,7 +152,7 @@ ${formData.name}`
 
                 {/* Phone Number Field */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Phone Number
                   </label>
                   <input
@@ -168,7 +168,7 @@ ${formData.name}`
 
                 {/* Resume/CV Upload */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Resume/CV
                   </label>
                   <input
@@ -176,12 +176,12 @@ ${formData.name}`
                     accept=".pdf,.doc,.docx"
                     className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100 bg-white"
                   />
-                  <p className="text-xs text-gray-500 mt-1">Please attach your resume/CV file (PDF, DOC, or DOCX)</p>
+                  <p className="text-xs text-white mt-1">Please attach your resume/CV file (PDF, DOC, or DOCX)</p>
                 </div>
 
                 {/* Area of Interest */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Area of Interest
                   </label>
                   <select
@@ -206,7 +206,7 @@ ${formData.name}`
 
                 {/* Message Field */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Message
                   </label>
                   <textarea
@@ -223,7 +223,7 @@ ${formData.name}`
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-gray-900 text-white px-8 py-3 rounded-md font-medium hover:bg-gray-800 transition-colors"
+                    className="bg-white text-[#4C1D95] px-8 py-3 rounded-md font-medium hover:bg-blue transition-colors"
                   >
                     Send Application via Email
                   </button>

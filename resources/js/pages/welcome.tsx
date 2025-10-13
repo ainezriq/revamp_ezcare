@@ -312,6 +312,11 @@ export default function Welcome() {
                     </form>
                   </div>
                 </div>
+                {/* Wording */}
+            <div className="mt-6 text-right text-sm">
+              <p>No Limits. Just Coverage.</p>
+              <p>Drive anywhere, fix anywhere. Ezcare’s open workshop concept puts you in control.</p>
+            </div>
                 {/* Purple container with 4-image carousel and text */}
                 <div className="mt-12 max-w-8xl mx-auto rounded-lg bg-[#4C1D95] p-8 flex justify-center items-center">
                   <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-4xl mx-auto text-center">
