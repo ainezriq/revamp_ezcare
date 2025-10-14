@@ -27,8 +27,8 @@ export default function PolicyHolder() {
         'https://www.systemmy.ezcare-warranty.com/api/customer/check-policy',
         {
           params: {
-            plate_number: plateNumber,
-            phone: phoneNumber,
+            vehicle_registration_number: plateNumber,
+            phone_no: phoneNumber,
           },
         }
       );
@@ -36,11 +36,14 @@ export default function PolicyHolder() {
       if (response.data && (response.data.policy_no || response.data.status_code)) {
         setPolicy(response.data);
       } else {
-        setError('No policy found for the provided details.');
+        setError('Great news! We’ve found your policy. All the details are listed below.');
       }
+      setPolicy(response.data);
+      alert('Successfully fetched policy details.');
     } catch (err) {
       console.error(err);
-      setError('Failed to fetch policy details. Please try again.');
+      setError('We couldn’t find a matching policy. Double-check your plate and phone number, then try again.');
+      alert('An error occurred while fetching policy details. Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -63,7 +66,7 @@ export default function PolicyHolder() {
               type="text"
               value={plateNumber}
               onChange={(e) => setPlateNumber(e.target.value.toUpperCase())}
-              placeholder="e.g. ABC1234"
+              placeholder="e.g. BDR5431"
               className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 focus:ring-2 focus:ring-purple-400 outline-none"
             />
 
@@ -72,7 +75,7 @@ export default function PolicyHolder() {
               type="text"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              placeholder="e.g. 0123456789"
+              placeholder="e.g. 6018228245"
               className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 focus:ring-2 focus:ring-purple-400 outline-none"
             />
 
@@ -97,23 +100,23 @@ export default function PolicyHolder() {
                 <div className="space-y-3 text-gray-700">
                   <p>
                     <span className="font-semibold">Policy Number:</span>{' '}
-                    {policy.policy_no || 'N/A'}
+                    {policy.data.policy_no || 'N/A'}
                   </p>
                   <p>
                     <span className="font-semibold">Status Code:</span>{' '}
-                    {policy.status_code || 'N/A'}
+                    {policy.data.status_code || 'N/A'}
                   </p>
                   <p>
                     <span className="font-semibold">Activated At:</span>{' '}
-                    {policy.activated_at || 'N/A'}
+                    {policy.data.activated_at || 'N/A'}
                   </p>
                   <p>
                     <span className="font-semibold">Expired At:</span>{' '}
-                    {policy.expired_at || 'N/A'}
+                    {policy.data.expired_at || 'N/A'}
                   </p>
                   <p>
                     <span className="font-semibold">Warranty Plan:</span>{' '}
-                    {policy.warranty_plan || 'N/A'}
+                    {policy.data.warranty_plan || 'N/A'}
                   </p>
                 </div>
               </div>

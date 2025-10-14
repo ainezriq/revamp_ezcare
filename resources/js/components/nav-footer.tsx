@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/react";
 import { useEffect, useRef } from "react";
-import { Twitter, Instagram, Youtube, Linkedin, Phone, Globe, Shield } from "lucide-react";
+import { Twitter, Instagram, Youtube, Facebook, Phone, Globe, Shield } from "lucide-react";
 
 export function NavFooter() {
   const visitorCounterRef = useRef<HTMLDivElement | null>(null);
@@ -52,17 +52,17 @@ export function NavFooter() {
               {/* Phone Number */}
               <div className="flex items-center space-x-3 text-gray-900 text-sm">
                 <Phone className="h-5 w-5 flex-shrink-0" />
-                <span>0389220571</span>
+                <span>03-89220571</span>
               </div>
 
               {/* Website */}
               <div className="flex items-start space-x-3 text-gray-900 text-sm">
                 <Globe className="h-5 w-5 flex-shrink-0 mt-0.5" />
                 <Link
-                  href="https://www.systemmy.ezcare-warranty.com/"
+                  href="https://www.my.ezcare-warranty.com/"
                   className="hover:text-[#4C1D95] break-words leading-relaxed"
                 >
-                  https://www.systemmy.ezcare-warranty.com/
+                  https://www.my.ezcare-warranty.com/
                 </Link>
               </div>
             </div>
@@ -78,8 +78,8 @@ export function NavFooter() {
               <Link href="#" aria-label="YouTube" className="hover:text-[#4C1D95] transition-colors">
                 <Youtube className="h-6 w-6" />
               </Link>
-              <Link href="#" aria-label="LinkedIn" className="hover:text-[#4C1D95] transition-colors">
-                <Linkedin className="h-6 w-6" />
+              <Link href="#" aria-label="Facebook" className="hover:text-[#4C1D95] transition-colors">
+                <Facebook className="h-6 w-6" />
               </Link>
             </div>
           </div>
@@ -103,8 +103,8 @@ export function NavFooter() {
           <div>
             <h3 className="text-md font-semibold mb-3">Support Center</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="text-gray-900 hover:text-[#4C1D95]">Contact Us</Link></li>
-              <li><Link href="#" className="text-gray-900 hover:text-[#4C1D95]">FAQ</Link></li>
+              <li><Link href="/faq" className="text-gray-900 hover:text-[#4C1D95]">Contact Us</Link></li>
+              <li><Link href="/contact" className="text-gray-900 hover:text-[#4C1D95]">FAQ</Link></li>
             </ul>
           </div>
         </div>
