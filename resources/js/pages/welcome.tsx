@@ -378,10 +378,10 @@ export default function Welcome() {
                     {/* Right text content */}
                     <div className="flex flex-col items-center justify-center text-center w-full">
                       <h2 className="mb-4 font-semibold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight">
-                        Now with Ezcare Mobile App - Warranty at Your Fingertips!
+                        Now with Ezcare Warranty SuperApp - Warranty at Your Fingertips!
                       </h2>
                       <p className="mb-6 text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-snug max-w-lg">
-                        Say goodbye to bulky booklets. As a warranty holder, you can easily access your policy, track claims, and get support anytime, anywhere - all through the Ezcare app.
+                        Say goodbye to bulky booklets. As a warranty holder, you can easily access your policy, track claims, and get support anytime, anywhere - all through the Ezcare SuperApp.
                       </p>
                       <div className="flex space-x-4 justify-center">
                         <a href="https://play.google.com/store/apps/details?id=com.ezcare.ezcaresuperapp" aria-label="Google Play Store">
@@ -436,7 +436,7 @@ export default function Welcome() {
                                 <div className="absolute -top-4 left-4 bg-purple-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold">1</div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" d="M6 20V4zm9.925 3q-.65 0-1.225-.262t-1-.738l-4.475-5.35q-.25-.3-.225-.687t.3-.663l.475-.5q.45-.45 1.1-.562t1.225.187l2.9 1.45V7h2q1.65 0 2.825 1.175T21 11v8q0 1.65-1.175 2.825T17 23zM6 22q-.825 0-1.412-.587T4 20V4q0-.825.588-1.412T6 2h9q.825 0 1.413.588T17 4v3h-2V4H6v16h6.025l1.675 2zm4.5-15q.425 0 .713-.288T11.5 6t-.288-.712T10.5 5t-.712.288T9.5 6t.288.713T10.5 7m5.425 14H17q.825 0 1.413-.575T19 19v-8q0-.825-.587-1.412T17 9v8.5q0 .575-.475.863t-.975.037l-3.875-1.925l3.475 4.175q.15.175.35.263t.425.087"/></svg>
                                 <h3 className="font-semibold mb-1">Easy Policy Access</h3>
-                                <p className="text-sm">Access your policy anytime, anywhere with ease with our Mobile Apps.</p>
+                                <p className="text-sm">Access your policy anytime, anywhere with ease with our SuperApp.</p>
                               </div>
                               {/* Card 2 */}
                               <div className="bg-white text-purple-700 rounded-lg shadow-md p-4 sm:p-6 flex flex-col items-center text-center relative">
