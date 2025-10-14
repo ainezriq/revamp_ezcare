@@ -137,7 +137,7 @@ ${formData.name}`
                 {/* Name Field */}
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">
-                    Name
+                    Name<span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -153,7 +153,7 @@ ${formData.name}`
                 {/* Phone Number Field */}
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">
-                    Phone Number
+                    Phone Number<span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
@@ -169,7 +169,7 @@ ${formData.name}`
                 {/* Resume/CV Upload */}
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">
-                    Resume/CV
+                    Resume/CV<span className="text-red-500">*</span>
                   </label>
                   <input
                     type="file"
@@ -182,7 +182,7 @@ ${formData.name}`
                 {/* Area of Interest */}
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">
-                    Area of Interest
+                    Area of Interest<span className="text-red-500">*</span>
                   </label>
                   <select
                     name="areaOfInterest"
@@ -207,7 +207,7 @@ ${formData.name}`
                 {/* Message Field */}
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">
-                    Message
+                    Message<span className="text-red-500">*</span>
                   </label>
                   <textarea
                     rows={4}
