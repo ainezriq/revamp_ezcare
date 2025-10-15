@@ -130,7 +130,7 @@ export function AwardsCarousel() {
                   <img
                     src={certificate.image}
                     alt={certificate.alt}
-                    className="w-full h-auto max-h-72 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="w-full h-auto max-h-72 object-contain group-hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="p-4 bg-white">
