@@ -37,19 +37,19 @@ const companies: Company[] = [
         title: "Vehicle Repair & Maintenance",
         locations: [
           {
-            name: "ECW Motorsports Bandar Baru Bangi (Bengkel Servis Kereta)",
+            name: "ECW Motorsports Bandar Baru Bangi",
             address: "9, Jalan P10/21, Taman Perindustrian Selaman, 43650 Bandar Baru Bangi, Selangor",
-            phone: "012345678"
+            phone: "013-288 0948"
           },
           {
-            name: "ECW Motorsports Kajang (Bengkel Servis Kereta)",
+            name: "ECW Motorsports Kajang",
             address: "534, Jalan Tun Hishammuddin, Sungai Chua, 43000 Kajang, Selangor",
-            phone: "012345678"
+            phone: "013-288 0120"
           },
           {
-            name: "ECW Motorsports Kuching (Bengkel Servis Kereta)",
+            name: "ECW Motorsports Kuching",
             address: "Ground Floor, Lot 3235 (SL12), Ishmus Showroom, Jalan Keruing, 93450 Kuching, Sarawak",
-            phone: "012345678"
+            phone: "013-288 0651"
           }
         ]
       },
@@ -57,9 +57,9 @@ const companies: Company[] = [
         title: "Tyres & Sport Rims",
         locations: [
           {
-            name: "ECW Garage (Tyres & Sport Rims)",
+            name: "ECW Motorsports (Tyres & Sport Rims)",
             address: "38, Jalan 1/2, Seksyen 1, Bandar Teknologi Kajang, 43500 Semenyih, Selangor",
-            phone: "012345678"
+            phone: "013-288 0381"
           }
         ]
       },
@@ -69,7 +69,7 @@ const companies: Company[] = [
           {
             name: "ECW Paint & Body Works",
             address: "41, Jalan P10/21, Seksyen 10, Taman Industri Selaman, 43650 Bandar Baru Bangi, Selangor",
-            phone: "012345678"
+            phone: "013-288 0661"
           }
         ]
       }
