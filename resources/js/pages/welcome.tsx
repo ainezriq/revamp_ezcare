@@ -209,114 +209,136 @@ export default function Welcome() {
                         <div className="absolute inset-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg" />
                     </main>
                 </div>
-                {/* Quote Form placed directly under the banner */}
-                <div className="flex w-full justify-center mt-8">
-                  <div className="bg-[#4C1D95] backdrop-blur-sm rounded-lg p-6 w-full max-w-2xl">
-                    <h2 className="text-2xl font-bold text-center mb-6 text-white">GET YOUR FREE QUOTE</h2>
-                    <form onSubmit={handleSubmit}>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* Left column */}
-                        <div className="flex flex-col gap-4">
-                          {/* Name Field */}
-                          <div>
-                            <label className="block text-sm font-medium text-white mb-1">Name<span className="text-red-500">*</span></label>
-                            <input
-                              type="text"
-                              name="name"
-                              value={formData.name}
-                              onChange={handleInputChange}
-                              placeholder="Value"
-                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
-                              required
-                            />
-                          </div>
-                          {/* Email Field */}
-                          <div>
-                            <label className="block text-sm font-medium text-white mb-1">Email<span className="text-red-500">*</span></label>
-                            <input
-                              type="email"
-                              name="email"
-                              value={formData.email}
-                              onChange={handleInputChange}
-                              placeholder="Value"
-                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
-                              required
-                            />
-                          </div>
-                          {/* Phone Number Field */}
-                          <div>
-                            <label className="block text-sm font-medium text-white mb-1">Phone Number<span className="text-red-500">*</span></label>
-                            <input
-                              type="tel"
-                              name="phoneNumber"
-                              value={formData.phoneNumber}
-                              onChange={handleInputChange}
-                              placeholder="Value"
-                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
-                              required
-                            />
-                          </div>
-                        </div>
-                        {/* Right column */}
-                        <div className="flex flex-col gap-4">
-                          {/* Vehicle Model Field */}
-                          <div>
-                            <label className="block text-sm font-medium text-white mb-1">Vehicle Model<span className="text-red-500">*</span></label>
-                            <input
-                              type="text"
-                              name="vehicleModel"
-                              value={formData.vehicleModel}
-                              onChange={handleInputChange}
-                              placeholder="Value"
-                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
-                              required
-                            />
-                          </div>
-                          {/* Vehicle Year Field */}
-                          <div>
-                            <label className="block text-sm font-medium text-white mb-1">Vehicle Year<span className="text-red-500">*</span></label>
-                            <input
-                              type="text"
-                              name="vehicleYear"
-                              value={formData.vehicleYear}
-                              onChange={handleInputChange}
-                              placeholder="Value"
-                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
-                              required
-                            />
-                          </div>
-                          {/* Message Field */}
-                          <div>
-                            <label className="block text-sm font-medium text-white mb-1">Message<span className="text-red-500">*</span></label>
-                            <textarea
-                              name="message"
-                              value={formData.message}
-                              onChange={handleInputChange}
-                              placeholder="Value"
-                              rows={4}
-                              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500 resize-none"
-                              required
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      {/* Submit Button (full width under fields) */}
-                      <div className="mt-6">
-                        <button
-                          type="submit"
-                          className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-purple-600"
-                        >
-                          GET QUOTE
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                {/* Wording */}
-            <div className="mt-6 text-right text-sm">
-              <p>No Limits. Just Coverage.</p>
-              <p>Drive anywhere, fix anywhere. Ezcare’s open workshop concept puts you in control.</p>
+                
+{/* Quote Form placed directly under the banner */}
+<div className="flex w-full justify-center mt-8 px-4">
+  <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl">
+    {/* Left side - Image and Quote Container */}
+<div className="bg-[#4C1D95] backdrop-blur-sm rounded-lg p-6 w-full lg:w-1/2 flex flex-col justify-center items-center">
+  <div className="w-full h-full flex flex-col justify-center items-center space-y-6">
+    <img
+      src="/transparent_car.png"
+      alt="Ezcare Warranty"
+      className="w-full max-w-md rounded-lg object-cover"
+    />
+    <blockquote className="text-white text-center space-y-2">
+      <p className="text-2xl md:text-3xl font-bold uppercase tracking-wide">
+        No Limits. Just Coverage.
+      </p>
+      <p className="text-lg md:text-xl font-medium">
+        Drive anywhere, fix anywhere. Ezcare’s open workshop concept puts you in control.
+      </p>
+      <footer className="text-sm text-white/70 italic">
+        — Available 24/7 at 1 300 88 8287
+      </footer>
+    </blockquote>
+  </div>
+</div>
+
+
+    {/* Right side - Form Container */}
+    <div className="bg-[#4C1D95] backdrop-blur-sm rounded-lg p-6 w-full lg:w-1/2">
+      <h2 className="text-2xl font-bold text-center mb-6 text-white">GET YOUR FREE QUOTE</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Left column */}
+          <div className="flex flex-col gap-4">
+            {/* Name Field */}
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">Name<span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Value"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                required
+              />
             </div>
+            {/* Email Field */}
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">Email<span className="text-red-500">*</span></label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Value"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                required
+              />
+            </div>
+            {/* Phone Number Field */}
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">Phone Number<span className="text-red-500">*</span></label>
+              <input
+                type="tel"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleInputChange}
+                placeholder="Value"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                required
+              />
+            </div>
+          </div>
+          {/* Right column */}
+          <div className="flex flex-col gap-4">
+            {/* Vehicle Model Field */}
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">Vehicle Model<span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                name="vehicleModel"
+                value={formData.vehicleModel}
+                onChange={handleInputChange}
+                placeholder="Value"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                required
+              />
+            </div>
+            {/* Vehicle Year Field */}
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">Vehicle Year<span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                name="vehicleYear"
+                value={formData.vehicleYear}
+                onChange={handleInputChange}
+                placeholder="Value"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
+                required
+              />
+            </div>
+            {/* Message Field */}
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">Message<span className="text-red-500">*</span></label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="Value"
+                rows={4}
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500 resize-none"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        {/* Submit Button (full width under fields) */}
+        <div className="mt-20">
+          <button
+            type="submit"
+            className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-purple-600"
+          >
+            GET QUOTE
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
                 {/* Purple container with 4-image carousel and text */}
                 <div className="mt-12 max-w-8xl mx-auto rounded-lg bg-[#4C1D95] p-8 flex justify-center items-center">
                   <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-4xl mx-auto text-center">

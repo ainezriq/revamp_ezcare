@@ -11,81 +11,177 @@ interface FAQItem {
 }
 
 const faqData: FAQItem[] = [
-  {
-    id: 1,
-    question: "What types of vehicles does Ezcare Warranty cover?",
-    answer: "Ezcare Warranty covers reconditioned and pre-owned vehicles, including hybrids, EVs, and high-performance motorcycles. We provide comprehensive coverage for various makes and models.",
-    category: "Coverage"
-  },
-  {
-    id: 2,
-    question: "How long does the warranty coverage last?",
-    answer: "Our warranty plans offer flexible coverage periods ranging from 1 to 5 years, depending on the plan you choose. Extended coverage options are also available for additional peace of mind.",
-    category: "Coverage"
-  },
-  {
-    id: 3,
-    question: "What does the warranty cover exactly?",
-    answer: "Our warranty covers major mechanical and electrical components including engine, transmission, electrical systems, air conditioning, and more. Please refer to your specific plan details for complete coverage information.",
-    category: "Coverage"
-  },
-  {
-    id: 4,
-    question: "Can I choose my own repair shop?",
-    answer: "Yes! Ezcare operates on an 'open workshop' concept, allowing you to choose any authorized service center for repairs and maintenance covered under your warranty plan.",
-    category: "Service"
-  },
-  {
-    id: 5,
-    question: "How do I file a warranty claim?",
-    answer: "To file a claim, contact our support team immediately at 03-8922-0571 or email info@ezcare-warranty.com. Provide your policy number, vehicle details, and description of the issue. Our team will guide you through the process.",
-    category: "Claims"
-  },
-  {
-    id: 6,
-    question: "What documents do I need for a claim?",
-    answer: "You'll need your warranty policy document, vehicle registration, proof of maintenance records, and detailed repair estimates. Our claims team will provide specific requirements based on your situation.",
-    category: "Claims"
-  },
-  {
-    id: 7,
-    question: "Is there a deductible for warranty claims?",
-    answer: "Deductible amounts vary by plan and type of repair. Basic plans may have higher deductibles while premium plans offer lower or zero deductibles. Check your specific plan details for exact amounts.",
-    category: "Claims"
-  },
-  {
-    id: 8,
-    question: "Can I transfer my warranty to a new owner?",
-    answer: "Yes, warranty plans are transferable to new vehicle owners. A transfer fee may apply, and the new owner must meet our eligibility requirements. Contact us for transfer procedures.",
-    category: "Policy"
-  },
-  {
-    id: 9,
-    question: "What maintenance is required to keep warranty valid?",
-    answer: "Regular maintenance according to manufacturer specifications is required. Keep detailed records of all services performed. Failure to maintain your vehicle may void warranty coverage.",
-    category: "Maintenance"
-  },
-  {
-    id: 10,
-    question: "Do you offer roadside assistance?",
-    answer: "Yes, many of our premium plans include 24/7 roadside assistance covering towing, battery jump-starts, flat tire changes, fuel delivery, and lockout services.",
-    category: "Service"
-  },
-  {
-    id: 11,
-    question: "How quickly are claims processed?",
-    answer: "Most claims are processed within 24-48 hours after receiving all required documentation. Emergency repairs may be pre-approved for faster service.",
-    category: "Claims"
-  },
-  {
-    id: 12,
-    question: "Can I upgrade my warranty plan?",
-    answer: "Yes, you can upgrade your plan at any time during the coverage period. Additional costs will apply based on the upgrade level and remaining coverage time.",
-    category: "Policy"
-  }
+{
+  id: 1,
+  question: "What types of vehicles does Ezcare Warranty cover?",
+  answer: "Ezcare Warranty covers reconditioned, used vehicles, supercars, including hybrids, EVs, and motorcycles. Coverage applies to a wide range of makes and models.",
+  category: "General"
+},
+{
+  id: 2,
+  question: "How long does the warranty coverage last?",
+  answer: "Our warranty plans offer flexible terms from 1 to 5 years, depending on your selected plan. Extended coverage is available upon request.",
+  category: "General"
+},
+{
+  id: 3,
+  question: "What components are included under the warranty?",
+  answer: "The warranty covers key mechanical and electrical components such as the engine, gearbox, air conditioning, and fuel system. Refer to your plan for full details.",
+  category: "General"
+},
+{
+  id: 4,
+  question: "Are there any parts not covered under the warranty?",
+  answer: "Yes. Wear-and-tear items such as brake pads, tires, batteries, and light bulbs are not covered unless stated in your plan.",
+  category: "General"
+},
+{
+  id: 5,
+  question: "Can I choose my own repair workshop?",
+  answer: "Yes. Ezcare Warranty allows repairs at any authorized or reputable workshop. Simply ensure the workshop provides a quotation before repair approval.",
+  category: "General"
+},
+{
+  id: 6,
+  question: "What should I do if my warranty is about to expire?",
+  answer: "You can contact us to renew or extend your warranty before the expiry date. Early renewal may qualify for special discounts.",
+  category: "General"
+},
+{
+  id: 7,
+  question: "Can I transfer my warranty to a new vehicle owner?",
+  answer: "Yes. Warranties are transferable to new owners for a small administrative fee, provided the vehicle and policy remain eligible.",
+  category: "General"
+},
+{
+  id: 8,
+  question: "What maintenance is required to keep the warranty valid?",
+  answer: "Follow the manufacturer’s service schedule and retain all service receipts. Missing or irregular maintenance can void your warranty.",
+  category: "General"
+},
+{
+  id: 9,
+  question: "Do you provide roadside assistance?",
+  answer: "Yes. Most plans include 24/7 roadside assistance for towing, battery jump-starts, tire changes, fuel delivery, and lockouts.",
+  category: "General"
+},
+{
+  id: 10,
+  question: "Can I upgrade or change my plan later?",
+  answer: "Yes. You may upgrade your plan anytime during your coverage period. Additional costs apply based on your current plan and remaining term.",
+  category: "General"
+},
+{
+  id: 11,
+  question: "Is the warranty valid throughout Malaysia?",
+  answer: "Yes. Ezcare Warranty coverage is valid nationwide, including Sabah and Sarawak, as long as repairs are done at approved workshops.",
+  category: "General"
+},
+{
+  id: 12,
+  question: "How can I check if my warranty is still active?",
+  answer: "You can verify your warranty status by contacting our customer service team or checking your policy details online.",
+  category: "General"
+},
+{
+  id: 13,
+  question: "Does Ezcare Warranty cover hybrid batteries or EV systems?",
+  answer: "Yes. Selected plans include coverage for hybrid and electric vehicle components such as traction motors and battery packs.",
+  category: "General"
+},
+{
+  id: 14,
+  question: "What happens if I sell my vehicle before the warranty expires?",
+  answer: "You can transfer the warranty to the new owner or request a cancellation according to the policy terms.",
+  category: "General"
+},
+{
+  id: 15,
+  question: "Does Ezcare Warranty work with car dealers?",
+  answer: "Yes. We partner with trusted car dealers nationwide to provide customers with warranty protection at the time of purchase.",
+  category: "General"
+},
+{
+  id: 16,
+  question: "How do I contact Ezcare Warranty for support?",
+  answer: "You can reach us via phone at 03-8922-0571, email info@ezcare-warranty.com, or through our website’s contact form.",
+  category: "General"
+},
+{
+  id: 17,
+  question: "How do I make a warranty claim?",
+  answer: "Contact our claims team at 03-8922-0571 or email info@ezcare-warranty.com. Provide your policy number, vehicle details, and a description of the issue.",
+  category: "Claims"
+},
+{
+  id: 18,
+  question: "When should I file a claim?",
+  answer: "File a claim as soon as you notice a problem. Delaying may cause further damage and affect claim eligibility.",
+  category: "Claims"
+},
+{
+  id: 19,
+  question: "What documents do I need to submit a claim?",
+  answer: "Prepare your policy document, vehicle registration, maintenance records, and a detailed repair quotation from the workshop.",
+  category: "Claims"
+},
+{
+  id: 20,
+  question: "Is there a deductible for claims?",
+  answer: "Yes. Deductible amounts vary depending on your plan type. Premium plans may have lower or zero deductibles.",
+  category: "Claims"
+},
+{
+  id: 21,
+  question: "How long does it take to process a claim?",
+  answer: "Most claims are processed within 24–48 hours after all required documents are received. Urgent repairs can be prioritized.",
+  category: "Claims"
+},
+{
+  id: 22,
+  question: "Can I get repairs done before claim approval?",
+  answer: "No. Repairs must not begin until Ezcare Warranty has approved the claim. Unauthorized repairs may not be reimbursed.",
+  category: "Claims"
+},
+{
+  id: 23,
+  question: "What if the repair cost is higher than expected?",
+  answer: "Our claims team will review the updated quotation before providing final approval to ensure coverage is applied correctly.",
+  category: "Claims"
+},
+{
+  id: 24,
+  question: "Can I track my claim status?",
+  answer: "Yes. You can check your claim progress by contacting our support team via phone or email for updates.",
+  category: "Claims"
+},
+{
+  id: 25,
+  question: "What happens if my claim is rejected?",
+  answer: "You’ll receive a written explanation detailing the reason for rejection. You may appeal if you provide new evidence or documentation.",
+  category: "Claims"
+},
+{
+  id: 26,
+  question: "Do I need to pay the workshop first?",
+  answer: "In most cases, Ezcare pays the approved workshop directly. However, some workshops may request an upfront payment before claim approval.",
+  category: "Claims"
+},
+{
+  id: 27,
+  question: "Can I claim multiple times during the warranty period?",
+  answer: "Yes. You can make multiple claims as long as they fall within your coverage limits and the policy remains active.",
+  category: "Claims"
+},
+{
+  id: 28,
+  question: "Does my warranty cover towing for claim-related issues?",
+  answer: "Yes. Towing to an authorized repair center is included for covered breakdowns, depending on your plan.",
+  category: "Claims"
+}
 ];
 
-const categories = ["All", "Coverage", "Claims", "Service", "Policy", "Maintenance"];
+const categories = ["All", "General", "Claims"];
 
 export default function FAQ() {
   const [selectedCategory, setSelectedCategory] = useState("All");
