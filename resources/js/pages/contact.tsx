@@ -9,7 +9,7 @@ export default function Contact() {
       <Navbar />
       <div className="pt-16">
         {/* Main Contact Section */}
-        <div className="bg-[#8B5CF6] text-white py-12">
+        <div className="bg-[#4C1D95] text-white py-12">
           <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
               {/* Left Column - Contact Information */}
