@@ -111,6 +111,19 @@ export default function Welcome() {
     setPurpleTouchEnd(e.targetTouches[0].clientX);
   };
 
+   // Add this useEffect hook to load TikTok embed script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://www.tiktok.com/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup: remove script when component unmounts
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handlePurpleTouchEnd = () => {
     if (!purpleTouchStart || !purpleTouchEnd) return;
     const distance = purpleTouchStart - purpleTouchEnd;
@@ -420,34 +433,27 @@ export default function Welcome() {
                   </div>
                 </div>
 
-                {/* TikTok videos container */}
-                <div className="mt-12 max-w-4xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                  <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
-                    <div dangerouslySetInnerHTML={{__html: `<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ezcarewarranty/video/7547546516831997191" data-video-id="7547546516831997191" > <section> <a target="_blank" title="@ezcarewarranty" href="https://www.tiktok.com/@ezcarewarranty?refer=embed">@ezcarewarranty</a> <a target="_blank" title="♬ original sound  - Ezcare Warranty" href="https://www.tiktok.com/music/original-sound-Ezcare-Warranty-7547546595957508880?refer=embed">♬ original sound  - Ezcare Warranty</a> </section> </blockquote>`}} />
-                  </div>
-                  <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
-                    <iframe
-                      src="https://www.tiktok.com/embed/7012345678901234568"
-                      width="100%"
-                      allowFullScreen
-                      className="w-full h-full"
-                      frameBorder="0"
-                      scrolling="no"
-                      title="TikTok Video 2"
-                    />
-                  </div>
-                  <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
-                    <iframe
-                      src="https://www.tiktok.com/embed/7012345678901234569"
-                      width="100%"
-                      allowFullScreen
-                      className="w-full h-full"
-                      frameBorder="0"
-                      scrolling="no"
-                      title="TikTok Video 3"
-                    />
-                  </div>
-                </div>
+                
+{/* TikTok videos container */}
+<div className="mt-12 max-w-4xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
+    <div dangerouslySetInnerHTML={{__html: `<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ezcarewarranty/video/7547546516831997191" data-video-id="7547546516831997191" > <section> <a target="_blank" title="@ezcarewarranty" href="https://www.tiktok.com/@ezcarewarranty?refer=embed">@ezcarewarranty</a> <a target="_blank" title="♬ original sound  - Ezcare Warranty" href="https://www.tiktok.com/music/original-sound-Ezcare-Warranty-7547546595957508880?refer=embed">♬ original sound  - Ezcare Warranty</a> </section> </blockquote>`}} />
+  </div>
+  <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
+    <div dangerouslySetInnerHTML={{__html: `<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ezcarewarranty/video/7559512804735077639" data-video-id="7559512804735077639" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@ezcarewarranty" href="https://www.tiktok.com/@ezcarewarranty?refer=embed">@ezcarewarranty</a> <p>⚙️ Satu Hari, Satu Claim — Mercedes-Benz A35 AMG 🔥 Kali ini bersama Ikhwan dari Ezcare Warranty, kami berada di Summer Chain, Setapak untuk satu lagi kes claim yang berjaya! Pemilik Mercedes A35 ini alami masalah engine miss fire, jadi kereta terus dibawa ke workshop untuk diagnosis. Hasil pemeriksaan menunjukkan punca datang daripada valve guide dan valve seal yang rosak, menyebabkan silinder enjin 2 dan 4 gagal berfungsi dengan sempurna. ✅ Solusi: Tukar valve guide &#38; valve seal yang rosak ✅ Claim diluluskan dalam masa 24 jam ✅ Fast payment oleh Ezcare Warranty Dengan Ezcare Warranty, anda tak perlu risau bila komponen enjin utama alami kerosakan. Kami uruskan semuanya — cepat, mudah, dan telus. 📍 Summer Chain, Setapak 🎥 Bersama: Ikhwan dari Ezcare Warranty 📞 Hubungi kami: 03-7931 3411 ☎️ Talian Hotline: 1-300-88-8287 🌐 www.ezcarewarranty.com #EzcareWarranty #SatuHariSatuClaim #MercedesA35 #MissFire #ValveGuide #ValveSeal #SummerChain #FastApproval #WarrantyProtection #DriveWithConfidence</p> <a target="_blank" title="♬ original sound  - Ezcare Warranty" href="https://www.tiktok.com/music/original-sound-Ezcare-Warranty-7559512883894176529?refer=embed">♬ original sound  - Ezcare Warranty</a> </section> </blockquote>`}} />
+  </div>
+  <div className="rounded-lg overflow-hidden shadow-lg aspect-[9/16]">
+    <iframe
+      src="https://www.tiktok.com/embed/7012345678901234569"
+      width="100%"
+      allowFullScreen
+      className="w-full h-full"
+      frameBorder="0"
+      scrolling="no"
+      title="TikTok Video 3"
+    />
+  </div>
+</div>
                 {/* Why Choose Ezcare Warranty Section */}
                 <section className="mt-16 bg-[#4C1D95] py-12">
                     <div className="max-w-7xl mx-auto px-6 text-white">
