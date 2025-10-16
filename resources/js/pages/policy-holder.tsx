@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import { NavFooter } from '@/components/nav-footer';
 import { Head } from '@inertiajs/react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export default function PolicyHolder() {
   const [plateNumber, setPlateNumber] = useState('');
@@ -11,11 +12,23 @@ export default function PolicyHolder() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSearch = async () => {
-    if (!plateNumber.trim() || !phoneNumber.trim()) {
-      setError('Please enter both plate number and phone number.');
-      return;
-    }
+const handleSearch = async () => {
+  if (!plateNumber.trim() || !phoneNumber.trim()) {
+    setError('Please enter both plate number and phone number.');
+    return;
+  }
+
+  // Check if phone number starts with 6
+  if (!phoneNumber.startsWith('6')) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Phone Number Format',
+      text: 'Please include the country code. Malaysian numbers should start with 6 (e.g., 6018228245)',
+      confirmButtonColor: '#4C1D95',
+      confirmButtonText: 'OK'
+    });
+    return;
+  }
 
     setError('');
     setLoading(true);
@@ -39,11 +52,27 @@ export default function PolicyHolder() {
         setError('Great news! We’ve found your policy. All the details are listed below.');
       }
       setPolicy(response.data);
-      alert('Successfully fetched policy details.');
+
+    // SweetAlert success message
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Successfully fetched policy details.',
+        confirmButtonColor: '#4C1D95',
+        confirmButtonText: 'OK'
+      });
+
     } catch (err) {
       console.error(err);
       setError('We couldn’t find a matching policy. Double-check your plate and phone number, then try again.');
-      alert('An error occurred while fetching policy details. Please try again later.');
+      // SweetAlert error message
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'An error occurred while fetching policy details. Please try again later.',
+        confirmButtonColor: '#4C1D95',
+        confirmButtonText: 'OK'
+      });
     } finally {
       setLoading(false);
     }

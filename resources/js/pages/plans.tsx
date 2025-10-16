@@ -117,8 +117,8 @@ export default function Plans() {
   useEffect(() => {
     let start = 0;
     let startClaims = 0;
-    const registeredEnd = 50000;
-    const claimsEnd = 30000;
+    const registeredEnd = 83959;
+    const claimsEnd = 47267;
     const duration = 5000;
     const incrementTime = 74;
     const registeredIncrements = duration / incrementTime;
@@ -152,10 +152,10 @@ export default function Plans() {
 
   const formatCount = (count: number, type: 'registered' | 'claims') => {
     if (type === 'registered') {
-      return count >= 50000 ? '50,000+' : count.toLocaleString();
+      return count >= 83959 ? '83,959+' : count.toLocaleString();
     }
     if (type === 'claims') {
-      return count >= 30000 ? '30,000+' : count.toLocaleString();
+      return count >= 47267 ? '47,267+' : count.toLocaleString();
     }
     return count.toLocaleString();
   };
