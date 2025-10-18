@@ -28,6 +28,9 @@ export default function About() {
             className="w-full md:w-1/3 rounded-lg object-cover"
             style={{ maxHeight: '300px' }}
           />
+
+
+          {/* ezcare story container */}
           <div className="text-white text-base md:text-lg">
             <h2 className="text-center md:text-left font-bold text-3xl mb-4">Our Story</h2>
             <p className="mb-4">
@@ -41,6 +44,46 @@ export default function About() {
             </p>
           </div>
         </div>
+
+        {/* New Two Container Section */}
+        <div className="max-w-5xl mx-auto mt-12 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Left Container - Mission */}
+            <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-purple-200">
+              <div className="flex items-center justify-center mb-6">
+                <div className="bg-purple-100 rounded-full p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-center text-purple-900 mb-4">Our Mission</h3>
+              <p className="text-gray-700 text-center leading-relaxed">
+                To provide comprehensive and reliable warranty solutions that protect vehicle owners from unexpected repair costs, 
+                ensuring peace of mind and customer satisfaction through transparent service and competitive pricing.
+              </p>
+            </div>
+
+            {/* Right Container - Vision */}
+            <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-purple-200">
+              <div className="flex items-center justify-center mb-6">
+                <div className="bg-purple-100 rounded-full p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-center text-purple-900 mb-4">Our Vision</h3>
+              <p className="text-gray-700 text-center leading-relaxed">
+                To become the leading after-market warranty provider in Southeast Asia, recognized for innovation, 
+                flexibility, and excellence in customer service while expanding our reach across the region.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ezcare articles */}
         <div className="max-w-5xl mx-auto mt-12 px-4">
           <h2 className="text-center font-semibold text-2xl mb-8">Industry Spotlight : Ezcare Warranty</h2>
           <div className="flex flex-col md:flex-row gap-12 justify-center">
@@ -85,6 +128,8 @@ export default function About() {
             </div>
           </div>
         </div>
+
+        {/* ezcare offices */}
         <div className="bg-purple-900 text-white py-12 mt-12">
           <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-center text-3xl font-bold mb-12">Ezcare Offices Across Malaysia & Indonesia</h2>
