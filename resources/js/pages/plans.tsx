@@ -1,5 +1,6 @@
+
 import { Head } from '@inertiajs/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavFooter } from '@/components/nav-footer';
 import Navbar from '@/components/Navbar';
 import {
@@ -113,8 +114,38 @@ export default function Plans() {
   const [openSection, setOpenSection] = useState<string | null>('reconditioned');
   const [registeredPlansCount, setRegisteredPlansCount] = useState(0);
   const [successfulClaimsCount, setSuccessfulClaimsCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const counterRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Only trigger animation once when element becomes visible
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            startCounterAnimation();
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+        rootMargin: '0px'
+      }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => {
+      if (counterRef.current) {
+        observer.unobserve(counterRef.current);
+      }
+    };
+  }, [hasAnimated]);
+
+  const startCounterAnimation = () => {
     let start = 0;
     let startClaims = 0;
     const registeredEnd = 83959;
@@ -143,12 +174,7 @@ export default function Plans() {
       }
       setSuccessfulClaimsCount(Math.floor(startClaims));
     }, incrementTime);
-
-    return () => {
-      clearInterval(registeredInterval);
-      clearInterval(successfulInterval);
-    };
-  }, []);
+  };
 
   const formatCount = (count: number, type: 'registered' | 'claims') => {
     if (type === 'registered') {
@@ -323,8 +349,11 @@ export default function Plans() {
               </Collapsible>
           ))}
         </div>
-        {/* Move the purple container here, above NavFooter and outside the max-w-5xl container */}
-        <div className="mt-20 bg-gray-200 rounded-lg p-8 text-center w-full text-black">
+        {/* Counter Container */}
+        <div 
+          ref={counterRef}
+          className="mt-20 bg-gray-200 rounded-lg p-8 text-center w-full text-black"
+        >
           <h2 className="text-2xl font-bold mb-4 text-black">Underwritten by:</h2>
           <img
             src="/pacific-insurance-logo.png"
