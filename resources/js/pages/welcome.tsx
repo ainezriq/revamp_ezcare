@@ -238,10 +238,10 @@ export default function Welcome() {
       <p className="text-2xl md:text-3xl font-bold uppercase tracking-wide">
         No Limits. Just Coverage.
       </p>
-      <p className="text-lg md:text-xl font-medium">
+      <p className="text-lg md:text-lg font-medium">
         Drive anywhere, fix anywhere. Ezcare’s open workshop concept puts you in control.
       </p>
-      <footer className="text-sm text-white/70 italic">
+      <footer className="text-xl text-white italic">
         — Available 24/7 at 1 300 88 8287
       </footer>
     </blockquote>
