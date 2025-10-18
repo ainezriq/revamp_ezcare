@@ -54,6 +54,13 @@ export default function Welcome() {
     }
   };
 
+  const scrollToQuoteForm = () => {
+  const quoteForm = document.getElementById('quote-form');
+  if (quoteForm) {
+    quoteForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
+
   const [formData, setFormData] = useState({
       name: '',
       email: '',
@@ -238,7 +245,7 @@ export default function Welcome() {
 
 
     {/* Right side - Form Container */}
-<div className="bg-[#4C1D95] backdrop-blur-sm rounded-lg p-6 w-full lg:w-1/2">
+<div id="quote-form" className="bg-[#4C1D95] backdrop-blur-sm rounded-lg p-6 w-full lg:w-1/2">
   <h2 className="text-2xl font-bold text-center mb-6 text-white">GET YOUR FREE QUOTE</h2>
   <form onSubmit={handleSubmit}>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -525,25 +532,23 @@ export default function Welcome() {
                 </div>
                 {/* New coverage section above NavFooter */}
                 <div className="mt-12 w-full px-4 rounded-lg bg-[#4C1D95] p-8 text-white flex flex-col items-center gap-4 text-center">
-                  <h2 className="text-2xl font-semibold">
-                    Coverage That Moves With You.<br />Choose Ezcare.
-                  </h2>
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4">
-                    <a
-                      href="/plans"
-                      className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-md transition-colors text-center"
-                    >
-                      Pricing
-                    </a>
-                    <a
-                      href="https://wa.me/60132880177"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-white text-purple-700 px-4 py-2 rounded-md transition-colors text-center"
-                    >
-                      Get Free Quote
-                    </a>
-                  </div>
+  <h2 className="text-2xl font-semibold">
+    Coverage That Moves With You.<br />Choose Ezcare.
+  </h2>
+  <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4">
+    <a
+      href="/plans"
+      className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-md transition-colors text-center"
+    >
+      Pricing
+    </a>
+    <button
+      onClick={scrollToQuoteForm}
+      className="bg-white text-purple-700 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-center cursor-pointer"
+    >
+      Get Free Quote
+    </button>
+  </div>
                 </div>
                 <NavFooter />
                 {/* Floating WhatsApp Icon */}
