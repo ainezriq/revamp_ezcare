@@ -150,8 +150,8 @@ export default function Plans() {
     let startClaims = 0;
     const registeredEnd = 83959;
     const claimsEnd = 47267;
-    const duration = 5000;
-    const incrementTime = 74;
+    const duration = 7000;
+    const incrementTime = 83;
     const registeredIncrements = duration / incrementTime;
     const claimsIncrements = duration / incrementTime;
     const registeredIncrementValue = registeredEnd / registeredIncrements;
