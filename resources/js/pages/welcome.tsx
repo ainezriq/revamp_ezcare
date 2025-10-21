@@ -231,10 +231,10 @@ export default function Welcome() {
     />
     <blockquote className="text-white text-center space-y-2">
       <p className="text-2xl md:text-3xl font-bold uppercase tracking-wide">
-        No Limits. Just Coverage.
+        NO LIMITS, JUST GENUINE WARRANTY COVERAGE.
       </p>
       <p className="text-lg md:text-lg font-medium">
-        Drive anywhere, fix anywhere. Ezcare’s open workshop concept puts you in control.
+        Drive will full confidence with warranty programmes designed to protect you when it matters most.
       </p>
       <footer className="text-xl text-white italic">
         — Available 24/7 at 1 300 88 8287
@@ -408,10 +408,10 @@ export default function Welcome() {
                     {/* Right text content */}
                     <div className="flex flex-col items-center justify-center text-center w-full">
                       <h2 className="mb-4 font-semibold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight">
-                        Now with Ezcare Warranty SuperApp - Warranty at Your Fingertips!
+                        EZCARE WARRANTY SUPERAPP, YOUR WARRANTY NO IS JUST A TAP AWAY
                       </h2>
                       <p className="mb-6 text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-snug max-w-lg">
-                        Say goodbye to bulky booklets. As a warranty holder, you can easily access your policy, track claims, and get support anytime, anywhere - all through the Ezcare SuperApp.
+                        Say goodbye to warranty booklet. Access your vehicle policy details, track claims, locate workshops and get breakdown support anytime, anywhere all in one app.
                       </p>
                       <div className="flex space-x-4 justify-center">
                         <a href="https://play.google.com/store/apps/details?id=com.ezcare.ezcaresuperapp" aria-label="Google Play Store">
