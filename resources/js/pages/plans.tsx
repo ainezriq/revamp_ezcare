@@ -114,22 +114,27 @@ export default function Plans() {
   const [openSection, setOpenSection] = useState<string | null>('reconditioned');
   const [registeredPlansCount, setRegisteredPlansCount] = useState(0);
   const [successfulClaimsCount, setSuccessfulClaimsCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [isCounterVisible, setIsCounterVisible] = useState(false);
+  const [hasStartedCounting, setHasStartedCounting] = useState(false);
   const counterRef = useRef<HTMLDivElement>(null);
+  const registeredIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const claimsIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const registeredStartRef = useRef(0);
+  const claimsStartRef = useRef(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // Only trigger animation once when element becomes visible
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            startCounterAnimation();
+          setIsCounterVisible(entry.isIntersecting);
+          
+          if (entry.isIntersecting && !hasStartedCounting) {
+            setHasStartedCounting(true);
           }
         });
       },
       {
-        threshold: 0.3, // Trigger when 30% of the element is visible
+        threshold: 0.3,
         rootMargin: '0px'
       }
     );
@@ -142,12 +147,15 @@ export default function Plans() {
       if (counterRef.current) {
         observer.unobserve(counterRef.current);
       }
+      // Clean up intervals on unmount
+      if (registeredIntervalRef.current) clearInterval(registeredIntervalRef.current);
+      if (claimsIntervalRef.current) clearInterval(claimsIntervalRef.current);
     };
-  }, [hasAnimated]);
+  }, [hasStartedCounting]);
 
-  const startCounterAnimation = () => {
-    let start = 0;
-    let startClaims = 0;
+  useEffect(() => {
+    if (!hasStartedCounting) return;
+
     const registeredEnd = 83959;
     const claimsEnd = 47267;
     const duration = 7000;
@@ -157,24 +165,46 @@ export default function Plans() {
     const registeredIncrementValue = registeredEnd / registeredIncrements;
     const claimsIncrementValue = claimsEnd / claimsIncrements;
 
-    const registeredInterval = setInterval(() => {
-      start += registeredIncrementValue;
-      if (start >= registeredEnd) {
-        start = registeredEnd;
-        clearInterval(registeredInterval);
-      }
-      setRegisteredPlansCount(Math.floor(start));
-    }, incrementTime);
+    if (isCounterVisible) {
+      // Resume or start counting
+      registeredIntervalRef.current = setInterval(() => {
+        registeredStartRef.current += registeredIncrementValue;
+        if (registeredStartRef.current >= registeredEnd) {
+          registeredStartRef.current = registeredEnd;
+          if (registeredIntervalRef.current) {
+            clearInterval(registeredIntervalRef.current);
+          }
+        }
+        setRegisteredPlansCount(Math.floor(registeredStartRef.current));
+      }, incrementTime);
 
-    const successfulInterval = setInterval(() => {
-      startClaims += claimsIncrementValue;
-      if (startClaims >= claimsEnd) {
-        startClaims = claimsEnd;
-        clearInterval(successfulInterval);
+      claimsIntervalRef.current = setInterval(() => {
+        claimsStartRef.current += claimsIncrementValue;
+        if (claimsStartRef.current >= claimsEnd) {
+          claimsStartRef.current = claimsEnd;
+          if (claimsIntervalRef.current) {
+            clearInterval(claimsIntervalRef.current);
+          }
+        }
+        setSuccessfulClaimsCount(Math.floor(claimsStartRef.current));
+      }, incrementTime);
+    } else {
+      // Pause counting
+      if (registeredIntervalRef.current) {
+        clearInterval(registeredIntervalRef.current);
+        registeredIntervalRef.current = null;
       }
-      setSuccessfulClaimsCount(Math.floor(startClaims));
-    }, incrementTime);
-  };
+      if (claimsIntervalRef.current) {
+        clearInterval(claimsIntervalRef.current);
+        claimsIntervalRef.current = null;
+      }
+    }
+
+    return () => {
+      if (registeredIntervalRef.current) clearInterval(registeredIntervalRef.current);
+      if (claimsIntervalRef.current) clearInterval(claimsIntervalRef.current);
+    };
+  }, [isCounterVisible, hasStartedCounting]);
 
   const formatCount = (count: number, type: 'registered' | 'claims') => {
     if (type === 'registered') {
@@ -350,40 +380,75 @@ export default function Plans() {
           ))}
         </div>
         {/* Counter Container */}
-        <div 
-          ref={counterRef}
-          className="mt-20 bg-gray-200 rounded-lg p-8 text-center w-full text-black"
-        >
-          <h2 className="text-2xl font-bold mb-4 text-black">Underwritten by:</h2>
-          <img
-            src="/pacific-insurance-logo.png"
-            alt="Pacific Insurance"
-            className="mx-auto mb-2"
-            style={{ maxWidth: '500px' }}
-          />
-          <div className="flex justify-center gap-16">
-            <div>
-              <img
-                src="clipboard-icon.png"
-                alt="Registered Plans"
-                className="mx-auto mb-2"
-                style={{ width: '80px', height: '80px' }}
-              />
-              <p className="text-3xl text-black font-semibold">{formatCount(registeredPlansCount, 'registered')}</p>
-              <p>Registered Plans</p>
-            </div>
-            <div>
-              <img
-                src="/thumbs-up-icon.png"
-                alt="Successful Claims"
-                className="mx-auto mb-2"
-                style={{ width: '80px', height: '80px' }}
-              />
-              <p className="text-3xl font-semibold text-black">{formatCount(successfulClaimsCount, 'claims')}</p>
-              <p>Successful Claims</p>
-            </div>
+<div 
+  ref={counterRef}
+  className="mt-20 bg-gray-200 rounded-lg p-8 text-center w-full text-black"
+>
+  <h2 className="text-2xl font-bold mb-4 text-black">INTERNATIONALLY BACKED. LOCALLY TRUSTED.</h2>
+  <p className="text-base mb-6 text-black max-w-4xl mx-auto">
+    At Ezcare Warranty, your protection goes beyond promises, it's backed by one of international's most reputable insurance providers, Pacific Insurance Berhad. As the official underwriter for all Ezcare Warranty programmes, this partnership ensures every policy issued is supported by strong financial security, professional claims governance and global credibility.
+  </p>
+  <img
+    src="/pacific-insurance-logo.png"
+    alt="Pacific Insurance"
+    className="mx-auto mb-2"
+    style={{ maxWidth: '500px' }}
+  />
+  <div className="flex justify-center gap-16">
+    <div>
+      <img
+        src="/clipboard-icon.png"
+        alt="Registered Plans"
+        className="mx-auto mb-2"
+        style={{ width: '80px', height: '80px' }}
+      />
+      <p className="text-3xl text-black font-semibold">{formatCount(registeredPlansCount, 'registered')}</p>
+      <p>Registered Plans</p>
+    </div>
+    <div>
+      <img
+        src="/thumbs-up-icon.png"
+        alt="Successful Claims"
+        className="mx-auto mb-2"
+        style={{ width: '80px', height: '80px' }}
+      />
+      <p className="text-3xl font-semibold text-black">{formatCount(successfulClaimsCount, 'claims')}</p>
+      <p>Successful Claims</p>
+    </div>
           </div>
         </div>
+        
+        {/* What This Means For You Section */}
+        <section className="max-w-7xl mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold text-center mb-8 text-black">WHAT THIS MEANS FOR YOU</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            <div className="bg-white rounded-lg shadow-md p-6 h-full">
+              <h5 className="font-bold text-lg mb-3 text-black">Financially Secure Coverage</h5>
+              <p className="text-gray-700">Your warranty coverage is supported by an established international insurer.</p>
+            </div>
+            <div className="bg-white rounded-lg shadow-md p-6 h-full">
+              <h5 className="font-bold text-lg mb-3 text-black">Greater Confidence & Assurance</h5>
+              <p className="text-gray-700">Policyholders receive industry-grade protection that meets stringent insurance standards.</p>
+            </div>
+            <div className="bg-white rounded-lg shadow-md p-6 h-full">
+              <h5 className="font-bold text-lg mb-3 text-black">Transparent & Regulated Claims Process</h5>
+              <p className="text-gray-700">Managed under established insurance compliance and oversight.</p>
+            </div>
+            <div className="bg-white rounded-lg shadow-md p-6 h-full">
+              <h5 className="font-bold text-lg mb-3 text-black">Trusted by the Market</h5>
+              <p className="text-gray-700">A partnership that reinforces Ezcare Warranty’s credibility in both local and regional markets.</p>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-lg font-bold mb-4 text-black">
+              With Ezcare Warranty and Pacific Insurance Berhad working together, you’re not just covered, you’re confidently protected with internationally underwritten protection built to last.</p>
+            <p className="text-base font-medium text-gray-700">
+              Drive will full confidence with warranty programmes designed to protect you when it matters most.
+            </p>
+          </div>
+        </section>
+
         <NavFooter />
       </div>
     </>
