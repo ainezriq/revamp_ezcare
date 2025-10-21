@@ -421,7 +421,7 @@ export default function Plans() {
         {/* What This Means For You Section */}
         <section className="max-w-7xl mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold text-center mb-8 text-black">WHAT THIS MEANS FOR YOU</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div className="bg-white rounded-lg shadow-md p-6 h-full">
               <h5 className="font-bold text-lg mb-3 text-black">Financially Secure Coverage</h5>
               <p className="text-gray-700">Your warranty coverage is supported by an established international insurer.</p>
