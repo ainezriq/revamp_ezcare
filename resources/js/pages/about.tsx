@@ -34,13 +34,25 @@ export default function About() {
           <div className="text-white text-base md:text-lg">
             <h2 className="text-center md:text-left font-bold text-3xl mb-4">Our Story</h2>
             <p className="mb-4">
-              Ezcare Warranty is a leading after-market provider for reconditioned and pre-owned vehicles, including hybrids, EVs, and high-performance motorcycles.
+              Ezcare Warranty was founded in late 2016 with a clear mission to redefine confidence in vehicle ownership through trusted, transparent, and customer-first warranty solutions. Officially launching operations in January 2017, we are headquartering in Bandar Baru Bangi, Selangor, driven by the belief that vehicle protection should be accessible, reliable, and backed by genuine peace of mind.</p>
+            <p className="mb-4">
+              From a single headquarters, we have grown into a nationwide network, supported by branch offices in Johor Bahru, Johor and Kuching, Sarawak. Our ambition soon crossed borders as we expanded into the Indonesian market, establishing our presence with an operational office in South Jakarta marking the beginning of our global footprint.</p>
+            <p className="mb-4">
+              A defining moment in our story was our partnership with a reputable international insurance company, making Ezcare Warranty the first aftermarket warranty provider in Malaysia to be officially backed and underwritten at an international level. This collaboration ensures that every policy we issue is financially secure, professionally managed, and globally recognised.</p>
+            <p className="mb-4">
+              Innovation has always been at the heart of our growth. We introduced the open workshop concept, giving policyholders full freedom to choose their preferred service centres, a bold move that disrupted traditional industry norms. Coupled with one of the highest claim approval rates in the market, our approach quickly gained the trust of vehicle owners and dealers alike.
             </p>
             <p className="mb-4">
-              Founded in late 2016 and officially launched in January 2017, its headquarters is in Bandar Baru Bangi, with branches in Johor Bahru, Kuching, and South Jakarta, Indonesia.
+              Recognising the shift in mobility trends, we became pioneers in offering warranty plans for hybrid system and electric vehicles (EVs), supporting the transition toward cleaner and more advanced automotive technologies.
             </p>
-            <p>
-              What sets Ezcare apart is its flexible “open workshop” concept, allowing policyholders to choose their preferred service center. With competitive rates and over 50,000 policies issued to date, Ezcare continues to grow as a trusted name in vehicle warranty services.
+            <p className="mb-4">
+              In line with our commitment to digital transformation, we replaced traditional warranty booklets with a fully integrated mobile application, making policy access, claims access, and support available at policyholders' fingertips.
+            </p>
+            <p className="mb-4">
+              Today, with over 80,000 policies issued and counting, Ezcare Warranty continues to lead with integrity, innovation, and customer assurance. Our dedication has been celebrated through prestigious recognitions such as the Asia Automotive Award in 2019 and the Superbrands Award in 2020.
+            </p>
+            <p className="mb-4">
+              What began as a vision to elevate peace of mind on the road has evolved into a trusted brand known for protection, partnership, and progress. And our story is just getting started. As we continue to expand, innovate, and strengthen our market presence, one belief remains clear. We are here to stay.
             </p>
           </div>
         </div>
