@@ -84,7 +84,17 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-              {/* Right Column intentionally left blank (no contact form) */}
+
+              {/* Right Column - Image Container */}
+              <div className="flex items-center justify-center mt-8 lg:mt-35">
+                <div className="w-full max-w-lg overflow-hidden rounded-3xl">
+                  <img
+                    src="/contact.jpg"
+                    alt="Ezcare Customer service"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Maps Section - Below Contact Info */}

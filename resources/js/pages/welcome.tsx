@@ -236,8 +236,9 @@ export default function Welcome() {
       <p className="text-lg md:text-lg font-medium">
         Drive will full confidence with warranty programmes designed to protect you when it matters most.
       </p>
-      <footer className="text-xl text-white italic">
-        — Available 24/7 at 1 300 88 8287
+      <footer className="text-md text-white italic">
+        Available 24/7 at 
+        <p className="text-2xl text-white italic">1 300 88 8287</p>
       </footer>
     </blockquote>
   </div>
