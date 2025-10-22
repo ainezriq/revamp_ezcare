@@ -75,7 +75,7 @@ export function Carousel() {
         {slides.map((slide, slideIndex) => (
           <div
             key={slideIndex}
-            className={`transition-opacity duration-500 ease-in-out ${
+            className={`transition-opacity duration-1000 ease-in-out ${
               slideIndex === currentIndex ? 'opacity-100' : 'opacity-0 absolute inset-0'
             }`}
           >

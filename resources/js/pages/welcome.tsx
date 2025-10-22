@@ -371,7 +371,7 @@ const handlePurplePrev = () => {
                 
 
 {/* Purple container with card-stack carousel and text */}
-<div className="mt-12 max-w-8xl mx-auto rounded-lg bg-[#4C1D95] p-8 flex justify-center items-center">
+<div className="mt-12 max-w-8xl mx-auto rounded-lg bg-[#4C1D95] p-13 flex justify-center items-center">
   <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-4xl mx-auto text-center">
     {/* Left carousel - Card Stack Style */}
     <div
@@ -501,7 +501,7 @@ const handlePurplePrev = () => {
 
               
                 {/* Why Choose Ezcare Warranty Section */}
-                <section className="mt-16 bg-[#4C1D95] py-12">
+                <section className="mt-16 bg-[#4C1D95] py-12 rounded-lg">
                     <div className="max-w-7xl mx-auto px-6 text-white">
                         <h2 className="text-center text-3xl font-semibold mb-10">Why Choose Ezcare Warranty?</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
