@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 
 interface Card {
@@ -6,36 +7,41 @@ interface Card {
   alt: string;
   title: string;
   buttonText: string;
+  link: string;
 }
 
 const cards: Card[] = [
   {
     id: 1,
-    image: '/garage1.jpg',
-    alt: 'Garage 1',
+    image: '/team.jpg',
+    alt: 'Ezcare Team',
     title: 'Join our team. Build the future of automotive care.',
     buttonText: '+ See More About Careers',
+    link: '/career',
   },
   {
     id: 2,
-    image: '/garage2.jpg',
-    alt: 'Garage 2',
+    image: '/office1.png',
+    alt: 'Ezcare Office',
     title: 'Our story, our promise of why thousands trust us.',
     buttonText: '+ Read About Ezcare Warranty',
+    link: '/about',
   },
   {
     id: 3,
     image: '/garage3.jpg',
-    alt: 'Garage 3',
+    alt: 'Customer Support',
     title: 'Need help or have questions? We’re just a click away.',
     buttonText: '+ Contact Us',
+    link: '/contact',
   },
   {
     id: 4,
     image: '/garage4.jpg',
-    alt: 'Garage 4',
+    alt: 'Workshop Locator',
     title: 'Find a trusted workshop near you fast and easy.',
     buttonText: '+ Locate ECW Services',
+    link: '/goc',
   },
 ];
 
@@ -63,64 +69,78 @@ export function Carousel() {
   };
 
   return (
-    <div className="relative max-w-6xl mx-auto">
-      <div className="overflow-hidden rounded-lg shadow-md">
+    <div className="relative w-full max-w-6xl mx-auto px-4 py-8">
+      {/* Carousel Container */}
+      <div className="relative overflow-hidden">
         {slides.map((slide, slideIndex) => (
           <div
             key={slideIndex}
-            className={`grid grid-cols-1 md:grid-cols-2 gap-8 transition-transform duration-500 ease-in-out ${
-              slideIndex === currentIndex ? 'translate-x-0' : slideIndex < currentIndex ? '-translate-x-full' : 'translate-x-full'
+            className={`transition-opacity duration-500 ease-in-out ${
+              slideIndex === currentIndex ? 'opacity-100' : 'opacity-0 absolute inset-0'
             }`}
-            style={{ display: slideIndex === currentIndex ? 'grid' : 'none' }}
           >
-            {slide.map((card) => (
-              <div
-                key={card.id}
-                className="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden min-h-[12rem] sm:min-h-[14rem] md:min-h-[16rem]"
-              >
-                <div className="flex-shrink-0 flex items-center justify-center max-w-[50%] max-h-48 sm:max-h-56 md:max-h-64 overflow-hidden">
-                  <img
-                    src={card.image}
-                    alt={card.alt}
-                    className="max-w-full max-h-full object-cover"
-                  />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              {slide.map((card) => (
+                <div
+                  key={card.id}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col"
+                >
+                  {/* Image Container */}
+                  <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                    <img
+                      src={card.image}
+                      alt={card.alt}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  
+                  {/* Content Container */}
+                  <div className="p-6 flex flex-col items-center text-center flex-grow">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4 line-clamp-2">
+                      {card.title}
+                    </h3>
+                    <a
+                      href={card.link}
+                      className="mt-auto w-full max-w-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                    >
+                      {card.buttonText}
+                    </a>
+                  </div>
                 </div>
-                <div className="p-4 sm:p-6 flex flex-col justify-center flex-1">
-                  <h3 className="font-bold text-base sm:text-lg mb-2">{card.title}</h3>
-                  <button className="mt-4 bg-gray-200 text-gray-800 rounded-md px-3 py-2 text-sm hover:bg-gray-300 transition">
-                    {card.buttonText}
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Controls */}
+      {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
         aria-label="Previous Slide"
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-300 rounded-full p-2 hover:bg-gray-400 transition"
+        className="absolute top-1/2 -left-2 md:left-0 transform -translate-y-1/2 bg-white hover:bg-gray-100 text-gray-800 rounded-full p-3 shadow-lg hover:shadow-xl transition-all z-10"
       >
-        ‹
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
       </button>
       <button
         onClick={nextSlide}
         aria-label="Next Slide"
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-300 rounded-full p-2 hover:bg-gray-400 transition"
+        className="absolute top-1/2 -right-2 md:right-0 transform -translate-y-1/2 bg-white hover:bg-gray-100 text-gray-800 rounded-full p-3 shadow-lg hover:shadow-xl transition-all z-10"
       >
-        ›
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
       </button>
 
       {/* Indicators */}
-      <div className="flex justify-center mt-4 space-x-2">
+      <div className="flex justify-center mt-6 space-x-2">
         {slides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              idx === currentIndex ? 'bg-gray-800' : 'bg-gray-400'
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              idx === currentIndex ? 'bg-purple-600 w-8' : 'bg-gray-300 hover:bg-gray-400'
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />

@@ -109,10 +109,24 @@ export default function Welcome() {
   const imgRef = useRef<HTMLImageElement>(null);
   const [containerSize, setContainerSize] = useState<{width: number, height: number} | null>(null);
 
+  // Banner image ref and size state
+    const bannerImgRef = useRef<HTMLImageElement>(null);
+    const [bannerSize, setBannerSize] = useState<{width: number, height: number} | null>(null);
+
   const handlePurpleTouchStart = (e: React.TouchEvent) => {
     setPurpleTouchEnd(0);
     setPurpleTouchStart(e.targetTouches[0].clientX);
   };
+
+
+// Add these functions near your other purple carousel handlers
+const handlePurpleNext = () => {
+  setPurpleCarouselIndex((prev) => (prev + 1) % purpleImages.length);
+};
+
+const handlePurplePrev = () => {
+  setPurpleCarouselIndex((prev) => (prev - 1 + purpleImages.length) % purpleImages.length);
+};
 
   const handlePurpleTouchMove = (e: React.TouchEvent) => {
     setPurpleTouchEnd(e.targetTouches[0].clientX);
@@ -145,8 +159,14 @@ export default function Welcome() {
                 <div className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0 pt-16">
                     <main className="flex w-full flex-col-reverse lg:flex-row">
                         {/* Carousel Section */}
-                        <div className="relative w-full aspect-[4/3] sm:aspect-video overflow-hidden rounded-lg bg-[#fff2f2] dark:bg-[#1D0002]">
-                            {/* Carousel Images */}
+                        <div 
+                            className="relative w-full overflow-hidden rounded-lg bg-[#fff2f2] dark:bg-[#1D0002]"
+                            style={bannerSize ? { aspectRatio: `${bannerSize.width} / ${bannerSize.height}` } : { aspectRatio: '16 / 9' }}
+                            onTouchStart={handleTouchStart}
+                            onTouchMove={handleTouchMove}
+                            onTouchEnd={handleTouchEnd}
+                        >
+                        {/* Carousel Images */}
                             {images.map((image, index) => (
                                 <div
                                     key={index}
@@ -348,86 +368,136 @@ export default function Welcome() {
 </div>
   </div>
 </div>
-                {/* Purple container with 4-image carousel and text */}
-                <div className="mt-12 max-w-8xl mx-auto rounded-lg bg-[#4C1D95] p-8 flex justify-center items-center">
-                  <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-4xl mx-auto text-center">
-                    {/* Left carousel */}
-                    <div
-                      className="relative max-w-[250px] w-full flex-shrink-0 flex justify-center items-center"
-                      style={containerSize ? { aspectRatio: containerSize.width / containerSize.height } : {}}
-                      onTouchStart={handlePurpleTouchStart}
-                      onTouchMove={handlePurpleTouchMove}
-                      onTouchEnd={handlePurpleTouchEnd}
-                    >
-                      {purpleImages.map((image, index) => (
-                        <div
-                          key={index}
-                          className={`absolute inset-0 transition-opacity duration-500 flex justify-center items-center ${
-                            index === purpleCarouselIndex ? 'opacity-100' : 'opacity-0'
-                          }`}
-                        >
-                          <img
-                            ref={index === 0 ? imgRef : undefined}
-                            src={image.src}
-                            alt={image.alt}
-                            className="w-full h-full object-cover rounded-3xl"
-                            onLoad={index === 0 ? () => {
-                              if (imgRef.current && !containerSize) {
-                                const img = imgRef.current!;
-                                setContainerSize({ width: img.naturalWidth, height: img.naturalHeight });
-                              }
-                            } : undefined}
-                          />
-                        </div>
-                      ))}
-                      {/* Navigation arrows */}
-                      <button
-                        onClick={prevPurpleSlide}
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 transition-all"
-                      >
-                        ‹
-                      </button>
-                      <button
-                        onClick={nextPurpleSlide}
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 transition-all"
-                      >
-                        ›
-                      </button>
-                      {/* Dots indicator */}
-                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                        {purpleImages.map((_, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setPurpleCarouselIndex(index)}
-                            className={`w-3 h-3 rounded-full transition-all ${
-                              index === purpleCarouselIndex ? 'bg-white' : 'bg-white bg-opacity-50'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    {/* Right text content */}
-                    <div className="flex flex-col items-center justify-center text-center w-full">
-                      <h2 className="mb-4 font-semibold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight">
-                        EZCARE WARRANTY SUPERAPP, YOUR WARRANTY NO IS JUST A TAP AWAY
-                      </h2>
-                      <p className="mb-6 text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-snug max-w-lg">
-                        Say goodbye to warranty booklet. Access your vehicle policy details, track claims, locate workshops and get breakdown support anytime, anywhere all in one app.
-                      </p>
-                      <div className="flex space-x-4 justify-center">
-                        <a href="https://play.google.com/store/apps/details?id=com.ezcare.ezcaresuperapp" aria-label="Google Play Store">
-                          <img src="/google-play-badge.jpg" alt="Google Play" className="h-12 rounded-lg" />
-                        </a>
-                        <a href="https://apps.apple.com/my/app/ezcare-warranty-superapp/id6473253868" aria-label="Apple App Store">
-                          <img src="/app-store-badge.jpg" alt="App Store" className="h-12 rounded-lg" />
-                        </a>
-                        <a href="https://appgallery.huawei.com/app/C109957695" aria-label="Huawei AppGallery">
-                          <img src="/appgallery-badge.jpg" alt="AppGallery" className="h-12 rounded-lg" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                
+
+{/* Purple container with card-stack carousel and text */}
+<div className="mt-12 max-w-8xl mx-auto rounded-lg bg-[#4C1D95] p-8 flex justify-center items-center">
+  <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-4xl mx-auto text-center">
+    {/* Left carousel - Card Stack Style */}
+    <div
+      className="relative max-w-[250px] w-full flex-shrink-0 flex justify-center items-center"
+      style={{ height: '500px' }}
+      onTouchStart={handlePurpleTouchStart}
+      onTouchMove={handlePurpleTouchMove}
+      onTouchEnd={handlePurpleTouchEnd}
+    >
+      {purpleImages.map((image, index) => {
+        const offset = index - purpleCarouselIndex;
+        const isActive = index === purpleCarouselIndex;
+        const isPrev = offset < 0;
+        const isNext = offset > 0;
+        
+        return (
+          <div
+            key={index}
+            className={`absolute transition-all duration-500 ease-out ${
+              isActive ? 'z-30' : isNext ? 'z-20' : 'z-10'
+            }`}
+            style={{
+              transform: isActive 
+                ? 'translateX(0) translateY(0) scale(1) rotate(0deg)' 
+                : isNext
+                ? `translateX(${Math.min(offset * 15, 30)}px) translateY(${Math.min(offset * 10, 20)}px) scale(${1 - Math.min(offset * 0.05, 0.15)}) rotate(${Math.min(offset * 3, 6)}deg)`
+                : 'translateX(-100%) translateY(-20px) scale(0.9) rotate(-5deg)',
+              opacity: isActive ? 1 : isPrev ? 0 : Math.max(0.3, 1 - offset * 0.3),
+              pointerEvents: isActive ? 'auto' : 'none',
+            }}
+          >
+            <div className="relative w-full h-full">
+              <img
+                ref={index === 0 ? imgRef : undefined}
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover rounded-3xl shadow-2xl"
+                style={{
+                  boxShadow: isActive 
+                    ? '0 20px 60px rgba(0, 0, 0, 0.5)' 
+                    : '0 10px 30px rgba(0, 0, 0, 0.3)',
+                }}
+                onLoad={index === 0 ? () => {
+                  if (imgRef.current && !containerSize) {
+                    const img = imgRef.current!;
+                    setContainerSize({ width: img.naturalWidth, height: img.naturalHeight });
+                  }
+                } : undefined}
+              />
+              {/* Swipe indicator on active card */}
+              {isActive && (
+                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/30 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="text-white">
+                    <path fill="currentColor" d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03M5 9v6h4l5 5V4L9 9z"/>
+                  </svg>
+                  <span className="text-white text-xs font-medium">Swipe</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="text-white">
+                    <path fill="currentColor" d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01"/>
+                  </svg>
                 </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+      
+      {/* Navigation Buttons */}
+      <button
+        onClick={handlePurplePrev}
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-40 bg-white/90 hover:bg-white text-purple-700 rounded-full p-2 shadow-lg transition-all hover:scale-110"
+        aria-label="Previous image"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      
+      <button
+        onClick={handlePurpleNext}
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-40 bg-white/90 hover:bg-white text-purple-700 rounded-full p-2 shadow-lg transition-all hover:scale-110"
+        aria-label="Next image"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+      
+      {/* Dots indicator */}
+      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-40">
+        {purpleImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setPurpleCarouselIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              index === purpleCarouselIndex 
+                ? 'bg-white w-6' 
+                : 'bg-white/50 hover:bg-white/70'
+            }`}
+            aria-label={`Go to image ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+    
+    {/* Right text content */}
+    <div className="flex flex-col items-center justify-center text-center w-full">
+      <h2 className="mb-4 font-semibold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight">
+        EZCARE WARRANTY SUPERAPP, YOUR WARRANTY NO IS JUST A TAP AWAY
+      </h2>
+      <p className="mb-6 text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-snug max-w-lg">
+        Say goodbye to warranty booklet. Access your vehicle policy details, track claims, locate workshops and get breakdown support anytime, anywhere all in one app.
+      </p>
+      <div className="flex space-x-4 justify-center">
+        <a href="https://play.google.com/store/apps/details?id=com.ezcare.ezcaresuperapp" aria-label="Google Play Store">
+          <img src="/google-play-badge.jpg" alt="Google Play" className="h-12 rounded-lg" />
+        </a>
+        <a href="https://apps.apple.com/my/app/ezcare-warranty-superapp/id6473253868" aria-label="Apple App Store">
+          <img src="/app-store-badge.jpg" alt="App Store" className="h-12 rounded-lg" />
+        </a>
+        <a href="https://appgallery.huawei.com/app/C109957695" aria-label="Huawei AppGallery">
+          <img src="/appgallery-badge.jpg" alt="AppGallery" className="h-12 rounded-lg" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
               
                 {/* Why Choose Ezcare Warranty Section */}
