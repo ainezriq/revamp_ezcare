@@ -225,7 +225,7 @@ export default function Welcome() {
 <div className="bg-[#4C1D95] backdrop-blur-sm rounded-lg p-6 w-full lg:w-1/2 flex flex-col justify-center items-center">
   <div className="w-full h-full flex flex-col justify-center items-center space-y-6">
     <img
-      src="/transparent_car.png"
+      src="/car_form.jpg"
       alt="Ezcare Warranty"
       className="w-full max-w-md rounded-lg object-cover"
     />
@@ -238,7 +238,7 @@ export default function Welcome() {
       </p>
       <footer className="text-md text-white italic">
         Available 24/7 at 
-        <p className="text-2xl text-white italic">1 300 88 8287</p>
+        <p className="text-2xl text-white font-bold">1 300 88 8287</p>
       </footer>
     </blockquote>
   </div>

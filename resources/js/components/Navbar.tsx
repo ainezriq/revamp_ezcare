@@ -145,30 +145,32 @@ export default function Navbar() {
                     </nav>
 
                     {/* Auth Links */}
-                    <div className="flex items-center space-x-4">
+                    <div className="hidden md:flex items-center space-x-6">
                         {/* Hotline number added here */}
-                        <span className="hidden md:flex items-center text-[#4C1D95] font-semibold text-2xl px-3 py-2 rounded-md bg-purple-50">
-                            <Phone className="w-4 h-4 mr-2" />
-                            1 300 88 8287
-                        </span>
+                        <a 
+                            href="tel:1300888287"
+                            className="hidden lg:flex items-center gap-2 text-[#4C1D95] hover:text-[#3730A3] transition-colors"
+                        >
+                            <Phone className="w-5 h-5" />
+                            <span className="text-2xl font-bold tracking-tight">
+                                1300 88 8287
+                            </span>
+                        </a>
                         {auth.user ? (
                             <Link
                                 href={dashboard()}
-                                className="bg-[#4C1D95] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#3730A3] transition-colors dark:bg-[#6B46C1] dark:hover:bg-[#553C9A]"
+                                className="bg-[#4C1D95] text-white px-6 py-2.5 rounded-md text-sm font-medium hover:bg-[#3730A3] transition-colors dark:bg-[#6B46C1] dark:hover:bg-[#553C9A] whitespace-nowrap"
                             >
                                 Dashboard
                             </Link>
                         ) : (
                             <>
-                                <Link
-                                    href={login()}
-                                    className="text-[#1b1b18] hover:text-[#4C1D95] px-3 py-2 rounded-md text-sm font-medium transition-colors dark:text-[#EDEDEC] dark:hover:text-[#6B46C1]"
-                                >
-                                    COUNTRY : MY
-                                </Link>
+                                <div className="hidden lg:flex items-center text-[#1b1b18] dark:text-[#EDEDEC]">
+                                    <span className="text-sm font-medium">COUNTRY : MY</span>
+                                </div>
                                 <Link
                                     href="/policy-holder"
-                                    className="bg-[#4C1D95] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#3730A3] transition-colors dark:bg-[#6B46C1] dark:hover:bg-[#553C9A]"
+                                    className="bg-[#4C1D95] text-white px-6 py-2.5 rounded-md text-sm font-medium hover:bg-[#3730A3] transition-colors dark:bg-[#6B46C1] dark:hover:bg-[#553C9A] whitespace-nowrap"
                                 >
                                     Policy
                                 </Link>
@@ -176,8 +178,16 @@ export default function Navbar() {
                         )}
                     </div>
 
-                    {/* Mobile menu button */}
-                    <div className="md:hidden">
+                    {/* Mobile Policy Button and Menu */}
+                    <div className="md:hidden flex items-center gap-3">
+                        {!auth.user && (
+                            <Link
+                                href="/policy-holder"
+                                className="bg-[#4C1D95] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#3730A3] transition-colors"
+                            >
+                                Policy
+                            </Link>
+                        )}
                         <button
                             type="button"
                             className="text-[#1b1b18] hover:text-[#4C1D95] p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#4C1D95] dark:text-[#EDEDEC] dark:hover:text-[#6B46C1]"
