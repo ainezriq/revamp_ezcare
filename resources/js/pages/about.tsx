@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import { NavFooter } from '@/components/nav-footer';
 import { AwardsCarousel } from '@/components/AwardsCarousel';
+import { Wrench } from 'lucide-react';
 
 export default function About() {
   // Workshop carousel state
@@ -113,8 +114,8 @@ export default function About() {
             />
           </div>
 
-          {/* Text content that wraps around both images */}
-          <div className="text-white text-base md:text-lg space-y-4">
+          {/* Text content that wraps around both images with justified text */}
+          <div className="text-white text-base md:text-sm space-y-3 text-justify">
             <p>
               Ezcare Warranty was founded in late 2016 with a clear mission to redefine confidence in vehicle ownership through trusted, transparent, and customer-first warranty solutions. Officially launching operations in January 2017, we are headquartering in Bandar Baru Bangi, Selangor, driven by the belief that vehicle protection should be accessible, reliable, and backed by genuine peace of mind.
             </p>
@@ -128,6 +129,18 @@ export default function About() {
             <p>
               Innovation has always been at the heart of our growth. We introduced the open workshop concept, giving policyholders full freedom to choose their preferred service centres, a bold move that disrupted traditional industry norms. Coupled with one of the highest claim approval rates in the market, our approach quickly gained the trust of vehicle owners and dealers alike.
             </p>
+
+            {/* Clear float before divider */}
+            <div className="clear-both"></div>
+            
+            {/* Wrench Icon Divider */}
+            <div className="flex justify-center items-center py-2 -mx-8">
+              <div className="flex-grow border-t border-white/30"></div>
+              <div className="px-8 flex-shrink-0">
+                <Wrench className="w-6 h-6 text-white/70" />
+              </div>
+              <div className="flex-grow border-t border-white/30"></div>
+            </div>
 
             {/* Second Image floated to the right */}
             <div className="float-right ml-6 mb-6 w-full sm:w-1/3 max-w-xs">
