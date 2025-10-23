@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import { NavFooter } from '@/components/nav-footer';
-
+import { Head } from '@inertiajs/react';
 
 export default function Career() {
   const [formData, setFormData] = useState({
@@ -52,6 +53,7 @@ ${formData.name}`
 
   return (
     <>
+      <Head title="Careers" />
       <Navbar />
       <div className="pt-16">
         {/* Career page content will go here */}
@@ -127,6 +129,14 @@ ${formData.name}`
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Join Our Team
               </h2>
+              {/* Image Container */}
+            <div className="mb-12 rounded-2xl overflow-hidden shadow-lg max-w-4xl mx-auto">
+              <img 
+                src="/career.jpg" 
+                alt="Ezcare Warranty Team" 
+                className="w-full h-full object-cover"
+              />
+            </div>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 At Ezcare Warranty, we're always looking for talented individuals who are passionate about
                 innovation and excellence in the automotive warranty industry. Join us in our mission to
@@ -273,7 +283,7 @@ ${formData.name}`
                     type="submit"
                     className="bg-white text-[#4C1D95] px-8 py-3 rounded-md font-medium hover:bg-blue transition-colors"
                   >
-                    Send Application via Email
+                    Send Application via Email - career@ezcare-warranty.com
                   </button>
                 </div>
               </form>

@@ -1,10 +1,35 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import { NavFooter } from '@/components/nav-footer';
 import { AwardsCarousel } from '@/components/AwardsCarousel';
 
 export default function About() {
+  // Workshop carousel state
+  const [workshopIndex, setWorkshopIndex] = useState(0);
+  const workshopImages = [
+    { src: '/workshop1.jpg', alt: 'Workshop 1' },
+    { src: '/workshop2.jpg', alt: 'Workshop 2' },
+    { src: '/workshop3.jpg', alt: 'Workshop 3' },
+    { src: '/workshop4.jpg', alt: 'Workshop 4' },
+  ];
+
+  // Auto-scroll effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWorkshopIndex((prev) => (prev + 1) % workshopImages.length);
+    }, 3000); // Change image every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+  const handlePrevWorkshop = () => {
+    setWorkshopIndex((prev) => (prev - 1 + workshopImages.length) % workshopImages.length);
+  };
+
+  const handleNextWorkshop = () => {
+    setWorkshopIndex((prev) => (prev + 1) % workshopImages.length);
+  };
+
   return (
     <>
       <Navbar />
@@ -74,78 +99,175 @@ export default function About() {
           </h1>
         </div>
 
-        {/* Our Story Section - Full Width with Image */}
-        <div className="bg-[#4C1D95] rounded-lg p-6 mt-8 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-6">
-          <img
-            src="/about2.jpg"
-            alt="Ezcare Building"
-            className="w-full md:w-1/3 rounded-lg object-cover"
-            style={{ maxHeight: '300px' }}
-          />
+        {/* Our Story Section - Single Container with Images on Both Sides */}
+        <div className="bg-[#4C1D95] rounded-lg p-8 mt-8 max-w-5xl mx-auto">
+          <h2 className="text-center font-bold text-3xl mb-6 text-white">Our Story</h2>
+          
+          {/* First Image floated to the left */}
+          <div className="float-left mr-6 mb-6 w-full sm:w-1/3 max-w-xs">
+            <img
+              src="/about2.jpg"
+              alt="Ezcare Building"
+              className="w-full rounded-lg object-cover"
+              style={{ minHeight: '300px' }}
+            />
+          </div>
 
-          {/* Text Content */}
-          <div className="text-white text-base md:text-lg flex-1">
-            <h2 className="text-center font-bold text-3xl mb-4">Our Story</h2>
-            <p className="mb-4">
+          {/* Text content that wraps around both images */}
+          <div className="text-white text-base md:text-lg space-y-4">
+            <p>
               Ezcare Warranty was founded in late 2016 with a clear mission to redefine confidence in vehicle ownership through trusted, transparent, and customer-first warranty solutions. Officially launching operations in January 2017, we are headquartering in Bandar Baru Bangi, Selangor, driven by the belief that vehicle protection should be accessible, reliable, and backed by genuine peace of mind.
             </p>
-            <p className="mb-4">
+            <p>
               From a single headquarters, we have grown into a nationwide network, supported by branch offices in Johor Bahru, Johor and Kuching, Sarawak. Our ambition soon crossed borders as we expanded into the Indonesian market, establishing our presence with an operational office in South Jakarta marking the beginning of our global footprint.
             </p>
-            <p className="mb-4">
+            <p>
               A defining moment in our story was our partnership with a reputable international insurance company, making Ezcare Warranty the first aftermarket warranty provider in Malaysia to be officially backed and underwritten at an international level. This collaboration ensures that every policy we issue is financially secure, professionally managed, and globally recognised.
             </p>
-            <p className="mb-4">
+            
+            <p>
               Innovation has always been at the heart of our growth. We introduced the open workshop concept, giving policyholders full freedom to choose their preferred service centres, a bold move that disrupted traditional industry norms. Coupled with one of the highest claim approval rates in the market, our approach quickly gained the trust of vehicle owners and dealers alike.
             </p>
-            <p className="mb-4">
+
+            {/* Second Image floated to the right */}
+            <div className="float-right ml-6 mb-6 w-full sm:w-1/3 max-w-xs">
+              <img
+                src="/about3.jpg"
+                alt="Ezcare Team"
+                className="w-full rounded-lg object-cover"
+                style={{ minHeight: '300px' }}
+              />
+            </div>
+
+            <p>
               Recognising the shift in mobility trends, we became pioneers in offering warranty plans for hybrid system and electric vehicles (EVs), supporting the transition toward cleaner and more advanced automotive technologies.
             </p>
-            <p className="mb-4">
+            <p>
               In line with our commitment to digital transformation, we replaced traditional warranty booklets with a fully integrated mobile application, making policy access, claims access, and support available at policyholders' fingertips.
             </p>
-            <p className="mb-4">
+            <p>
               Today, with over 80,000 policies issued and counting, Ezcare Warranty continues to lead with integrity, innovation, and customer assurance. Our dedication has been celebrated through prestigious recognitions such as the Asia Automotive Award in 2019 and the Superbrands Award in 2020.
             </p>
-            <p className="mb-4">
+            <p>
               What began as a vision to elevate peace of mind on the road has evolved into a trusted brand known for protection, partnership, and progress. And our story is just getting started. As we continue to expand, innovate, and strengthen our market presence, one belief remains clear. We are here to stay.
             </p>
           </div>
+          
+          {/* Clear float */}
+          <div className="clear-both"></div>
         </div>
 
-        {/* Mission & Vision Section */}
+        {/* Open Workshop Concept Section */}
         <div className="max-w-5xl mx-auto mt-12 px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Left Container - Mission */}
-            <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-purple-200">
-              <div className="flex items-center justify-center mb-6">
-                <div className="bg-purple-100 rounded-full p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-purple-200">
+            <div className="flex items-center justify-center mb-6">
+              <div className="bg-purple-100 rounded-full p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+            </div>
+            <h3 className="text-3xl font-bold text-center text-purple-900 mb-6">Open Workshop Concept</h3>
+            
+            {/* Workshop Images Carousel */}
+            <div className="relative w-full mb-8 overflow-hidden rounded-lg" style={{ height: '300px' }}>
+              <div className="relative w-full h-full flex items-center">
+                {/* Images Container */}
+                <div className="flex transition-transform duration-500 ease-in-out w-full h-full" style={{ transform: `translateX(-${workshopIndex * 100}%)` }}>
+                  {workshopImages.map((image, index) => (
+                    <div key={index} className="min-w-full h-full flex-shrink-0 px-2">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Navigation Buttons */}
+                <button
+                  onClick={handlePrevWorkshop}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-purple-700 rounded-full p-3 shadow-lg transition-all hover:scale-110"
+                  aria-label="Previous workshop image"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
                   </svg>
+                </button>
+                
+                <button
+                  onClick={handleNextWorkshop}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-purple-700 rounded-full p-3 shadow-lg transition-all hover:scale-110"
+                  aria-label="Next workshop image"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+
+                {/* Dots Indicator */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                  {workshopImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setWorkshopIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === workshopIndex 
+                          ? 'bg-purple-700 w-6' 
+                          : 'bg-purple-300 hover:bg-purple-500'
+                      }`}
+                      aria-label={`Go to workshop image ${index + 1}`}
+                    />
+                  ))}
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-center text-purple-900 mb-4">Our Mission</h3>
-              <p className="text-gray-700 text-center leading-relaxed">
-                To provide comprehensive and reliable warranty solutions that protect vehicle owners from unexpected repair costs, 
-                ensuring peace of mind and customer satisfaction through transparent service and competitive pricing.
-              </p>
             </div>
 
-            {/* Right Container - Vision */}
-            <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-purple-200">
-              <div className="flex items-center justify-center mb-6">
-                <div className="bg-purple-100 rounded-full p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                </div>
+            <div className="text-gray-700 leading-relaxed space-y-4">
+              <p>
+                At Ezcare Warranty, we believe in giving you the freedom to choose. Our revolutionary <span className="font-semibold text-purple-700">Open Workshop Concept</span> allows you to service your vehicle at any SSM-certified and properly registered workshop across Malaysia.
+              </p>
+              <p>
+                Unlike traditional warranty providers that restrict you to specific service centers, we trust you to make the best decision for your vehicle. Whether it's your trusted neighborhood mechanic or a specialized workshop, the choice is entirely yours.
+              </p>
+              <div className="bg-purple-50 rounded-lg p-6 mt-4">
+                <h4 className="font-semibold text-purple-900 mb-3 text-lg">Benefits of Open Workshop Concept:</h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><span className="font-semibold">Complete Freedom:</span> Choose any certified workshop nationwide</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><span className="font-semibold">Convenience:</span> Service your vehicle wherever you are in Malaysia</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><span className="font-semibold">Trust Your Mechanic:</span> Continue working with workshops you already trust</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><span className="font-semibold">No Restrictions:</span> No need to travel far for warranty claims</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><span className="font-semibold">Quality Assurance:</span> All workshops must be SSM-certified and registered</span>
+                  </li>
+                </ul>
               </div>
-              <h3 className="text-2xl font-bold text-center text-purple-900 mb-4">Our Vision</h3>
-              <p className="text-gray-700 text-center leading-relaxed">
-                To become the leading after-market warranty provider in Southeast Asia, recognized for innovation, 
-                flexibility, and excellence in customer service while expanding our reach across the region.
+              <p className="text-center font-semibold text-purple-900 mt-6">
+                Your vehicle, your choice, your peace of mind.
               </p>
             </div>
           </div>

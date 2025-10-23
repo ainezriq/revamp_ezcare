@@ -40,7 +40,7 @@ const cards: Card[] = [
     image: '/garage4.jpg',
     alt: 'Workshop Locator',
     title: 'Find a trusted workshop near you fast and easy.',
-    buttonText: '+ Locate ECW Services',
+    buttonText: '+ Discover Our Group of Companies',
     link: '/goc',
   },
 ];
