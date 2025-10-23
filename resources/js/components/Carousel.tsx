@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 interface Card {
   id: number;
@@ -52,13 +52,6 @@ for (let i = 0; i < cards.length; i += 2) {
 
 export function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 7000);
-    return () => clearInterval(interval);
-  }, []);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
