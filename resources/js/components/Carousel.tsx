@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link } from '@inertiajs/react';
 
 interface Card {
   id: number;
@@ -31,7 +32,7 @@ const cards: Card[] = [
     id: 3,
     image: '/garage3.jpg',
     alt: 'Customer Support',
-    title: 'Need help or have questions? We’re just a click away.',
+    title: 'Need help or have questions? We are just a click away.',
     buttonText: '+ Contact Us',
     link: '/contact',
   },
@@ -39,7 +40,7 @@ const cards: Card[] = [
     id: 4,
     image: '/garage4.jpg',
     alt: 'Workshop Locator',
-    title: 'Find a trusted workshop near you fast and easy.',
+    title: 'From policy to performance, discover the companies driving Ezcare forward.',
     buttonText: '+ Discover Our Group of Companies',
     link: '/goc',
   },
@@ -64,12 +65,12 @@ export function Carousel() {
   return (
     <div className="relative w-full max-w-6xl mx-auto px-4 py-8">
       {/* Carousel Container */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden" style={{ minHeight: '400px' }}>
         {slides.map((slide, slideIndex) => (
           <div
             key={slideIndex}
-            className={`transition-opacity duration-1000 ease-in-out ${
-              slideIndex === currentIndex ? 'opacity-100' : 'opacity-0 absolute inset-0'
+            className={`transition-opacity duration-500 ease-in-out ${
+              slideIndex === currentIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 pointer-events-none'
             }`}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
@@ -92,12 +93,12 @@ export function Carousel() {
                     <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4 line-clamp-2">
                       {card.title}
                     </h3>
-                    <a
+                    <Link
                       href={card.link}
-                      className="mt-auto w-full max-w-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                      className="mt-auto w-full max-w-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 block text-center"
                     >
                       {card.buttonText}
-                    </a>
+                    </Link>
                   </div>
                 </div>
               ))}

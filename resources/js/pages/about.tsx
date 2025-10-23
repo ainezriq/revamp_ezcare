@@ -18,17 +18,17 @@ export default function About() {
   // Auto-scroll effect
   useEffect(() => {
     const interval = setInterval(() => {
-      setWorkshopIndex((prev) => (prev + 1) % workshopImages.length);
+      setWorkshopIndex((prev) => (prev + 1) % 2); // Changed to 2 slides
     }, 3000); // Change image every 3 seconds
     return () => clearInterval(interval);
   }, []);
 
   const handlePrevWorkshop = () => {
-    setWorkshopIndex((prev) => (prev - 1 + workshopImages.length) % workshopImages.length);
+    setWorkshopIndex((prev) => (prev - 1 + 2) % 2); // Changed to 2 slides
   };
 
   const handleNextWorkshop = () => {
-    setWorkshopIndex((prev) => (prev + 1) % workshopImages.length);
+    setWorkshopIndex((prev) => (prev + 1) % 2); // Changed to 2 slides
   };
 
   return (
@@ -182,27 +182,53 @@ export default function About() {
             </div>
             <h3 className="text-3xl font-bold text-center text-purple-900 mb-6">Open Workshop Concept</h3>
             
-            {/* Workshop Images Carousel */}
+            {/* Workshop Images Carousel - 2 images per slide */}
             <div className="relative w-full mb-8 overflow-hidden rounded-lg" style={{ height: '300px' }}>
               <div className="relative w-full h-full flex items-center">
                 {/* Images Container */}
                 <div className="flex transition-transform duration-500 ease-in-out w-full h-full" style={{ transform: `translateX(-${workshopIndex * 100}%)` }}>
-                  {workshopImages.map((image, index) => (
-                    <div key={index} className="min-w-full h-full flex-shrink-0 px-2">
+                  {/* Slide 1 - Images 1 & 2 */}
+                  <div className="min-w-full h-full flex-shrink-0 flex gap-4 px-2">
+                    <div className="w-1/2 h-full">
                       <img
-                        src={image.src}
-                        alt={image.alt}
+                        src={workshopImages[0].src}
+                        alt={workshopImages[0].alt}
                         className="w-full h-full object-cover rounded-lg"
                       />
                     </div>
-                  ))}
+                    <div className="w-1/2 h-full">
+                      <img
+                        src={workshopImages[1].src}
+                        alt={workshopImages[1].alt}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Slide 2 - Images 3 & 4 */}
+                  <div className="min-w-full h-full flex-shrink-0 flex gap-4 px-2">
+                    <div className="w-1/2 h-full">
+                      <img
+                        src={workshopImages[2].src}
+                        alt={workshopImages[2].alt}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                    <div className="w-1/2 h-full">
+                      <img
+                        src={workshopImages[3].src}
+                        alt={workshopImages[3].alt}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Navigation Buttons */}
                 <button
                   onClick={handlePrevWorkshop}
                   className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-purple-700 rounded-full p-3 shadow-lg transition-all hover:scale-110"
-                  aria-label="Previous workshop image"
+                  aria-label="Previous workshop images"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="15 18 9 12 15 6"></polyline>
@@ -212,16 +238,16 @@ export default function About() {
                 <button
                   onClick={handleNextWorkshop}
                   className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-purple-700 rounded-full p-3 shadow-lg transition-all hover:scale-110"
-                  aria-label="Next workshop image"
+                  aria-label="Next workshop images"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </button>
 
-                {/* Dots Indicator */}
+                {/* Dots Indicator - Now only 2 dots for 2 slides */}
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-                  {workshopImages.map((_, index) => (
+                  {[0, 1].map((index) => (
                     <button
                       key={index}
                       onClick={() => setWorkshopIndex(index)}
@@ -230,7 +256,7 @@ export default function About() {
                           ? 'bg-purple-700 w-6' 
                           : 'bg-purple-300 hover:bg-purple-500'
                       }`}
-                      aria-label={`Go to workshop image ${index + 1}`}
+                      aria-label={`Go to slide ${index + 1}`}
                     />
                   ))}
                 </div>
