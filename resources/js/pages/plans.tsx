@@ -310,18 +310,70 @@ export default function Plans() {
       <Head title="Warranty Plans" />
       <div className="min-h-screen bg-[#FDFDFC] text-[#1b1b18] dark:bg-[#0a0a0a]">
         <Navbar />
-        {/* Add heading above the plans */}
-        <div className="w-full bg-purple-900 py-12 mb-8 pt-28">
-          <h1
-            className="text-5xl md:text-6xl font-bold mb-4 text-white text-center w-full"
-            style={{
-              textShadow:
-                '0 4px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.85)',
-            }}
-          >
-            WARRANTY PLANS
-          </h1>
-        </div>
+        {/* Add heading above the plans with pattern */}
+<div className="relative w-full bg-purple-900 py-12 mb-8 pt-28 overflow-hidden">
+  {/* Gradient Mesh Background with Soft Waves */}
+  <div className="absolute inset-0">
+    {/* Soft Wave Layers */}
+    <svg
+      className="absolute inset-0 w-full h-full"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+      preserveAspectRatio="none"
+    >
+      {/* Wave 1 - Top */}
+      <path
+        fill="rgba(255, 255, 255, 0.1)"
+        d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,128C1248,117,1344,107,1392,101.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+      />
+      {/* Wave 2 - Middle */}
+      <path
+        fill="rgba(255, 255, 255, 0.08)"
+        d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,170.7C672,160,768,160,864,170.7C960,181,1056,203,1152,197.3C1248,192,1344,160,1392,144L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+      />
+      {/* Wave 3 - Bottom */}
+      <path
+        fill="rgba(255, 255, 255, 0.06)"
+        d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,213.3C672,224,768,224,864,213.3C960,203,1056,181,1152,165.3C1248,149,1344,139,1392,133.3L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+      />
+    </svg>
+    
+    {/* Gradient Mesh Overlay */}
+    <div 
+      className="absolute inset-0 opacity-20"
+      style={{
+        background: `
+          radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+          radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)
+        `
+      }}
+    />
+    
+    {/* Subtle Dots Pattern */}
+    <div 
+      className="absolute inset-0 opacity-10"
+      style={{
+        backgroundImage: `radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
+        backgroundSize: '30px 30px'
+      }}
+    />
+  </div>
+  
+  {/* Decorative circles */}
+  <div className="absolute top-0 left-0 w-64 h-64 bg-purple-800 rounded-full opacity-20 -translate-x-1/2 -translate-y-1/2" />
+  <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-800 rounded-full opacity-20 translate-x-1/3 translate-y-1/3" />
+  
+  <h1
+    className="relative text-5xl md:text-6xl font-bold mb-4 text-white text-center w-full z-10"
+    style={{
+      textShadow:
+        '0 4px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.85)',
+    }}
+  >
+    WARRANTY PLANS
+  </h1>
+</div>
         <div className="max-w-5xl mx-auto px-4 pt-4 pb-8">
           {Object.entries(warrantyPlansData)
             .filter(([sectionKey]) => sectionKey !== 'optional_add_on_hybrid_coverage')

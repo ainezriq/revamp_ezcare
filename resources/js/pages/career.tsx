@@ -56,19 +56,69 @@ ${formData.name}`
       <div className="pt-16">
         {/* Career page content will go here */}
         <div className="min-h-screen bg-gray-50">
-          {/* Hero Section */}
-          <div className="relative">
-            <img
-              src="/career1.png"
-              alt="Career Banner"
-              className="w-full h-125 object-cover"
-            />
-            <div className="absolute inset-0 bg-opacity-50 flex items-center justify-center">
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white text-center w-full"
-                style={{ textShadow: '0 4px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.85)' }}>
-                CAREERS AT EZCARE
-              </h1>
+          {/* Hero Section with exact same banner style */}
+          <div className="relative w-full bg-purple-900 py-12 mb-8 overflow-hidden">
+            {/* Gradient Mesh Background with Soft Waves */}
+            <div className="absolute inset-0">
+              {/* Soft Wave Layers */}
+              <svg
+                className="absolute inset-0 w-full h-full"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1440 320"
+                preserveAspectRatio="none"
+              >
+                {/* Wave 1 - Top */}
+                <path
+                  fill="rgba(255, 255, 255, 0.1)"
+                  d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,128C1248,117,1344,107,1392,101.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+                />
+                {/* Wave 2 - Middle */}
+                <path
+                  fill="rgba(255, 255, 255, 0.08)"
+                  d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,170.7C672,160,768,160,864,170.7C960,181,1056,203,1152,197.3C1248,192,1344,160,1392,144L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+                />
+                {/* Wave 3 - Bottom */}
+                <path
+                  fill="rgba(255, 255, 255, 0.06)"
+                  d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,213.3C672,224,768,224,864,213.3C960,203,1056,181,1152,165.3C1248,149,1344,139,1392,133.3L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+                />
+              </svg>
+              
+              {/* Gradient Mesh Overlay */}
+              <div 
+                className="absolute inset-0 opacity-20"
+                style={{
+                  background: `
+                    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)
+                  `
+                }}
+              />
+              
+              {/* Subtle Dots Pattern */}
+              <div 
+                className="absolute inset-0 opacity-10"
+                style={{
+                  backgroundImage: `radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
+                  backgroundSize: '30px 30px'
+                }}
+              />
             </div>
+            
+            {/* Decorative circles */}
+            <div className="absolute top-0 left-0 w-64 h-64 bg-purple-800 rounded-full opacity-20 -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-800 rounded-full opacity-20 translate-x-1/3 translate-y-1/3" />
+            
+            <h1
+              className="relative text-5xl md:text-6xl font-bold mb-4 text-white text-center w-full z-10"
+              style={{
+                textShadow:
+                  '0 4px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.85)',
+              }}
+            >
+              CAREERS AT EZCARE
+            </h1>
           </div>
 
           {/* Career Content */}
@@ -121,14 +171,12 @@ ${formData.name}`
                   Work in a dynamic environment that embraces innovation, continuous improvement, and long-term career development.
                 </p>
               </div>
-
-              
             </div>
 
             {/* Career Application Form */}
             <div className="bg-[#4C1D95] rounded-lg p-8 shadow-lg border border-gray-200 text-white">
               <div className="flex items-center justify-center mb-8">
-                <svg className="mr-4" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"><path d="m9.485 16.248l-1.963 3.927c-.491.884-1.571 1.178-2.455.687c-.687-.49-.982-1.374-.589-2.16l1.178-2.454m8.64-3.828v-.884c0-1.768-1.276-3.338-2.945-3.633a2.65 2.65 0 0 0-1.458 0"/><path d="M2.318 16.248L1.14 18.703c-.352.736-.098 1.669.59 2.16c.883.49 1.963.196 2.454-.688l.17-.322m6.408-13.525a2.454 2.454 0 1 0 0-4.908a2.454 2.454 0 0 0 0 4.908m-2.416 7.024H2.652a.74.74 0 0 1-.687-.491l-.97-3.532c-.095-.357.184-.886.675-.886h4.713c.294 0 .589.196.687.49zm2.946 0H8.346m12.45 2.945c.393-.393.59-.982.59-1.669v-2.945l-1.965.981h-.981l-1.964-.981v2.945c0 .687.295 1.375.786 1.865m3.534-.196l1.767 2.553c.295.49.46 1.097.46 1.686v.098c0 1.08-.852 1.947-1.932 1.947H15.2m2.258-6.087v6.087"/></g></svg>
+                <svg className="mr-4" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5"><path d="m9.485 16.248l-1.963 3.927c-.491.884-1.571 1.178-2.455.687c-.687-.49-.982-1.374-.589-2.16l1.178-2.454m8.64-3.828v-.884c0-1.768-1.276-3.338-2.945-3.633a2.65 2.65 0 0 0-1.458 0"/><path d="M2.318 16.248L1.14 18.703c-.352.736-.098 1.669.59 2.16c.883.49 1.963.196 2.454-.688l.17-.322m6.408-13.525a2.454 2.454 0 1 0 0-4.908a2.454 2.454 0 0 0 0 4.908m-2.416 7.024H2.652a.74.74 0 0 1-.687-.491l-.97-3.532c-.095-.357.184-.886.675-.886h4.713c.294 0 .589.196.687.49zm2.946 0H8.346m12.45 2.945c.393-.393.59-.982.59-1.669v-2.945l-1.965.981h-.981l-1.964-.981v2.945c0 .687.295 1.375.786 1.865m3.534-.196l1.767 2.553c.295.49.46 1.097.46 1.686v.098c0 1.08-.852 1.947-1.932 1.947H15.2m2.258-6.087v6.087"/></g></svg>
                 <h3 className="text-2xl font-bold text-white">
                   Career Form
                 </h3>

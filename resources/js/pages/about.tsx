@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import { NavFooter } from '@/components/nav-footer';
@@ -8,19 +9,72 @@ export default function About() {
     <>
       <Navbar />
       <div className="pt-16">
-        <div className="relative image-container">
-          <img
-            src="/about1.jpg"
-            alt="Banner"
-            className="w-full h-125 object-cover"
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white text-center w-full"
-                style={{ textShadow: '0 4px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.85)' }}>
-              ABOUT EZCARE WARRANTY
-            </h1>
+        {/* Banner with exact same style as plans page */}
+        <div className="relative w-full bg-purple-900 py-12 mb-8 overflow-hidden">
+          {/* Gradient Mesh Background with Soft Waves */}
+          <div className="absolute inset-0">
+            {/* Soft Wave Layers */}
+            <svg
+              className="absolute inset-0 w-full h-full"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 320"
+              preserveAspectRatio="none"
+            >
+              {/* Wave 1 - Top */}
+              <path
+                fill="rgba(255, 255, 255, 0.1)"
+                d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,128C1248,117,1344,107,1392,101.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+              />
+              {/* Wave 2 - Middle */}
+              <path
+                fill="rgba(255, 255, 255, 0.08)"
+                d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,170.7C672,160,768,160,864,170.7C960,181,1056,203,1152,197.3C1248,192,1344,160,1392,144L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+              />
+              {/* Wave 3 - Bottom */}
+              <path
+                fill="rgba(255, 255, 255, 0.06)"
+                d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,213.3C672,224,768,224,864,213.3C960,203,1056,181,1152,165.3C1248,149,1344,139,1392,133.3L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+              />
+            </svg>
+            
+            {/* Gradient Mesh Overlay */}
+            <div 
+              className="absolute inset-0 opacity-20"
+              style={{
+                background: `
+                  radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                  radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)
+                `
+              }}
+            />
+            
+            {/* Subtle Dots Pattern */}
+            <div 
+              className="absolute inset-0 opacity-10"
+              style={{
+                backgroundImage: `radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
+                backgroundSize: '30px 30px'
+              }}
+            />
           </div>
+          
+          {/* Decorative circles */}
+          <div className="absolute top-0 left-0 w-64 h-64 bg-purple-800 rounded-full opacity-20 -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-800 rounded-full opacity-20 translate-x-1/3 translate-y-1/3" />
+          
+          <h1
+            className="relative text-5xl md:text-6xl font-bold mb-4 text-white text-center w-full z-10"
+            style={{
+              textShadow:
+                '0 4px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.85)',
+            }}
+          >
+            ABOUT EZCARE WARRANTY
+          </h1>
         </div>
+
+        {/* Our Story Section - Full Width with Image */}
         <div className="bg-[#4C1D95] rounded-lg p-6 mt-8 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-6">
           <img
             src="/about2.jpg"
@@ -29,16 +83,18 @@ export default function About() {
             style={{ maxHeight: '300px' }}
           />
 
-
-          {/* ezcare story container */}
-          <div className="text-white text-base md:text-lg">
-            <h2 className="text-center md:text-left font-bold text-3xl mb-4">Our Story</h2>
+          {/* Text Content */}
+          <div className="text-white text-base md:text-lg flex-1">
+            <h2 className="text-center font-bold text-3xl mb-4">Our Story</h2>
             <p className="mb-4">
-              Ezcare Warranty was founded in late 2016 with a clear mission to redefine confidence in vehicle ownership through trusted, transparent, and customer-first warranty solutions. Officially launching operations in January 2017, we are headquartering in Bandar Baru Bangi, Selangor, driven by the belief that vehicle protection should be accessible, reliable, and backed by genuine peace of mind.</p>
+              Ezcare Warranty was founded in late 2016 with a clear mission to redefine confidence in vehicle ownership through trusted, transparent, and customer-first warranty solutions. Officially launching operations in January 2017, we are headquartering in Bandar Baru Bangi, Selangor, driven by the belief that vehicle protection should be accessible, reliable, and backed by genuine peace of mind.
+            </p>
             <p className="mb-4">
-              From a single headquarters, we have grown into a nationwide network, supported by branch offices in Johor Bahru, Johor and Kuching, Sarawak. Our ambition soon crossed borders as we expanded into the Indonesian market, establishing our presence with an operational office in South Jakarta marking the beginning of our global footprint.</p>
+              From a single headquarters, we have grown into a nationwide network, supported by branch offices in Johor Bahru, Johor and Kuching, Sarawak. Our ambition soon crossed borders as we expanded into the Indonesian market, establishing our presence with an operational office in South Jakarta marking the beginning of our global footprint.
+            </p>
             <p className="mb-4">
-              A defining moment in our story was our partnership with a reputable international insurance company, making Ezcare Warranty the first aftermarket warranty provider in Malaysia to be officially backed and underwritten at an international level. This collaboration ensures that every policy we issue is financially secure, professionally managed, and globally recognised.</p>
+              A defining moment in our story was our partnership with a reputable international insurance company, making Ezcare Warranty the first aftermarket warranty provider in Malaysia to be officially backed and underwritten at an international level. This collaboration ensures that every policy we issue is financially secure, professionally managed, and globally recognised.
+            </p>
             <p className="mb-4">
               Innovation has always been at the heart of our growth. We introduced the open workshop concept, giving policyholders full freedom to choose their preferred service centres, a bold move that disrupted traditional industry norms. Coupled with one of the highest claim approval rates in the market, our approach quickly gained the trust of vehicle owners and dealers alike.
             </p>
@@ -57,7 +113,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* New Two Container Section */}
+        {/* Mission & Vision Section */}
         <div className="max-w-5xl mx-auto mt-12 px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Left Container - Mission */}
@@ -95,7 +151,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* ezcare articles */}
+        {/* Industry Spotlight Articles */}
         <div className="max-w-5xl mx-auto mt-12 px-4">
           <h2 className="text-center font-semibold text-2xl mb-8">Industry Spotlight : Ezcare Warranty</h2>
           <div className="flex flex-col md:flex-row gap-12 justify-center">
@@ -105,12 +161,12 @@ export default function About() {
                 alt="News 1"
                 className="rounded-lg object-cover w-full h-56"
               />
-            <h3 className="mt-4 font-semibold text-center">
-              <a href="https://www.kosmo.com.my/2025/03/05/kerjasama-ezcare-generali-perkukuh-keyakinan-pelanggan/#google_vignette" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Kerjasama Ezcare, Generali perkukuh keyakinan pelanggan
-              </a>
-            </h3>
-            <p className="text-sm text-gray-600 mt-1">26 May 2023, 5:27 pm</p>
+              <h3 className="mt-4 font-semibold text-center">
+                <a href="https://www.kosmo.com.my/2025/03/05/kerjasama-ezcare-generali-perkukuh-keyakinan-pelanggan/#google_vignette" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Kerjasama Ezcare, Generali perkukuh keyakinan pelanggan
+                </a>
+              </h3>
+              <p className="text-sm text-gray-600 mt-1">26 May 2023, 5:27 pm</p>
             </div>
             <div className="flex flex-col items-center max-w-xs">
               <img
@@ -118,12 +174,12 @@ export default function About() {
                 alt="News 2"
                 className="rounded-lg object-cover w-full h-56"
               />
-            <h3 className="mt-4 font-semibold text-center">
-              <a href="https://www.kosmo.com.my/2023/07/25/ezcare-kwt-technology-pertingkat-kesedaran-informasi-tentang-perkhidmatan-selepas-jualan-ev/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Ezcare, KWT Technology pertingkat kesedaran, informasi tentang perkhidmatan selepas jualan EV
-              </a>
-            </h3>
-            <p className="text-sm text-gray-600 mt-1">25 Julai 2023, 10:04 am</p>
+              <h3 className="mt-4 font-semibold text-center">
+                <a href="https://www.kosmo.com.my/2023/07/25/ezcare-kwt-technology-pertingkat-kesedaran-informasi-tentang-perkhidmatan-selepas-jualan-ev/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Ezcare, KWT Technology pertingkat kesedaran, informasi tentang perkhidmatan selepas jualan EV
+                </a>
+              </h3>
+              <p className="text-sm text-gray-600 mt-1">25 Julai 2023, 10:04 am</p>
             </div>
             <div className="flex flex-col items-center max-w-xs">
               <img
@@ -131,17 +187,17 @@ export default function About() {
                 alt="News 3"
                 className="rounded-lg object-cover w-full h-56"
               />
-            <h3 className="mt-4 font-semibold text-center">
-              <a href="https://www.kosmo.com.my/2022/07/18/formula-kreativiti-ezcare-kini-menjadi/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Formula, kreativiti Ezcare kini menjadi
-              </a>
-            </h3>
-            <p className="text-sm text-gray-600 mt-1">18 Julai 2022, 9:09 am</p>
+              <h3 className="mt-4 font-semibold text-center">
+                <a href="https://www.kosmo.com.my/2022/07/18/formula-kreativiti-ezcare-kini-menjadi/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Formula, kreativiti Ezcare kini menjadi
+                </a>
+              </h3>
+              <p className="text-sm text-gray-600 mt-1">18 Julai 2022, 9:09 am</p>
             </div>
           </div>
         </div>
 
-        {/* ezcare offices */}
+        {/* Ezcare Offices */}
         <div className="bg-purple-900 text-white py-12 mt-12">
           <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-center text-3xl font-bold mb-12">Ezcare Offices Across Malaysia & Indonesia</h2>

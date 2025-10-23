@@ -504,7 +504,7 @@ const handlePurplePrev = () => {
                 <section className="mt-16 bg-[#4C1D95] py-12 rounded-lg">
                     <div className="max-w-7xl mx-auto px-6 text-white">
                         <h2 className="text-center text-3xl font-semibold mb-10">Why Choose Ezcare Warranty?</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
                             {/* Card 1 */}
                             <div className="bg-white text-purple-700 rounded-lg shadow-md p-4 sm:p-6 flex flex-col items-center text-center relative">
                                 <div className="absolute -top-4 left-4 bg-purple-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold">1</div>
