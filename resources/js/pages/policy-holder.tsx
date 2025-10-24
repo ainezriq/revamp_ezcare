@@ -143,12 +143,20 @@ const handleSearch = async () => {
                   Policy Details
                 </h2>
                 
-                {/* Image Container */}
+                {/* Image Container - Dynamic based on vehicle_type */}
                 <div className="flex justify-center mb-6">
                   <div className="w-64 h-48 bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
                     <img
-                      src="/warranty_car.png"
-                      alt="Policy Document"
+                      src={
+                        policy.data.warranty_plan?.vehicle_type?.toLowerCase() === 'bike' 
+                          ? '/warranty_bike.png' 
+                          : policy.data.warranty_plan?.vehicle_type?.toLowerCase() === 'ev'
+                          ? '/warranty_car.png'
+                          : policy.data.warranty_plan?.vehicle_type?.toLowerCase() === 'lorry'
+                          ? '/warranty_lorry.png'
+                          : '/warranty_car.png'
+                      }
+                      alt={`${policy.data.warranty_plan?.vehicle_type || 'Policy'} Document`}
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         // Fallback if image doesn't exist
@@ -179,6 +187,12 @@ const handleSearch = async () => {
                     <span className="font-semibold">Warranty Plan:</span>{' '}
                     {policy.data.warranty_plan.name || 'N/A'}
                   </p>
+                  <p>
+  <span className="font-semibold">Period:</span>{' '}
+  {policy.data.warranty_plan.year_package 
+    ? `${policy.data.warranty_plan.year_package} ${policy.data.warranty_plan.year_package === 1 ? 'Year' : 'Years'}`
+    : 'N/A'}
+</p>
                 </div>
               </div>
             )}
