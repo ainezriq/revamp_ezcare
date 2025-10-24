@@ -47,11 +47,13 @@ const handleSearch = async () => {
       );
 
       if (response.data && (response.data.policy_no || response.data.status_code)) {
+        console.log('Policy details:', response.data);
         setPolicy(response.data);
       } else {
         setError('Great news! We’ve found your policy. All the details are listed below.');
       }
       setPolicy(response.data);
+        console.log('Policy details:', response.data);
 
     // SweetAlert success message
       Swal.fire({
@@ -145,7 +147,7 @@ const handleSearch = async () => {
                 <div className="flex justify-center mb-6">
                   <div className="w-64 h-48 bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
                     <img
-                      src="/policy-placeholder.png"
+                      src="/warranty_car.png"
                       alt="Policy Document"
                       className="w-full h-full object-cover"
                       onError={(e) => {
@@ -163,7 +165,7 @@ const handleSearch = async () => {
                   </p>
                   <p>
                     <span className="font-semibold">Status Code:</span>{' '}
-                    {policy.data.status_code || 'N/A'}
+                    {policy.data.status_code ? policy.data.status_code.toUpperCase() : 'N/A'}
                   </p>
                   <p>
                     <span className="font-semibold">Activated At:</span>{' '}
@@ -175,7 +177,7 @@ const handleSearch = async () => {
                   </p>
                   <p>
                     <span className="font-semibold">Warranty Plan:</span>{' '}
-                    {policy.data.warranty_plan || 'N/A'}
+                    {policy.data.warranty_plan.name || 'N/A'}
                   </p>
                 </div>
               </div>

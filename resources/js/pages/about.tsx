@@ -6,7 +6,7 @@ import { AwardsCarousel } from '@/components/AwardsCarousel';
 import { Wrench } from 'lucide-react';
 
 export default function About() {
-  // Workshop carousel state
+  // Workshop carousel state - tracks which image (0-3)
   const [workshopIndex, setWorkshopIndex] = useState(0);
   const workshopImages = [
     { src: '/workshop1.jpg', alt: 'Workshop 1' },
@@ -15,20 +15,12 @@ export default function About() {
     { src: '/workshop4.jpg', alt: 'Workshop 4' },
   ];
 
-  // Auto-scroll effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWorkshopIndex((prev) => (prev + 1) % 2); // Changed to 2 slides
-    }, 3000); // Change image every 3 seconds
-    return () => clearInterval(interval);
-  }, []);
-
   const handlePrevWorkshop = () => {
-    setWorkshopIndex((prev) => (prev - 1 + 2) % 2); // Changed to 2 slides
+    setWorkshopIndex((prev) => (prev - 1 + workshopImages.length) % workshopImages.length);
   };
 
   const handleNextWorkshop = () => {
-    setWorkshopIndex((prev) => (prev + 1) % 2); // Changed to 2 slides
+    setWorkshopIndex((prev) => (prev + 1) % workshopImages.length);
   };
 
   return (
@@ -104,13 +96,12 @@ export default function About() {
         <div className="bg-[#4C1D95] rounded-lg p-8 mt-8 max-w-5xl mx-auto">
           <h2 className="text-center font-bold text-3xl mb-6 text-white">Our Story</h2>
           
-          {/* First Image floated to the left */}
-          <div className="float-left mr-6 mb-6 w-full sm:w-1/3 max-w-xs">
+          {/* First Image floated to the left - Fixed size */}
+          <div className="float-left mr-6 mb-6 w-full sm:w-80 h-64 sm:h-80">
             <img
               src="/about2.jpg"
               alt="Ezcare Building"
-              className="w-full rounded-lg object-cover"
-              style={{ minHeight: '300px' }}
+              className="w-full h-full rounded-lg object-cover"
             />
           </div>
 
@@ -142,13 +133,12 @@ export default function About() {
               <div className="flex-grow border-t border-white/30"></div>
             </div>
 
-            {/* Second Image floated to the right */}
-            <div className="float-right ml-6 mb-6 w-full sm:w-1/3 max-w-xs">
+            {/* Second Image floated to the right - Fixed size */}
+            <div className="float-right ml-6 mb-6 w-full sm:w-80 h-64 sm:h-80">
               <img
                 src="/about3.jpg"
                 alt="Ezcare Team"
-                className="w-full rounded-lg object-cover"
-                style={{ minHeight: '300px' }}
+                className="w-full h-full rounded-lg object-cover"
               />
             </div>
 
@@ -182,79 +172,54 @@ export default function About() {
             </div>
             <h3 className="text-3xl font-bold text-center text-purple-900 mb-6">Open Workshop Concept</h3>
             
-            {/* Workshop Images Carousel - 2 images per slide */}
-            <div className="relative w-full mb-8 overflow-hidden rounded-lg" style={{ height: '300px' }}>
-              <div className="relative w-full h-full flex items-center">
-                {/* Images Container */}
-                <div className="flex transition-transform duration-500 ease-in-out w-full h-full" style={{ transform: `translateX(-${workshopIndex * 100}%)` }}>
-                  {/* Slide 1 - Images 1 & 2 */}
-                  <div className="min-w-full h-full flex-shrink-0 flex gap-4 px-2">
-                    <div className="w-1/2 h-full">
+            {/* Workshop Images Carousel - Shows 1 image at a time */}
+            <div className="relative w-full mb-8 overflow-hidden rounded-lg">
+              <div className="relative w-full h-64 sm:h-80 md:h-96">
+                {/* Images Container - NO padding on slides */}
+                <div 
+                  className="flex h-full transition-transform duration-500 ease-in-out" 
+                  style={{ transform: `translateX(-${workshopIndex * 100}%)` }}
+                >
+                  {workshopImages.map((image, index) => (
+                    <div key={index} className="min-w-full h-full flex-shrink-0">
                       <img
-                        src={workshopImages[0].src}
-                        alt={workshopImages[0].alt}
+                        src={image.src}
+                        alt={image.alt}
                         className="w-full h-full object-cover rounded-lg"
                       />
                     </div>
-                    <div className="w-1/2 h-full">
-                      <img
-                        src={workshopImages[1].src}
-                        alt={workshopImages[1].alt}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Slide 2 - Images 3 & 4 */}
-                  <div className="min-w-full h-full flex-shrink-0 flex gap-4 px-2">
-                    <div className="w-1/2 h-full">
-                      <img
-                        src={workshopImages[2].src}
-                        alt={workshopImages[2].alt}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                    </div>
-                    <div className="w-1/2 h-full">
-                      <img
-                        src={workshopImages[3].src}
-                        alt={workshopImages[3].alt}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
                 {/* Navigation Buttons */}
                 <button
                   onClick={handlePrevWorkshop}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-purple-700 rounded-full p-3 shadow-lg transition-all hover:scale-110"
-                  aria-label="Previous workshop images"
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-purple-700 rounded-full p-2 sm:p-3 shadow-lg transition-all hover:scale-110"
+                  aria-label="Previous workshop image"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
                     <polyline points="15 18 9 12 15 6"></polyline>
                   </svg>
                 </button>
                 
                 <button
                   onClick={handleNextWorkshop}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-purple-700 rounded-full p-3 shadow-lg transition-all hover:scale-110"
-                  aria-label="Next workshop images"
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-purple-700 rounded-full p-2 sm:p-3 shadow-lg transition-all hover:scale-110"
+                  aria-label="Next workshop image"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </button>
 
-                {/* Dots Indicator - Now only 2 dots for 2 slides */}
+                {/* Dots Indicator - 4 dots for 4 images */}
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-                  {[0, 1].map((index) => (
+                  {workshopImages.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setWorkshopIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        index === workshopIndex 
-                          ? 'bg-purple-700 w-6' 
-                          : 'bg-purple-300 hover:bg-purple-500'
+                      className={`w-3 h-3 rounded-full transition-all ${
+                        workshopIndex === index ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/75'
                       }`}
                       aria-label={`Go to slide ${index + 1}`}
                     />
@@ -263,7 +228,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="text-gray-700 leading-relaxed space-y-4">
+            <div className="text-gray-700 leading-relaxed space-y-4 mt-12">
               <p>
                 At Ezcare Warranty, we believe in giving you the freedom to choose. Our revolutionary <span className="font-semibold text-purple-700">Open Workshop Concept</span> allows you to service your vehicle at any SSM-certified and properly registered workshop across Malaysia.
               </p>
