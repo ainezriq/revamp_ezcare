@@ -145,7 +145,7 @@ const handleSearch = async () => {
                 
                 {/* Image Container - Dynamic based on vehicle_type */}
                 <div className="flex justify-center mb-6">
-                  <div className="bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+                  <div className="bg-gray-100 rounded-lg overflow-hidden border border-gray-200 max-w-md w-full">
                     <img
                       src={
                         policy.data.warranty_plan?.vehicle_type?.toLowerCase() === 'bike' 
@@ -157,7 +157,7 @@ const handleSearch = async () => {
                           : '/warranty_car.png'
                       }
                       alt={`${policy.data.warranty_plan?.vehicle_type || 'Policy'} Document`}
-                      className="max-w-full h-auto"
+                      className="w-full h-auto object-contain"
                       onError={(e) => {
                         // Fallback if image doesn't exist
                         e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="192" viewBox="0 0 256 192"%3E%3Crect width="256" height="192" fill="%23f3f4f6"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="16" fill="%239ca3af"%3EPolicy Document%3C/text%3E%3C/svg%3E';
