@@ -276,11 +276,21 @@ export default function About() {
                   </li>
                 </ul>
               </div>
-              <p className="text-center text-purple-900 mt-6 text-xl font-extrabold uppercase">
-                Your Vehicle. Your Choice. Your Peace of Mind.
+              <p 
+                className="text-center text-purple-900 mt-6 text-3xl font-black uppercase" 
+                style={{ 
+                  fontWeight: 900,
+                  WebkitTextStroke: '1px rgba(76, 29, 149, 0.8)',
+                  textShadow: '2px 2px 4px rgba(76, 29, 149, 0.3)'
+                }}
+              >
+                YOUR VEHICLE. YOUR CHOICE. YOUR PEACE OF MIND.
               </p>
-              <p className="text-center font-semibold text-purple-900 mt-6 text-md">
-                With Ezcare Warranty, flexibility is not an option, it’s a standard.
+              <p 
+                className="text-center font-bold text-purple-900 mt-6 text-md"
+                style={{ fontWeight: 700 }}
+              >
+                With Ezcare Warranty, flexibility is not an option, it's a standard.
               </p>
             </div>
           </div>
