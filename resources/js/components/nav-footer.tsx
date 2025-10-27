@@ -101,8 +101,8 @@ export function NavFooter() {
           <div>
             <h3 className="text-md font-semibold mb-3">Support Center</h3>
             <ul className="space-y-2">
-              <li><Link href="/faq" className="text-gray-900 hover:text-[#4C1D95]">Contact Us</Link></li>
               <li><Link href="/contact" className="text-gray-900 hover:text-[#4C1D95]">FAQ</Link></li>
+              <li><Link href="/faq" className="text-gray-900 hover:text-[#4C1D95]">Contact Us</Link></li>
             </ul>
           </div>
         </div>

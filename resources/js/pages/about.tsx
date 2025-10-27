@@ -276,7 +276,7 @@ export default function About() {
                   </li>
                 </ul>
               </div>
-              <p className="text-center font-semibold text-purple-900 mt-6 text-xl font-bold">
+              <p className="text-center text-purple-900 mt-6 text-xl font-extrabold uppercase">
                 Your Vehicle. Your Choice. Your Peace of Mind.
               </p>
               <p className="text-center font-semibold text-purple-900 mt-6 text-md">
