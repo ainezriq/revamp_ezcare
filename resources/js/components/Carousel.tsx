@@ -38,7 +38,7 @@ const cards: Card[] = [
   },
   {
     id: 4,
-    image: '/garage4.jpg',
+    image: '/goc2.jpg',
     alt: 'Workshop Locator',
     title: 'From policy to performance, discover the companies driving Ezcare forward.',
     buttonText: '+ Discover Our Group of Companies',

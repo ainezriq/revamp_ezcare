@@ -230,10 +230,10 @@ export default function About() {
 
             <div className="text-gray-700 leading-relaxed space-y-4 mt-12">
               <p>
-                At Ezcare Warranty, we believe in giving you the freedom to choose. Our revolutionary <span className="font-semibold text-purple-700">Open Workshop Concept</span> allows you to service your vehicle at any SSM-certified and properly registered workshop across Malaysia.
+                At Ezcare Warranty, we are committed to delivering flexibility, transparency and customer empowerment. Our <span className="font-semibold text-purple-700">Open Workshop Concept</span> allows you the freedom to service or repair your vehicle at any SSM-registered workshop throughout Malaysia.  
               </p>
               <p>
-                Unlike traditional warranty providers that restrict you to specific service centers, we trust you to make the best decision for your vehicle. Whether it's your trusted neighborhood mechanic or a specialized workshop, the choice is entirely yours.
+                Unlike conventional warranty providers that limit you to designated service centers, we place our trust in your judgment. Whether you prefer your long-time neighborhood mechanic or a specialised workshop of your choice, the decision remains entirely in your hands.
               </p>
               <div className="bg-purple-50 rounded-lg p-6 mt-4">
                 <h4 className="font-semibold text-purple-900 mb-3 text-lg">Benefits of Open Workshop Concept:</h4>
@@ -242,36 +242,45 @@ export default function About() {
                     <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span><span className="font-semibold">Complete Freedom:</span> Choose any certified workshop nationwide</span>
+                    <span><span className="font-semibold">Nationwide Freedom:</span> Access any SSM-certified registered workshop nationwide.</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span><span className="font-semibold">Convenience:</span> Service your vehicle wherever you are in Malaysia</span>
+                    <span><span className="font-semibold">Unmatched Convenience:</span> Service or repair your vehicle wherever you are in Malaysia.</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span><span className="font-semibold">Trust Your Mechanic:</span> Continue working with workshops you already trust</span>
+                    <span><span className="font-semibold">Continue with Trusted Mechanics:</span> Maintain your relationship with workshops you already know and trust.</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span><span className="font-semibold">No Restrictions:</span> No need to travel far for warranty claims</span>
+                    <span><span className="font-semibold">No Unnecessary Travel:</span> No need to travel far for services & claims.</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span><span className="font-semibold">Quality Assurance:</span> All workshops must be SSM-certified and registered</span>
+                    <span><span className="font-semibold">Faster Turnaround Time:</span> Reduce waiting times often associated with overcrowded panel workshops.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-6 w-6 text-purple-700 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><span className="font-semibold">Flexibility in Specialisation:</span> Choose workshops that specialise in your specific vehicle make or issue.</span>
                   </li>
                 </ul>
               </div>
-              <p className="text-center font-semibold text-purple-900 mt-6">
-                Your vehicle, your choice, your peace of mind.
+              <p className="text-center font-semibold text-purple-900 mt-6 text-xl font-bold">
+                Your Vehicle. Your Choice. Your Peace of Mind.
+              </p>
+              <p className="text-center font-semibold text-purple-900 mt-6 text-md">
+                With Ezcare Warranty, flexibility is not an option, it’s a standard.
               </p>
             </div>
           </div>
