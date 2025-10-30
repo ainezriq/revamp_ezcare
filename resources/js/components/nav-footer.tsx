@@ -107,9 +107,12 @@ export function NavFooter() {
           </div>
         </div>
         {/* Visitor Counter Section */}
+        {/* <div className="mt-8 text-center text-sm text-gray-700" ref={visitorCounterRef}>
+           <a href='https://www.free-counters.org/'>free Counters</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=f798d340e264d2f4d754578ab30b876343b68306'></script>
+          <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1427227/t/5"></script>
+        </div> */}
         <div className="mt-8 text-center text-sm text-gray-700" ref={visitorCounterRef}>
-          <div>Current Visitor's Count</div>
-          <a href="https://www.free-counters.org/">free Counters</a>
+          <script type="text/javascript" src="https://counter.websiteout.com/js/7/8/0/1"></script>
         </div>
       </div>
     </footer>

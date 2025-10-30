@@ -22,7 +22,7 @@ const cards: Card[] = [
   },
   {
     id: 2,
-    image: '/office1.png',
+    image: '/about2.jpg',
     alt: 'Ezcare Office',
     title: 'Our story, our promise of why thousands trust us.',
     buttonText: '+ Read About Ezcare Warranty',

@@ -357,7 +357,7 @@ export default function About() {
                   43650 BANDAR BARU BANGI, SELANGOR
                 </p>
                 <img
-                  src="/office1.png"
+                  src="/new_office_hq.png"
                   alt="Headquarters Office"
                   className="rounded-lg object-cover w-full h-75 mx-auto"
                 />

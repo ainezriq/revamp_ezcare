@@ -399,7 +399,7 @@ const handlePurplePrev = () => {
             name="name"
             value={formData.name}
             onChange={handleInputChange}
-            placeholder="Value"
+            placeholder="insert your name"
             className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
             required
           />
@@ -412,7 +412,7 @@ const handlePurplePrev = () => {
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            placeholder="Value"
+            placeholder="insert your email"
             className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
             required
           />
@@ -425,7 +425,7 @@ const handlePurplePrev = () => {
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleInputChange}
-            placeholder="Value"
+            placeholder="insert your phone number"
             className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
             required
           />
@@ -441,7 +441,7 @@ const handlePurplePrev = () => {
             name="vehicleModel"
             value={formData.vehicleModel}
             onChange={handleInputChange}
-            placeholder="Value"
+            placeholder="insert your vehicle model"
             className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
             required
           />
@@ -454,7 +454,7 @@ const handlePurplePrev = () => {
             name="vehicleYear"
             value={formData.vehicleYear}
             onChange={handleInputChange}
-            placeholder="Value"
+            placeholder="insert your year"
             className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500"
             required
           />
@@ -468,7 +468,7 @@ const handlePurplePrev = () => {
         name="message"
         value={formData.message}
         onChange={handleInputChange}
-        placeholder="Value"
+        placeholder="insert a message"
         rows={4}
         className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-gray-900 placeholder-gray-500 resize-none"
         required
